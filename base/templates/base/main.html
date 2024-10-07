@@ -1,0 +1,7 @@
+{% extends 'index.html' %}
+{% block title %}ФК Кокос | Главная{% endblock %}
+{% block content %}
+    {% if request.user.is_authenticated %}
+        <a href="{% url 'logout' %}">Выход</a>
+    {% endif %}
+{% endblock %}
