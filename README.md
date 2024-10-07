@@ -17,9 +17,13 @@
 
 ## Запуск на локальной машине
 
-Клонируйте репозиторий:
+Клонируйте репозиторий (GitLab):
  ```
  git clone https://git.codenrock.com/kokos-hackathon-2024-1266/cnrprod1727975266-team-80411/zagruzka-resheniya-kokos-001.git
+ ```
+Клонируйте репозиторий (GitHub):
+ ```
+ git clone https://github.com/muhammad-halimov/kokos-django.git
  ```
 
 Перейдите в каталог проекта:
