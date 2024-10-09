@@ -1,5 +1,58 @@
 from django.db import models
+from django.contrib.auth.models import AbstractUser
 
+
+# Модель пользователя, наследующая от AbstractUser
+class User(AbstractUser):
+    username = models.CharField(max_length=255, unique=True, null=True, blank=True)
+    surname = models.CharField(max_length=255, unique=True, null=True, blank=True)
+    email = models.EmailField(max_length=255, unique=True, null=True, blank=True)
+    login = models.CharField(max_length=255, null=True, blank=True)
+    phone = models.CharField(max_length=255, null=True, blank=True)
+    avatar = models.ImageField(upload_to='avatars', default='assets/img/icons/avatar.svg', null=True, blank=True)
+
+    # Поля даты создания и обновления
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    # Настройки отображения, поиска и фильтрации в админке
+    DisplayFields = ['id', 'username', 'email', 'login', 'avatar', 'created', 'updated']
+    SearchableFields = DisplayFields
+    FilterFields = ['created', 'updated']
+
+    # Установка поля email как основного идентификатора пользователя
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = ['username']
+
+    # Метакласс и свод правил отображения в Админке по умолчанию
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'User'
+        verbose_name_plural = 'Users'
+        
+# Модель пунктов в хеддере
+class HeaderModel(models.Model):
+    title = models.CharField(max_length=255, blank=True, null=True)
+    url = models.CharField(max_length=255, blank=True, null=True)
+
+    # Поля даты создания и обновления
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    # Настройки отображения, поиска и фильтрации в админке
+    DisplayFields = ['id', 'title', 'url', 'created', 'updated']
+    SearchableFields = DisplayFields
+    FilterFields = ['created', 'updated']
+
+    # Метакласс и свод правил отображения в Админке по умолчанию
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'Header Link'
+        verbose_name_plural = 'Header Links'
+
+    # Представление модели в Админке
+    def str(self):
+        return self.title
 
 class Age_category(models.Model):
     title = models.CharField(max_length=20)
@@ -22,7 +75,7 @@ class Age_category(models.Model):
 class Colour(models.Model):
     title = models.CharField(max_length=30)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'created', 'updated']
@@ -40,7 +93,7 @@ class Colour(models.Model):
 class Season(models.Model):
     title = models.CharField(max_length=20)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'created', 'updated']
@@ -58,7 +111,7 @@ class Season(models.Model):
 class Material(models.Model):
     title = models.CharField(max_length=30)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'created', 'updated']
@@ -73,10 +126,10 @@ class Material(models.Model):
     def __str__(self):
         return self.title
         
-class Clothes_type:
+class Clothes_type(models.Model):
     title = models.CharField(max_length=30)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'created', 'updated']
@@ -91,10 +144,10 @@ class Clothes_type:
     def __str__(self):
         return self.title
 
-class Size:
+class Size(models.Model):
     title = models.CharField(max_length=10)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'created', 'updated']
@@ -109,10 +162,10 @@ class Size:
     def __str__(self):
         return self.title
         
-class Brand:
+class Brand(models.Model):
     title = models.CharField(max_length=10)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'created', 'updated']
@@ -127,10 +180,10 @@ class Brand:
     def __str__(self):
         return self.title
         
-class Gender:
+class Gender(models.Model):
     title = models.CharField(max_length=10)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'created', 'updated']
@@ -145,12 +198,12 @@ class Gender:
     def __str__(self):
         return self.title
 
-class Media:
+class Media(models.Model):
     title = models.CharField(max_length=10, null=True, blank=True)
     link = models.TextField()
     date = models.DateField(null=True)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'link', 'date', 'created', 'updated']
@@ -165,8 +218,8 @@ class Media:
     def __str__(self):
         return self.title
     
-class Clothes:
-    type = models.ForeignKey(Clothes_type, on_delete=models.CASCADE, null=True)
+class Clothes(models.Model):
+    type = models.ForeignKey(Clothes_type, on_delete=models.CASCADE)
     name = models.CharField(max_length=40)
     age_category = models.ForeignKey(Age_category, on_delete=models.CASCADE, null=True, blank=True)
     price = models.FloatField(null=True, blank=True)
@@ -176,10 +229,10 @@ class Clothes:
     colour = models.ForeignKey(Colour, on_delete=models.CASCADE, null=True, blank=True)
     season = models.ForeignKey(Season, on_delete=models.CASCADE, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
-    media_links = models.ManyToManyField(Media, related_name='media_links', null=True, blank=True)
+    media_links = models.ManyToManyField(Media, related_name='clothes_media_links')
     remainig_number = models.IntegerField(null=True, blank=True)
     discount = models.FloatField(null=True, blank=True)
-    materials = models.ManyToManyField(Material, related_name='materials', null=True, blank=True)
+    materials = models.ManyToManyField(Material, related_name='materials')
     
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -202,10 +255,10 @@ class Clothes:
     def __str__(self):
         return self.name or self.type
 
-class Footballer_position:
+class Footballer_position(models.Model):
     title = models.CharField(max_length=20)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'created', 'updated']
@@ -223,17 +276,17 @@ class Footballer_position:
 # class Footballer_statistic: 
     
 
-class Footballer:
+class Footballer(models.Model):
     name = models.CharField(max_length=20, null=True, blank=True)
     surname = models.CharField(max_length=20, null=True, blank=True)
     patronymic = models.CharField(max_length=20, blank=True, null=True)
     age = models.IntegerField(null=True, blank=True)
     weight = models.FloatField(null=True, blank=True)
-    image = models.ManyToManyField(Media, related_name='footballer_images', blank=True, null=True)
+    image = models.ManyToManyField(Media, related_name='footballer_images')
     position = models.ForeignKey(Footballer_position, on_delete=models.CASCADE, related_name='footballer_position', null=True, blank=True)
     # statistic = models.ForeignKey(Footballer_statistic, on_delete=models.CASCADE, related_name='footballer_statistic')
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'name', 'surname', 'patronymic', 'age', 'weight', 'position' 'created', 'updated']
@@ -248,10 +301,10 @@ class Footballer:
     def __str__(self):
         return self.name or self.surname
 
-class Director_type:
+class Director_type(models.Model):
     title = models.CharField(max_length=40)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'created', 'updated']
@@ -266,15 +319,15 @@ class Director_type:
     def __str__(self):
         return self.title
     
-class Director:
+class Director(models.Model):
     name = models.CharField(max_length=20, null=True, blank=True)
     surname = models.CharField(max_length=20, null=True, blank=True)
     patronymic = models.CharField(max_length=20, blank=True, null=True)
     age = models.IntegerField(null=True, blank=True)
     work_experience = models.IntegerField(null=True, blank=True)
-    type = models.ManyToManyField(Director_type, related_name='director_type')
+    type = models.ManyToManyField(Director_type, related_name='_director_type')
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'name', 'surname', 'patronymic', 'age', 'work_experience', 'created', 'updated']
@@ -289,10 +342,10 @@ class Director:
     def __str__(self):
         return self.name or self.surname
 
-class Coach_staff_type:
+class Coach_staff_type(models.Model):
     title = models.CharField(max_length=40)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id','title', 'created', 'updated']
@@ -307,15 +360,15 @@ class Coach_staff_type:
     def __str__(self):
         return self.title
     
-class Coach_staff:
+class Coach_staff(models.Model):
     name = models.CharField(max_length=20, blank=True, null=True)
     surname = models.CharField(max_length=20, null=True, blank=True)
-    patronymic = models.CharField(max_length=20, blank=True, null=True, null=True, blank=True)
+    patronymic = models.CharField(max_length=20, blank=True, null=True)
     age = models.IntegerField(null=True, blank=True)
     work_experience = models.IntegerField(null=True, blank=True)
-    type = models.ManyToManyField(Coach_staff_type, related_name='coach_staff_type')
+    type = models.ManyToManyField(Coach_staff_type, related_name='_coach_staff_type')
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'name', 'surname', 'patronymic', 'age', 'work_experience', 'created', 'updated']
@@ -330,10 +383,10 @@ class Coach_staff:
     def __str__(self):
         return self.name or self.surname
 
-class Breeding_service_type:
+class Breeding_service_type(models.Model):
     title = models.CharField(max_length=40)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'created', 'updated']
@@ -348,15 +401,15 @@ class Breeding_service_type:
     def __str__(self):
         return self.title
 
-class Breeding_service:
+class Breeding_service(models.Model):
     name = models.CharField(max_length=20, blank=True, null=True)
     surname = models.CharField(max_length=20, blank=True, null=True)
     patronymic = models.CharField(max_length=20, blank=True, null=True)
     age = models.IntegerField(blank=True, null=True)
     work_experience = models.IntegerField(blank=True, null=True)
-    type = models.ManyToManyField(Breeding_service_type, related_name='breeding_service_type')
+    type = models.ManyToManyField(Breeding_service_type, related_name='type')
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'name', 'surname', 'patronymic', 'age', 'work_experience', 'created', 'updated']
@@ -371,10 +424,10 @@ class Breeding_service:
     def __str__(self):
         return self.name or self.surname
 
-class Staff_type:
+class Staff_type(models.Model):
     title = models.CharField(max_length=40)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'created', 'updated']
@@ -389,15 +442,15 @@ class Staff_type:
     def __str__(self):
         return self.title
 
-class Staff:
+class Staff(models.Model):
     name = models.CharField(max_length=20)
     surname = models.CharField(max_length=20)
     patronymic = models.CharField(max_length=20, blank=True, null=True)
     age = models.IntegerField(blank=True)
     work_experience = models.IntegerField(blank=True)
-    type = models.ManyToManyField(Staff_type, related_name='staff_type')
+    type = models.ManyToManyField(Staff_type, related_name='_staff_type')
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'name', 'surname', 'patronymic', 'age', 'work_experience', 'created', 'updated']
@@ -414,16 +467,16 @@ class Staff:
 
 # class Team_statistic:
 
-class Team:
+class Team(models.Model):
     title = models.CharField(max_length=30, blank=True, null=True)
-    football_players = models.ManyToManyField(blank=True, null=True)
-    directors = models.ManyToManyField(Director, related_name='team_directors', blank=True, null=True)
-    coach_staff = models.ManyToManyField(Coach_staff, related_name='team_coach_staff', blank=True, null=True)
-    breeding_service = models.ManyToManyField(Breeding_service, related_name='team_breeding_service', blank=True, null=True)
-    staff = models.ManyToManyField(Staff, related_name='team_staff', blank=True, null=True)
+    football_players = models.ManyToManyField(Footballer)
+    directors = models.ManyToManyField(Director, related_name='team_directors')
+    coach_staff = models.ManyToManyField(Coach_staff, related_name='team_coach_staff')
+    breeding_service = models.ManyToManyField(Breeding_service, related_name='team_breeding_service')
+    staff = models.ManyToManyField(Staff, related_name='team_staff')
     # statistic = models.ManyToManyField(Team_statistic, related_name='team_statistic')
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'created', 'updated', 'title']
@@ -438,14 +491,14 @@ class Team:
     def __str__(self):
         return self.title
     
-class Arena:
+class Arena(models.Model):
     name = models.CharField(max_length=30)
     country = models.CharField(max_length=30)
     city = models.CharField(max_length=30)
     street = models.CharField(max_length=30)
     places_count = models.IntegerField(blank=True)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'created', 'updated', 'name', 'country', 'city', 'street', 'places_count']
@@ -462,10 +515,10 @@ class Arena:
 
 # class Match_statistic:
     
-class Outcome:
+class Outcome(models.Model):
     title = models.CharField(max_length=10, null=True, blank=True)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'created', 'updated']
@@ -480,7 +533,7 @@ class Outcome:
     def __str__(self):
         return self.title
     
-class Match:
+class Match(models.Model):
     date = models.DateTimeField()
     tour = models.IntegerField(blank=True, null=True)
     arena = models.ForeignKey(Arena, on_delete=models.CASCADE)
@@ -488,7 +541,7 @@ class Match:
     # statistic = models.ForeignKey(Match_statistic, on_delete=models.CASCADE)
     outcome = models.ForeignKey(Outcome, on_delete=models.CASCADE)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'created', 'updated', 'date', 'tour', 'arena', 'outcome']
@@ -503,11 +556,11 @@ class Match:
     def __str__(self):
         return 'Match'
 
-class Ticket_place:
+class Ticket_place(models.Model):
     sector = models.IntegerField()
     place = models.IntegerField()
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'created', 'updated', 'sector', 'place']
@@ -522,13 +575,13 @@ class Ticket_place:
     def __str__(self):
         return 'Ticket place'
     
-class Ticket:
+class Ticket(models.Model):
     price = models.FloatField()
     match = models.ForeignKey(Match, on_delete=models.CASCADE)
     date = models.DateTimeField()
     place = models.ForeignKey(Ticket_place, on_delete=models.CASCADE)
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'created', 'updated', 'price', 'match', 'date', 'place']
@@ -543,12 +596,12 @@ class Ticket:
     def __str__(self):
         return 'Ticket'
 
-class City:
+class City(models.Model):
     title = models.CharField(max_length=10, null=True, blank=True)
     link = models.TextField()
     date = models.DateField()
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'title', 'created', 'updated']
@@ -563,14 +616,14 @@ class City:
     def __str__(self):
         return self.title
 
-class Tournament:
+class Tournament(models.Model):
     matchs = models.ManyToManyField(Match, related_name='matches')
     start_date = models.DateField()
     end_date = models.DateField(blank=True)
     tours = models.IntegerField()
     cities = models.ManyToManyField(City, related_name='cities')
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'created', 'updated', 'start_date', 'end_date', 'tours']
@@ -585,12 +638,12 @@ class Tournament:
     def __str__(self):
         return 'Tournament'
 
-class Gallery:
+class Gallery(models.Model):
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE)
     teams = models.ManyToManyField(Team, related_name='teams', blank=True) #TEAM
     media_links = models.ManyToManyField(Media, related_name='media_links')
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'created', 'updated', 'tournament']
@@ -605,13 +658,13 @@ class Gallery:
     def __str__(self):
         return 'Gallery'
 
-class News:
+class News(models.Model):
     date = models.DateField()
     title = models.CharField(max_length=30)
     description = models.TextField(blank=True)
     gallery = models.ManyToManyField(Gallery, related_name='news_gallery')
     
-    created = models.DiteTimeField(auto_now_add=True)
+    created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
     DisplayFields = ['id', 'created', 'title', 'date', 'description']
