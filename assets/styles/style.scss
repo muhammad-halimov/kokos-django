@@ -1150,6 +1150,7 @@ footer {
     padding: clamp(0.938rem, 0.312rem + 1.3vw, 1.563rem);
 }
 
+
 .img_block {
     position: relative;
     border-radius: 15px;
@@ -1166,6 +1167,7 @@ footer {
         object-fit: cover;
     }
 }
+
 
 .form_block,
 .img_block {
@@ -1258,4 +1260,139 @@ footer {
     margin-bottom: clamp(0.938rem, 0.312rem + 1.3vw, 1.563rem);
     width: 100%;
     padding: clamp(0.438rem, 0.187rem + 0.52vw, 0.688rem) clamp(1.688rem, 0.248rem + 3vw, 3.125rem);
+}
+
+/*страница одной новости POST */
+
+.fixed_img{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    filter: brightness(60%);
+    z-index: 1;
+    background-image:url(../img/happy_team.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+
+.post{
+    z-index:2;
+    position: relative;
+    .post_name_block{
+        background-color: white;
+        border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
+        width: 100%;
+        margin-top: 70vh;
+        padding: clamp(2.125rem, 0.06rem + 4.3vw, 4.188rem) clamp(1.5rem, -0.065rem + 3.26vw, 3.063rem);
+
+        .date_and_repost{
+            width: 100%;
+            display: flex;
+            font-size: clamp(0.938rem, 0.625rem + 0.65vw, 1.25rem);
+            font-family: "Oswald", sans-serif;
+            .date{
+                color: #868686;  
+                margin-right: clamp(1.625rem, -0.002rem + 3.39vw, 3.25rem);            
+            }
+            .repost{
+                display: flex;
+                color: #0E0E0E;
+                text-transform: uppercase;
+                p{
+                    margin-right: 0.4vw;
+                }
+                a{
+                    margin-right:  0.4vw;
+                    cursor: pointer;   
+                    img{
+                        height: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);                         
+                    }
+                }
+            }
+        }
+        
+        .post_name{
+            margin-top: 1vw;
+            color: #0E0E0E;
+            text-transform: uppercase;
+            font-size: clamp(2.188rem, 0.122rem + 4.3vw, 4.25rem);
+            font-family: "Museo900";
+            line-height: clamp(2.188rem, 0.122rem + 4.3vw, 4.25rem);
+        }
+    }
+}
+
+.post_content{
+    margin-top: 1.3vw;
+    display: grid;
+    grid-template-columns: 1fr minmax(100px, 25%);
+    gap: 1.3vw;
+    grid-auto-rows: auto;
+
+    .post_text_block, .sidebar_other_posts{
+        background-color: white;
+        align-self: start;
+        border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
+    }
+
+    .post_text_block{
+        padding: clamp(2.063rem, -0.065rem + 4.43vw, 4.188rem);
+        padding-bottom:clamp(3.125rem, -6.262rem + 19.56vw, 12.5rem);
+        .post_description{
+            width: 70%;
+            color: #8B8B8B;
+            font-size: clamp(1rem, 0.75rem + 0.52vw, 1.25rem);
+            line-height: clamp(1rem, 0.75rem + 0.52vw, 1.25rem);;
+        }
+        .paragraph{
+            font-size: clamp(1rem, 0.75rem + 0.52vw, 1.25rem);
+            color: #0E0E0E;
+            line-height: clamp(1.2rem, 0.75rem + 0.52vw, 1.45rem);
+        }
+        .paragraph_heading{
+            font-size: clamp(1.25rem, 1rem + 0.52vw, 1.5rem);
+            color: #0E0E0E;
+            font-weight: 900;
+        }
+    }
+}
+
+.sidebar_other_posts{
+    padding: clamp(2.063rem, -0.065rem + 4.43vw, 4.188rem) clamp(0.813rem, -0.001rem + 1.69vw, 1.625rem); 
+    .heading{
+        font-size: clamp(1.25rem, 0.499rem + 1.56vw, 2rem);
+        line-height: clamp(1.25rem, 0.499rem + 1.56vw, 2rem);
+        font-family: "Museo900";
+        color: #0E0E0E;
+    }
+}
+
+.other_news{
+    margin-top: 2vw;
+
+    .another_post{
+        padding-bottom: 60%;
+        border-radius: 0;
+        cursor: pointer;
+        margin-bottom: 1vw;
+        p{
+            text-transform: uppercase;
+            color: white;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: clamp(0.438rem, 0.062rem + 0.78vw, 0.813rem);
+            line-height: 110%;
+            z-index: 8;
+            margin-bottom: 0;
+            z-index: 9;
+            font-size: clamp(0.875rem, 0.625rem + 0.52vw, 1.125rem);
+            font-weight: 700;
+        }
+    }
 }
