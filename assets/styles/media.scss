@@ -1,0 +1,293 @@
+@media (max-width: 1199px) {
+    .logo_text {
+      display: none;
+    }
+
+    .header_content{
+        nav{
+            ul{
+                padding-left: 0;
+            }
+        }
+    }
+
+    .grid_item{
+        display: none;
+    }
+    .carousel{ 
+        &_content{
+            grid-template-columns: repeat(3, 1fr);    
+        }
+    }
+    .small_media_card{
+        border-radius: 7px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .header_content{
+        padding: 9px 13px !important;
+        .navigation{
+            display: none;
+        }
+    }
+
+    .menu_btn{
+        display: block;
+    }
+    
+    // #INTRO //
+    .intro_img {
+        overflow: visible;
+        height: 40rem; // тут надо докопаться
+        min-height: 200px;
+        z-index: 2;
+      img {
+        width: 100%;
+        object-fit: cover;
+      }
+    }
+  
+    .common_intro_block {
+        height: 40rem;
+        padding: 0;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+  
+    .news_teaser {
+        width: 100%;
+        position: relative;
+        height: 40rem;
+        bottom: 13.5rem;
+        display: flex;
+        align-items: end;
+
+      .news_teaser_wrapper {
+        position: relative;
+      z-index: 1;
+
+        .news_name,
+        .news_description {
+          width: 100%;
+        }
+      }
+    }
+  
+    .intro_news_block {
+      width: 100%;
+      margin-top: 20px;
+      height: 40rem;
+  
+      .intro_news {
+        position: absolute;
+        z-index: 7;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 0;
+  
+        &_wrapper {
+          flex-direction: row;
+          width: 100%;
+          order: 1;
+          gap: 1vw;
+          position: relative;
+            z-index: 0;
+  
+          .one_news {
+            flex: 1;
+            height: 9rem;
+            margin-top: 0;
+  
+            img {
+              min-width: 100%;
+              height: 100%;
+              object-fit: cover;
+            }
+            p{
+                font-size: 10px;
+            }
+          }
+        }
+  
+        .indicator {
+          width: 100%;
+          height: 6px;
+          display: flex;
+          justify-content: center;
+          margin-top: 5px; // уменьшил отступ
+          order: 2;
+  
+          .section {
+            width: 25%;
+            height: 100%;
+          }
+        }
+      }
+    }
+
+    //РАССЫЛКА //
+
+    .subscription_block{
+        .subscription_form_block{
+            width: 100%;
+            .header{
+                font-size: 20px;
+                margin: 8px;
+            }
+            form{
+                flex-direction: column;
+                align-items: flex-start; 
+                input{
+                    width:100% !important;                
+                    margin: 0;
+                    margin-bottom: 10px;
+                }
+                button{
+                    font-size: 14px;
+                    width:100%;
+                    margin: 0;
+                    margin-bottom: 8px;
+                    padding: 10px 0;
+                }
+            }   
+            .substring{
+                font-size: 12px;
+            }
+        }
+        .subscription_img{
+            position: absolute;
+            display: none;
+        }
+    }
+
+    // STANDINGS AND THE NEXT COMPETITION //
+    .standings_row{
+        .col-md-6{
+            padding-bottom: 50%;
+            margin-bottom: 5vw;
+
+            .standings{
+                width: 100%;
+                min-height:320px;
+            }
+            .next_competition{
+                 min-height: 250px !important;    
+            }
+        }
+    }
+    .table{
+        &:not(caption) {
+            td{
+                font-size: 20px !important;
+            }
+    }
+
+    .table_header{
+        td {
+            font-size: 12px;
+        }
+    }
+    .next_competition{
+        margin: auto 0;
+        .header{
+            .header_txt{
+                font-size: clamp(1.25rem, 0.929rem + 1.71vw, 1.75rem);
+            }
+            .date{
+                font-size: clamp(0.875rem, 0.714rem + 0.86vw, 1.125rem);
+            }
+        }
+        .score{
+            .team{
+                margin-top: -10%;
+                img{
+                    height: clamp(3.75rem, 2.144rem + 8.57vw, 6.25rem);
+                }
+                p{
+                    font-size: clamp(0.75rem, 0.509rem + 1.28vw, 1.125rem);
+                }
+            }
+        }
+        .info{
+            margin-top: 0;
+            .place{
+                font-size: clamp(0.75rem, 0.509rem + 1.28vw, 1.125rem);
+            }
+            .name{
+                font-size: clamp(0.875rem, 0.634rem + 1.28vw, 1.25rem);
+            }
+        }
+    }
+
+    // NEWS BLOCK //
+    .ad{
+        height: 25vw;
+    }
+
+    // MEDIA //
+    .media_card_wrapper{
+        margin-bottom: 2vw !important;
+    }
+    .card_text{
+        padding: 16px 8px !important;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  // STANDINGS AND THE NEXT COMPETITION //
+  .standings_row{
+    .col-md-6{
+        margin-bottom: 5rem;
+    }
+    }
+}
+  
+  @media (max-width: 500px) {
+    .carousel_col{
+        img{
+            height: 40px;
+        }
+        p{
+            margin-top: 4vw;
+        }
+    }
+    .carousel_center_col{
+        .competiton_name{
+            white-space: nowrap;
+        }
+        .competiton_score{
+            margin-top: 7vw;
+        }
+        .competiton_place{
+            margin-top: 6vw;
+        }
+    }
+    .carousel-indicators{
+        margin-bottom: 0;
+    }
+
+    .next_competition{
+         .score{
+             .team{
+                 margin-top: -5%;
+             }
+         }
+         .info{
+             margin-top: 5%;     
+         }
+     }
+
+       // STANDINGS AND THE NEXT COMPETITION //
+    .standings_row{
+        .col-md-6{
+            margin-bottom: 8rem;
+        }
+    }
+
+     .img_block{
+        display: none;
+     }
+  }
+
