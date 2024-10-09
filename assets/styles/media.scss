@@ -39,7 +39,7 @@
     // #INTRO //
     .intro_img {
         overflow: visible;
-        height: 40rem; // тут надо докопаться
+        height: 40rem; 
         min-height: 200px;
         z-index: 2;
       img {
@@ -234,7 +234,7 @@
     }
   }
 
-  // POSTS page //
+  // POST page //
   .post_name_block{
     padding: 20px;
   }
@@ -245,6 +245,7 @@
         padding: 20px;
     }
   }
+
   .sidebar_other_posts{
     margin-top: 2vw;
     .other_news{
@@ -259,6 +260,18 @@
         }
     }
   }
+
+  // ALL NEWS page //
+    .post_card{
+        margin-bottom: 4vw;
+    }   
+    .post_name{
+        font-size: 16px !important;
+        margin-bottom: 2vw !important;
+    }
+    .posts_filter{
+        width: 100%;
+    }
 }
 
 @media (max-width: 600px) {
@@ -316,7 +329,7 @@
         display: none;
      }
 
-     // POSTS page //
+     // POST page //
      .other_news{
         display: block;
      }

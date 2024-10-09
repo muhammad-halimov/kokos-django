@@ -208,6 +208,16 @@
     padding: clamp(0.75rem, -0.186rem + 3vw, 1.25rem);
     font-size: clamp(1rem, 0.532rem + 1.5vw, 1.25rem);
   }
+  .post_card {
+    margin-bottom: 4vw;
+  }
+  .post_name {
+    font-size: 16px !important;
+    margin-bottom: 2vw !important;
+  }
+  .posts_filter {
+    width: 100%;
+  }
 }
 @media (max-width: 600px) {
   .standings_row .col-md-6 {
