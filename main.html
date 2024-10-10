@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Выбор персонажа</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div class="container my-5">
+        <h1 class="text-center mb-5">Выбери 2 персонажей</h1>
+
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="d-flex justify-content-center">
+                    <div class="card p-3 player-card">
+                        <img src="img/ronal.webp" alt="Игрок 1" class="img-fluid mb-3">
+                        <h3 class="text-center">Игрок 1</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="player1" id="player1" value="img/ronal.webp" onclick="selectPlayer('img/ronal.webp', 1)">
+                            <label class="form-check-label" for="player1">
+                                Выбрать
+                            </label>
+                        </div>
+                    </div>
+                    <div class="card p-3 player-card">
+                        <img src="img/davies.png" alt="Игрок 2" class="img-fluid mb-3">
+                        <h3 class="text-center">Игрок 2</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="player1" id="player2" value="img/davies.png" onclick="selectPlayer('img/davies.png', 1)">
+                            <label class="form-check-label" for="player2">
+                                Выбрать
+                            </label>
+                        </div>
+                    </div>
+                    <div class="card p-3 player-card">
+                        <img src="img/buffon.jpeg" alt="Игрок 3" class="img-fluid mb-3">
+                        <h3 class="text-center">Игрок 3</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="player1" id="player3" value="img/buffon.jpeg" onclick="selectPlayer('img/buffon.jpeg', 1)">
+                            <label class="form-check-label" for="player3">
+                                Выбрать
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <div class="d-flex justify-content-center">
+                    <div class="card p-3 player-card">
+                        <img src="img/ronal.webp" alt="Игрок 4" class="img-fluid mb-3">
+                        <h3 class="text-center">Игрок 4</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="player2" id="player4" value="img/ronal.webp" onclick="selectPlayer('img/ronal.webp', 2)">
+                            <label class="form-check-label" for="player4">
+                                Выбрать
+                            </label>
+                        </div>
+                    </div>
+                    <div class="card p-3 player-card">
+                        <img src="img/davies.png" alt="Игрок 5" class="img-fluid mb-3">
+                        <h3 class="text-center">Игрок 5</h3>
+
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="player2" id="player5" value="img/davies.png" onclick="selectPlayer('img/davies.png', 2)">
+                            <label class="form-check-label" for="player5">
+                                Выбрать
+                            </label>
+                        </div>
+                    </div>
+                    <div class="card p-3 player-card">
+                        <img src="img/buffon.jpeg" alt="Игрок 6" class="img-fluid mb-3">
+                        <h3 class="text-center">Игрок 6</h3>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="player2" id="player6" value="img/buffon.jpeg" onclick="selectPlayer('img/buffon.jpeg', 2)">
+                            <label class="form-check-label" for="player6">
+                                Выбрать
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row justify-content-center mt-4">
+            <div class="col-md-8">
+                <button class="btn btn-primary btn-block" onclick="goToGame()">Начать игру</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
