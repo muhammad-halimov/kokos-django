@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/media.css">
+    <title>FC Кокос GROUP</title>
+</head>
+
+<body>
+    <div class="wrap">
+        <header>
+            <div class="container">
+                <div class="header_content">
+                    <a href="index.html" class="logo">
+                        <img loading="lazy" src="assets/img/logo_transperent.png" class="logo_img">
+                        <div class="logo_text">
+                            <p class="name">Кокос GROUP</p>
+                        </div>
+                    </a>
+                    <nav class="navigation">
+                        <ul>
+                            <li><a href=""><img loading="lazy" src="assets/img/cart.svg"></a></li>
+                            <li><a href="">Магазин</a></li>
+                            <li><a href="">Матчи</a></li>
+                            <li><a href="">Новости</a></li>
+                            <li><a href="">Команда</a></li>
+                            <li><a href="">История</a></li>
+                            <li><a href="">Медиа</a></li>
+                            <li><a href="">Партнерам</a></li>
+                            <li><a href="">Билеты</a></li>
+                            <li class="networks">
+                                <a href=""><img loading="lazy" src="assets/img/tg.svg"></a>
+                                <a href=""><img loading="lazy" src="assets/img/youtube.svg"></a>
+                                <a href=""><img loading="lazy" src="assets/img/vk.svg"></a>
+                            </li>
+                        </ul>
+                    </nav>
+
+                    <div class="header_side_buttons">
+                        <a href="" class="log_in">
+                            <img loading="lazy" src="assets/img/login.svg" width="42px">
+                        </a>
+
+                        <button class="menu_btn clear_btn">
+                            <img src="assets/img/menu_btn.svg">
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </header>
+
+        <div class="menu_overlay"></div>
+        <div class="menu_container">
+            <button class="close_btn clear_btn">
+                <img src="assets/img/close.svg">
+            </button>
+            <nav class="menu_navigation">
+                <ul>
+                    <li><a href="">Магазин</a></li>
+                    <li><a href="">Матчи</a></li>
+                    <li><a href="">Новости</a></li>
+                    <li><a href="">Команда</a></li>
+                    <li><a href="">История</a></li>
+                    <li><a href="">Медиа</a></li>
+                    <li><a href="">Партнерам</a></li>
+                    <li><a href="">Билеты</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="intro_img full_height_img">
+            <div class="intro_news_block">
+                <img src="assets/img/arena.jpg" id="introImg">
+                <div class="container">
+                    <div class="name_page">
+                        <p>Матчи</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="margin_content">
+                <div class="tabs">
+                    <div class="tab active"> Предстоящие</div>
+                    <div class="tab">Прошедшие</div>
+                </div>
+                <select name="posts_filter_year" id="postsFilterYear" class="form-select posts_filter_year selector posts_filter">
+                    <option value="2025">2025</option>
+                    <option value="2024" selected>2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                </select>
+                <div class="competitions">
+                    <!-- карточка будущего матча который еще не состоялся-->
+                    <a href="" class="competition_card">
+                        <div class="left_part">
+                            <div class="competition_card_info">
+                                <p class="competition_card_date">20 сентября, 20:30</p>
+                                <p>FONBET Кубок России, 4 тур</p>
+                                <p>Ак Барс Арена</p>
+                            </div>
+                            <div class="competition_card_teams">
+                                <div class="teams">
+                                    <div class="team_label">
+                                        <p class="team_name_left">Кокос групп</p>
+                                        <img src="assets/img/logo.png" class="team_logo team_logo_left">
+                                    </div>
+                                    <i class="vs">VS</i>
+                                    <div class="team_label">
+                                        <img src="assets/img/logo.png" class="team_logo team_logo_right">
+                                        <p class="team_name">Кокос групп</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_part">
+                          ПОЙТИ НА МАТЧ →
+                        </div>
+                    </a>
+
+                    <!-- карточка СОСТОЯВШЕГОСЯ матча -->
+                    <a href="" class="competition_card">
+                        <div class="left_part">
+                            <div class="competition_card_info">
+                                <p class="competition_card_date">20 мая, 20:30</p>
+                                <p>FONBET Кубок России, 4 тур</p>
+                                <p>Ак Барс Арена</p>
+                            </div>
+                            <div class="competition_card_teams competition_over">
+                                <div class="teams">
+                                    <div class="team_label">
+                                        <p class="team_name_left">Кокос групп</p>
+                                        <img src="assets/img/logo.png" class="team_logo team_logo_left">
+                                    </div>
+                                    <p class="competiton_score">3 : 1</p>
+                                    <div class="team_label">
+                                        <img src="assets/img/logo.png" class="team_logo team_logo_right">
+                                        <p class="team_name">Кокос групп</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_part competition_over right_part_ended">
+                          РЕЗУЛЬТАТЫ МАТЧА →
+                        </div>
+                    </a>
+
+                     <!-- ЗДЕСЬ ЧЕРЕЗ tabs.js ЗАПОЛНЯЮТСЯ МЕСЯЦА (я ваще хз надо было ли это делать)
+                      Каждый блок заполняется так: <p class="heading">$месяц $выбранный_год</p><div id="$месяц_$выбранный_год"></div>
+                      Айдишники у них на русском... Если надо могу переделать -->
+                    <div class="upcoming-matches active">
+                        ыыы<!-- карточки СОСТОЯВШИХСЯ матчей для вкладки "Прошедшие матчи" -->
+                    </div>
+                    <div class="past-matches ">
+                        <!-- НЕСОСТОЯВШИЕСЯ карточки вкладки "Предстоящие матчи" -->
+                    </div>
+                </div>  
+            </div>
+        </div>
+          
+    </div>
+
+    <footer>
+        <div class="container">
+            © 2020-2024, «Кокос GROUP», официальный сайт
+        </div>
+    </footer>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="assets/scripts/tabs.js"></script>
+
+</body>
+
+</html>

@@ -527,11 +527,6 @@ button {
   color: #B07575;
   font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
 }
-.carousel_center_col .competiton_score {
-  font-weight: 800;
-  font-size: clamp(1.8rem, 0.375rem + 1.625vw, 2.25rem);
-  font-family: "Oswald", sans-serif;
-}
 .carousel_center_col .competiton_place {
   color: #B07575;
   margin-bottom: 0;
@@ -539,6 +534,12 @@ button {
 }
 .carousel_center_col .competiton_name {
   font-size: clamp(0.625rem, 0.219rem + 1.094vw, 1.25rem);
+}
+
+.competiton_score {
+  font-weight: 800;
+  font-size: clamp(1.8rem, 0.375rem + 1.625vw, 2.25rem);
+  font-family: "Oswald", sans-serif;
 }
 
 .standings_row {
@@ -1435,4 +1436,158 @@ footer {
 }
 .news_search_block button img {
   max-width: 30px;
+}
+
+/* COMPETITIONS TICKETS PAGE */
+.margin_content {
+  margin-top: 4vw;
+}
+
+.tabs {
+  display: flex;
+  border-bottom: 4px solid #ccc;
+}
+
+.tab {
+  font-size: clamp(1rem, 0.926rem + 0.34vw, 1.25rem);
+  padding: 10px 30px;
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  font-family: "Museo700";
+  color: white;
+}
+
+.tab.active {
+  color: #821313;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #821313;
+}
+
+.posts_filter_year {
+  margin: 2vw 0 4vw 0;
+}
+
+.past-matches,
+.upcoming-matches {
+  display: none;
+}
+
+.past-matches.active,
+.upcoming-matches.active {
+  display: block;
+}
+
+.competition_card {
+  margin: 0;
+  margin-bottom: 2vh;
+  display: grid;
+  grid-template-columns: 1fr minmax(200px, 20%);
+}
+.competition_card_date {
+  font-family: "Museo900";
+  font-size: clamp(0.875rem, 0.5rem + 0.78vw, 1.25rem) !important;
+  color: white !important;
+}
+.competition_card .left_part {
+  overflow: hidden;
+  border-radius: 15px 30px 30px 15px;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+}
+.competition_card .left_part .competition_card_info {
+  background-color: #1A1A1A;
+  padding: 0;
+  padding: clamp(1.438rem, -0.252rem + 3.52vw, 3.125rem) 0;
+  padding-right: clamp(0.5rem, 0.062rem + 0.91vw, 0.938rem);
+  padding-left: clamp(1.125rem, -0.001rem + 2.35vw, 2.25rem);
+}
+.competition_card .left_part .competition_card_info p {
+  font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+  line-height: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+  color: #6A6A6A;
+}
+.competition_card .left_part .competition_card_teams {
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  background-color: #821313;
+}
+.competition_card .left_part .competition_card_teams .teams {
+  display: flex;
+  align-items: center;
+}
+.competition_card .left_part .competition_card_teams .teams .team_label {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Museo700";
+}
+.competition_card .left_part .competition_card_teams .teams .team_label .team_name_left {
+  text-align: right;
+}
+.competition_card .left_part .competition_card_teams .teams .team_label p {
+  margin: 0;
+}
+.competition_card .left_part .competition_card_teams .teams .team_label .team_logo {
+  height: clamp(1.875rem, -0.002rem + 3.91vw, 3.75rem);
+}
+.competition_card .left_part .competition_card_teams .teams .team_label .team_logo_left {
+  margin-right: clamp(0.938rem, -1.253rem + 4.56vw, 3.125rem);
+  margin-left: clamp(0.625rem, -0.001rem + 1.3vw, 1.25rem);
+}
+.competition_card .left_part .competition_card_teams .teams .team_label .team_logo_right {
+  margin-right: clamp(0.625rem, -0.001rem + 1.3vw, 1.25rem);
+  margin-left: clamp(0.938rem, -1.253rem + 4.56vw, 3.125rem);
+}
+.competition_card .left_part .competition_card_teams .vs {
+  margin-right: 10px;
+  font-family: "Oswald";
+  font-size: clamp(3.75rem, -0.506rem + 8.87vw, 8rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.3);
+}
+.competition_card .left_part .competition_card_teams .competiton_score {
+  white-space: nowrap;
+  font-weight: 800;
+  margin: 0;
+  color: #949494;
+  font-size: clamp(1.8rem, 0.375rem + 1.625vw, 2.25rem);
+  font-family: "Oswald", sans-serif;
+}
+.competition_card .right_part {
+  border-left: dashed rgb(105, 15, 15) 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Museo900";
+  font-size: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
+  background-color: #821313;
+  transition: all 0.2s;
+  border-radius: 30px 15px 15px 30px;
+  cursor: pointer;
+}
+.competition_card .right_part:hover {
+  background-color: #5E0A0A;
+}
+
+.competition_over {
+  background-color: #282828 !important;
+}
+
+.right_part_ended {
+  border-left: dashed #151515 2px !important;
+}
+.right_part_ended:hover {
+  background-color: #1d1d1d !important;
 }/*# sourceMappingURL=style.css.map */
