@@ -106,7 +106,7 @@ header .header_content {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 3px 15px;
+  padding: 9px 13px;
   justify-content: space-between;
   background: rgba(22, 22, 22, 0.6);
   -webkit-backdrop-filter: blur(15px);
@@ -115,11 +115,11 @@ header .header_content {
 }
 header .header_content nav {
   text-transform: uppercase;
-  margin-top: clamp(0.938rem, 0.625rem + 0.65vw, 1.25rem);
 }
 header .header_content nav ul {
+  margin-bottom: 0;
   display: flex;
-  gap: clamp(1.18rem, 0.179rem + 2.09vw, 2.18rem);
+  gap: clamp(0.688rem, -0.502rem + 2.48vw, 1.875rem);
   font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
 }
 header .header_content nav ul li a {
@@ -131,7 +131,7 @@ header .header_content nav ul li a:hover {
 }
 header .header_content nav ul .networks {
   display: flex;
-  gap: 10px;
+  gap: clamp(0.375rem, 0.125rem + 0.52vw, 0.625rem);
 }
 header .header_content nav ul .networks a img {
   height: clamp(0.938rem, 0.75rem + 0.39vw, 1.125rem);
@@ -159,20 +159,21 @@ header .header_content nav ul .networks a img {
   font-size: clamp(0.75rem, -0.185rem + 1.5vw, 1.25rem);
 }
 
-.log_in img {
+.header_side_buttons a img {
   width: clamp(1.75rem, 0.874rem + 1.83vw, 2.625rem);
 }
 
 .header_side_buttons {
   display: flex;
   align-items: center;
-  gap: 1vw;
+  gap: 0.8vw;
 }
 
-.clear_btn {
+button {
   background-color: transparent;
   border: none;
   outline: none;
+  box-shadow: none;
 }
 
 .menu_btn {
@@ -1010,9 +1011,13 @@ header .header_content nav ul .networks a img {
 }
 
 footer {
+  background-color: #0E0E0E;
+  margin-top: 5vw;
   color: #656565;
   text-align: center;
   padding: 3rem 0;
+  position: relative;
+  z-index: 3;
 }
 
 /* страница SIGN UP SIGN IN */
@@ -1153,7 +1158,7 @@ footer {
   border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
   width: 100%;
   margin-top: 70vh;
-  padding: clamp(2.125rem, 0.06rem + 4.3vw, 4.188rem) clamp(1.5rem, -0.065rem + 3.26vw, 3.063rem);
+  padding: clamp(1.25rem, 0.382rem + 3.97vw, 4.188rem);
 }
 .post .post_name_block .date_and_repost {
   width: 100%;
@@ -1163,30 +1168,41 @@ footer {
 }
 .post .post_name_block .date_and_repost .date {
   color: #868686;
-  margin-right: clamp(1.625rem, -0.002rem + 3.39vw, 3.25rem);
 }
-.post .post_name_block .date_and_repost .repost {
+.post .post_name_block .date_and_repost .repost, .post .post_name_block .date_and_repost .news_type {
+  margin-left: clamp(1.625rem, -0.002rem + 3.39vw, 3.25rem);
   display: flex;
   color: #0E0E0E;
   text-transform: uppercase;
 }
-.post .post_name_block .date_and_repost .repost p {
+.post .post_name_block .date_and_repost .repost p, .post .post_name_block .date_and_repost .news_type p {
   margin-right: 0.4vw;
 }
-.post .post_name_block .date_and_repost .repost a {
+.post .post_name_block .date_and_repost .repost a, .post .post_name_block .date_and_repost .news_type a {
   margin-right: 0.4vw;
   cursor: pointer;
 }
-.post .post_name_block .date_and_repost .repost a img {
+.post .post_name_block .date_and_repost .repost a img, .post .post_name_block .date_and_repost .news_type a img {
   height: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);
+  width: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);
 }
-.post .post_name_block .post_name {
+.post .post_name_block .date_and_repost .news_type .type_icon {
+  text-align: center;
+  border-radius: 4px;
+  background-color: #821313;
+  height: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);
+  width: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);
+}
+.post .post_name_block .date_and_repost .news_type .type_icon img {
+  height: 70%;
+}
+.post .post_name_block .post_title {
   margin-top: 1vw;
   color: #0E0E0E;
   text-transform: uppercase;
-  font-size: clamp(2.188rem, 0.122rem + 4.3vw, 4.25rem);
+  font-size: clamp(1.5rem, 0.706rem + 3.63vw, 4.188rem);
   font-family: "Museo900";
-  line-height: clamp(2.188rem, 0.122rem + 4.3vw, 4.25rem);
+  line-height: clamp(1.5rem, 0.706rem + 3.63vw, 4.188rem);
 }
 
 .post_content {
@@ -1198,7 +1214,6 @@ footer {
 }
 .post_content .post_text_block, .post_content .sidebar_other_posts {
   background-color: white;
-  align-self: start;
   border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
 }
 .post_content .post_text_block {
@@ -1274,6 +1289,8 @@ footer {
   margin-top: 4vw;
   margin-bottom: 2vw;
   width: 100%;
+  display: flex;
+  gap: 1.2vw;
 }
 
 .posts_filter {
@@ -1291,7 +1308,7 @@ footer {
   min-width: 100%;
   border-radius: 15px;
 }
-.post_card img {
+.post_card .post_img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1302,7 +1319,7 @@ footer {
      object-fit: cover;
   transition: all 0.2s ease-in-out;
 }
-.post_card img:hover {
+.post_card .post_img:hover {
   filter: grayscale(1);
   transform: translate(-50%, -50%) scale(1.1);
 }
@@ -1337,10 +1354,13 @@ footer {
   line-height: clamp(0.7rem, 0.312rem + 0.65vw, 1rem);
 }
 .post_card .text_block .text .post_date {
-  font-size: clamp(0.75rem, 0.625rem + 0.26vw, 0.875rem);
+  font-size: clamp(0.625rem, 0.551rem + 0.34vw, 0.875rem);
   display: flex;
   align-items: end;
   justify-content: space-between;
+}
+.post_card .text_block .text .post_date img {
+  width: 22px;
 }
 .post_card .text_block .text .post_date .date {
   margin-bottom: 0;
@@ -1350,8 +1370,12 @@ footer {
   background-color: #821313;
   border: none;
   color: white;
+  transition: all 0.2s;
   border-radius: 7px;
   padding: clamp(0.25rem, 0.52vw, 0.5rem) clamp(0.5rem, -0.001rem + 1.04vw, 1rem);
+}
+.post_card .text_block .text .post_date .post_btn:hover {
+  background-color: #650d0d;
 }
 
 .pagination_block {
@@ -1381,4 +1405,34 @@ footer {
   background-color: #121212;
   color: #2b2b2b;
   border: #0E0E0E;
+}
+
+.comments {
+  z-index: 3;
+  position: relative;
+  background-color: white;
+  border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
+  width: 100%;
+  margin-top: 1.3vw;
+  padding: clamp(1.25rem, 0.382rem + 3.97vw, 4.188rem);
+}
+.comments .heading {
+  color: #0E0E0E;
+}
+
+.news_search_block {
+  display: flex;
+  text-align: center;
+  background-color: #1A1A1A;
+  border-radius: 7px;
+}
+.news_search_block .news_search {
+  width: 90%;
+  background-color: #1A1A1A;
+}
+.news_search_block button {
+  float: right;
+}
+.news_search_block button img {
+  max-width: 30px;
 }/*# sourceMappingURL=style.css.map */

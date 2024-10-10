@@ -89,11 +89,22 @@
         <div class="container">
             <div class="news_content">
                 <div class="select_block">
-                    <select name="posts_filter" id="postsFilter" class="form-select selector posts_filter">
+                    <div class="news_search_block posts_filter">
+                        <input type="text" placeholder="Поиск по новостям" class="news_search selector ">
+                        <button><img src="assets/img/search_white.svg"></button>
+                    </div>  
+                    <select name="posts_filter_chronology" id="postsFilterChronology" class="form-select selector posts_filter">
                         <option>Сначала новые</option>
                         <option>Сначала старые</option>
                         <option>Сначала популярные</option>
                     </select>
+                    <select name="posts_filter_type" id="postsFilterType" class="form-select selector posts_filter">
+                        <option>Все новости</option>
+                        <option>Статьи</option>
+                        <option>Интервью</option>
+                        <option>Трансферы</option>
+                        <option>Пресс-релизы</option>
+                    </select>  
                 </div>
 
                 <div class="posts">
@@ -102,7 +113,7 @@
                         <div class="col-md-4 col-sm-6">
                             <a href="">
                                 <div class="post_card">
-                                    <img src="assets/img/cover.jpg">
+                                    <img src="assets/img/cover.jpg" class="post_img">
                                     <div class="text_block">
                                         <div class="text">
                                             <p class="post_name">
@@ -112,9 +123,9 @@
                                                 Footer прижимается вниз за счет вытягивания блока контента и его «родителей» на всю высоту окна браузера и подъема футера вверх.
                                             </p>
                                             <div class="post_date">
-                                                <p class="date">02.10.2024</p>
+                                                <p class="date"><img src="assets/img/interview.png"> 02.10.2024 &nbsp;&nbsp; 20:42</p>
                                                 <button class="post_btn">
-                                                    Узнать больше → 
+                                                     → 
                                                 </button>
                                             </div>
                                         </div>
@@ -125,7 +136,7 @@
                         <div class="col-md-4 col-sm-6">
                             <a href="">
                                 <div class="post_card">
-                                    <img src="assets/img/cover.jpg">
+                                    <img src="assets/img/cover.jpg" class="post_img">
                                     <div class="text_block">
                                         <div class="text">
                                             <p class="post_name">
@@ -135,9 +146,9 @@
                                                 Footer прижимается вниз за счет вытягивания блока контента и его «родителей» на всю высоту окна браузера и подъема футера вверх.
                                             </p>
                                             <div class="post_date">
-                                                <p class="date">02.10.2024</p>
+                                                <p class="date"><img src="assets/img/article.png"> 02.10.2024 &nbsp;&nbsp; 20:42</p>
                                                 <button class="post_btn">
-                                                    Узнать больше → 
+                                                     → 
                                                 </button>
                                             </div>
                                         </div>
@@ -148,7 +159,7 @@
                         <div class="col-md-4 col-sm-6">
                             <a href="">
                                 <div class="post_card">
-                                    <img src="assets/img/cover.jpg">
+                                    <img src="assets/img/cover.jpg" class="post_img">
                                     <div class="text_block">
                                         <div class="text">
                                             <p class="post_name">
@@ -158,9 +169,9 @@
                                                 Footer прижимается вниз за счет вытягивания блока контента и его «родителей» на всю высоту окна браузера и подъема футера вверх.
                                             </p>
                                             <div class="post_date">
-                                                <p class="date">02.10.2024</p>
+                                                <p class="date"><img src="assets/img/press-release.png"> 02.10.2024 &nbsp;&nbsp; 20:42</p>
                                                 <button class="post_btn">
-                                                    Узнать больше → 
+                                                     → 
                                                 </button>
                                             </div>
                                         </div>

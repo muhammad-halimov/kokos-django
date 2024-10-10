@@ -110,7 +110,7 @@ header {
         display: flex;
         align-items: center;
         width: 100%;
-        padding: 3px 15px;
+        padding: 9px 13px;
         justify-content: space-between;
         background: rgba(22, 22, 22, 0.6);
         backdrop-filter: blur(15px);
@@ -119,11 +119,12 @@ header {
 
         nav {
             text-transform: uppercase;
-            margin-top: clamp(0.938rem, 0.625rem + 0.65vw, 1.25rem);
+
 
             ul {
+                margin-bottom: 0;
                 display: flex;
-                gap: clamp(1.18rem, 0.179rem + 2.09vw, 2.18rem);
+                gap:clamp(0.688rem, -0.502rem + 2.48vw, 1.875rem);
                 font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
 
                 li {
@@ -139,7 +140,7 @@ header {
 
                 .networks {
                     display: flex;
-                    gap: 10px;
+                    gap:clamp(0.375rem, 0.125rem + 0.52vw, 0.625rem);
 
                     a {
                         img {
@@ -180,22 +181,25 @@ header {
     }
 }
 
-.log_in {
-    img {
-        width: clamp(1.75rem, 0.874rem + 1.83vw, 2.625rem);
-    }
+.header_side_buttons {
+    a{
+        img {
+            width: clamp(1.75rem, 0.874rem + 1.83vw, 2.625rem);
+        }
+    } 
 }
 
 .header_side_buttons {
     display: flex;
     align-items: center;
-    gap: 1vw;
+    gap: 0.8vw;
 }
 
-.clear_btn {
+button {
     background-color: transparent;
     border: none;
     outline: none;
+    box-shadow: none;
 }
 
 .menu_btn {
@@ -1131,9 +1135,13 @@ header {
 }
 
 footer {
+    background-color: #0E0E0E;
+    margin-top: 5vw;
     color: #656565;
     text-align: center;
     padding: 3rem 0;
+    position: relative;
+    z-index:3;
 }
 
 
@@ -1287,7 +1295,7 @@ footer {
         border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
         width: 100%;
         margin-top: 70vh;
-        padding: clamp(2.125rem, 0.06rem + 4.3vw, 4.188rem) clamp(1.5rem, -0.065rem + 3.26vw, 3.063rem);
+        padding: clamp(1.25rem, 0.382rem + 3.97vw, 4.188rem);
 
         .date_and_repost{
             width: 100%;
@@ -1296,9 +1304,9 @@ footer {
             font-family: "Oswald", sans-serif;
             .date{
                 color: #868686;  
-                margin-right: clamp(1.625rem, -0.002rem + 3.39vw, 3.25rem);            
             }
-            .repost{
+            .repost, .news_type{
+                margin-left: clamp(1.625rem, -0.002rem + 3.39vw, 3.25rem);            
                 display: flex;
                 color: #0E0E0E;
                 text-transform: uppercase;
@@ -1309,19 +1317,32 @@ footer {
                     margin-right:  0.4vw;
                     cursor: pointer;   
                     img{
-                        height: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);                         
+                        height: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem); 
+                        width: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);   
+                    }
+                }
+            }
+            .news_type{
+                .type_icon{
+                    text-align: center;
+                    border-radius: 4px;
+                    background-color: #821313;
+                    height: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem); 
+                    width: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);
+                    img{
+                        height: 70%;
                     }
                 }
             }
         }
         
-        .post_name{
+        .post_title{
             margin-top: 1vw;
             color: #0E0E0E;
             text-transform: uppercase;
-            font-size: clamp(2.188rem, 0.122rem + 4.3vw, 4.25rem);
+            font-size:clamp(1.5rem, 0.706rem + 3.63vw, 4.188rem);
             font-family: "Museo900";
-            line-height: clamp(2.188rem, 0.122rem + 4.3vw, 4.25rem);
+            line-height:clamp(1.5rem, 0.706rem + 3.63vw, 4.188rem);
         }
     }
 }
@@ -1335,7 +1356,6 @@ footer {
 
     .post_text_block, .sidebar_other_posts{
         background-color: white;
-        align-self: start;
         border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
     }
 
@@ -1417,6 +1437,8 @@ footer {
     margin-top: 4vw;
     margin-bottom: 2vw;
     width: 100%;
+    display: flex;
+    gap: 1.2vw;
 }
 
 .posts_filter{
@@ -1433,7 +1455,7 @@ footer {
     overflow: hidden;
     min-width: 100%;
     border-radius: 15px;
-    img {
+    .post_img {
         position: absolute;
         top: 50%;
         left: 50%;
@@ -1476,10 +1498,13 @@ footer {
                 line-height: clamp(0.7rem, 0.312rem + 0.65vw, 1rem);
             }
             .post_date{
-                font-size: clamp(0.75rem, 0.625rem + 0.26vw, 0.875rem);
+                font-size: clamp(0.625rem, 0.551rem + 0.34vw, 0.875rem);
                 display: flex;
                 align-items: end;
                 justify-content: space-between;
+                img{
+                    width: 22px;
+                }
                 .date{
                     margin-bottom: 0;
                     color: #888888;
@@ -1488,8 +1513,13 @@ footer {
                     background-color: #821313;
                     border: none;
                     color: white;
+                    transition: all 0.2s;
                     border-radius: 7px;
                     padding: clamp(0.25rem, 0.52vw, 0.5rem) clamp(0.5rem, -0.001rem + 1.04vw, 1rem);
+                }
+
+                .post_btn:hover{
+                    background-color: #650d0d;
                 }
             }
         }
@@ -1524,4 +1554,35 @@ footer {
   background-color: #121212;
   color: #2b2b2b;
   border: #0E0E0E;
+}
+
+.comments{
+    z-index: 3;
+    position: relative;
+    background-color: white;
+    border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
+    width: 100%;
+    margin-top: 1.3vw;;
+    padding: clamp(1.25rem, 0.382rem + 3.97vw, 4.188rem);
+    .heading{
+        color: #0E0E0E;
+    }
+}
+
+.news_search_block{
+    display: flex;
+    text-align: center;
+    background-color: #1A1A1A;
+    border-radius: 7px;
+    .news_search{
+        width: 90%;
+        background-color: #1A1A1A;
+    }
+    button{
+        float: right;
+        img{
+            max-width: 30px;
+        }
+        
+    }
 }

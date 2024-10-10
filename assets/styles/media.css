@@ -16,9 +16,6 @@
   }
 }
 @media (max-width: 767px) {
-  .header_content {
-    padding: 9px 13px !important;
-  }
   .header_content .navigation {
     display: none;
   }
@@ -178,13 +175,13 @@
   .table .next_competition .info .name {
     font-size: clamp(0.875rem, 0.634rem + 1.28vw, 1.25rem);
   }
-  .table .ad {
+  .ad {
     height: 25vw;
   }
-  .table .media_card_wrapper {
+  .media_card_wrapper {
     margin-bottom: 2vw !important;
   }
-  .table .card_text {
+  .card_text {
     padding: 16px 8px !important;
   }
   .post_name_block {
@@ -208,11 +205,21 @@
     padding: clamp(0.75rem, -0.186rem + 3vw, 1.25rem);
     font-size: clamp(1rem, 0.532rem + 1.5vw, 1.25rem);
   }
+  .select_block {
+    display: block;
+  }
+  .select_block .news_search_block, .select_block select {
+    margin-bottom: 2vw !important;
+  }
   .post_card {
     margin-bottom: 4vw;
   }
+  .post_name_block {
+    padding: 34px 20px !important;
+  }
   .post_name {
-    font-size: 16px !important;
+    line-height: clamp(1.25rem, 1.176rem + 0.34vw, 1.5rem) !important;
+    font-size: clamp(1.25rem, 1.176rem + 0.34vw, 1.5rem) !important;
     margin-bottom: 2vw !important;
   }
   .posts_filter {
@@ -266,5 +273,16 @@
   }
   .sidebar_other_posts .other_news .another_post p {
     padding: clamp(0.75rem, -0.417rem + 5.33vw, 1.25rem);
+  }
+  .date_and_repost {
+    flex-direction: column;
+  }
+  .date_and_repost .news_type, .date_and_repost .repost {
+    margin-left: 0 !important;
+    margin-bottom: -0.5rem;
+  }
+  .menu_container {
+    right: -100vw;
+    width: 100vw;
   }
 }/*# sourceMappingURL=media.css.map */
