@@ -1,0 +1,140 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}ФК Кокос | Новости{% endblock %}
+{% block content %}
+    <main>
+        <div class="menu_overlay"></div>
+        <div class="menu_container">
+            <button class="close_btn clear_btn">
+                <img src="{% static 'img/icons/close.svg' %}">
+            </button>
+            <nav class="menu_navigation">
+                <ul>
+                    <li><a href="">Магазин</a></li>
+                    <li><a href="">Матчи</a></li>
+                    <li><a href="">Новости</a></li>
+                    <li><a href="">Команда</a></li>
+                    <li><a href="">История</a></li>
+                    <li><a href="">Медиа</a></li>
+                    <li><a href="">Партнерам</a></li>
+                    <li><a href="">Билеты</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="intro_img full_height_img">
+            <div class="intro_news_block">
+                <img src="{% static 'img/happy_team.png' %}">
+                <div class="container">
+                    <div class="name_page">
+                        <p>Новости</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="container">
+            <div class="news_content">
+                <div class="select_block">
+                    <select name="posts_filter" id="postsFilter" class="form-select selector posts_filter">
+                        <option>Сначала новые</option>
+                        <option>Сначала старые</option>
+                        <option>Сначала популярные</option>
+                    </select>
+                </div>
+
+                <div class="posts">
+                    <div class="row">
+                        <!-- СЮДА ВЫВОДИМ 9 ПОСТОВ-->
+                        <div class="col-md-4 col-sm-6">
+                            <a href="">
+                                <div class="post_card">
+                                    <img src="{% static 'img/cover.jpg' %}">
+                                    <div class="text_block">
+                                        <div class="text">
+                                            <p class="post_name">
+                                                ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
+                                            </p>
+                                            <p class="post_description">
+                                                Footer прижимается вниз за счет вытягивания блока контента и его «родителей» на всю высоту окна браузера и подъема футера вверх.
+                                            </p>
+                                            <div class="post_date">
+                                                <p class="date">02.10.2024</p>
+                                                <a href="{% url 'post' %}" class="post_btn">
+                                                    Узнать больше →
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <a href="">
+                                <div class="post_card">
+                                    <img src="{% static 'img/cover.jpg' %}">
+                                    <div class="text_block">
+                                        <div class="text">
+                                            <p class="post_name">
+                                                ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
+                                            </p>
+                                            <p class="post_description">
+                                                Footer прижимается вниз за счет вытягивания блока контента и его «родителей» на всю высоту окна браузера и подъема футера вверх.
+                                            </p>
+                                            <div class="post_date">
+                                                <p class="date">02.10.2024</p>
+                                                <a href="{% url 'post' %}" class="post_btn">
+                                                    Узнать больше →
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-md-4 col-sm-6">
+                            <a href="">
+                                <div class="post_card">
+                                    <img src="{% static 'img/cover.jpg' %}">
+                                    <div class="text_block">
+                                        <div class="text">
+                                            <p class="post_name">
+                                                ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
+                                            </p>
+                                            <p class="post_description">
+                                                Footer прижимается вниз за счет вытягивания блока контента и его «родителей» на всю высоту окна браузера и подъема футера вверх.
+                                            </p>
+                                            <div class="post_date">
+                                                <p class="date">02.10.2024</p>
+                                                <a href="{% url 'post' %}" class="post_btn">
+                                                    Узнать больше →
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="pagination_block">
+                        <nav>
+                            <ul class="pagination justify-content-center dsfd">
+                                <li class="page-item disabled">
+                                    <a class="page-link" href="#" tabindex="-1" aria-disabled="true"> &lt; </a>
+                                </li>
+                                <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                <li class="page-item">
+                                    <a class="page-link" href="#">></a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+{% endblock %}

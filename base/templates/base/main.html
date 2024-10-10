@@ -1,7 +1,420 @@
 {% extends 'index.html' %}
+{% load static %}
 {% block title %}ФК Кокос | Главная{% endblock %}
 {% block content %}
-    {% if request.user.is_authenticated %}
-        <a href="{% url 'logout' %}">Выход</a>
-    {% endif %}
+    <main>
+        <div class="menu_overlay"></div>
+        <div class="menu_container">
+            <button class="close_btn clear_btn">
+                <img src="{% static 'img/icons/close.svg' %}">
+            </button>
+            <nav class="menu_navigation">
+                <ul>
+                    <li><a href="">Магазин</a></li>
+                    <li><a href="">Матчи</a></li>
+                    <li><a href="">Новости</a></li>
+                    <li><a href="">Команда</a></li>
+                    <li><a href="">История</a></li>
+                    <li><a href="">Медиа</a></li>
+                    <li><a href="">Партнерам</a></li>
+                    <li><a href="">Билеты</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <div class="intro_img">
+            <div class="intro_news_block">
+                <img src="" id="introImg">
+                <div class="container">
+                    <div class="common_intro_block row">
+                        <!-- здесь подгружается название и описание новости под картинку на фоне -->
+                        <div class="news_teaser col-md-9">
+                            <div class="news_teaser_wrapper">
+                                <p class="news_name">Ого вот это жесть случилась на поле</p>
+                                <p class="news_description">Тут описание того что произошло и почему это полная жесть
+                                    треш.</p>
+                                <a href="">Узнать больше → </a>
+                            </div>
+                        </div>
+
+                        <div class="intro_news col-md-3">
+                            <div class="indicator">
+                                <div class="section"></div>
+                                <div class="section"></div>
+                                <div class="section"></div>
+                                <div class="section"></div>
+                            </div>
+                            <div class="intro_news_wrapper">
+                                <!-- таких новостей сюда выводится максимум 4 самых новых -->
+                                <div class="one_news">
+                                    <img loading="lazy" src="{% static 'img/happy_team.png' %}">
+                                    <p>Ого вот это жесть случилась на поле</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="competition my-5">
+            <div class="container my-5">
+                <p class="heading">Матчи</p>
+
+                <div id="competitionSlider" class="carousel slide">
+                    <div class="carousel-inner">
+                        <!-- ОДИН СЛАЙД КАРУСЕЛИ. В карусели показываются 2 прошедших и 2 будущих матча -->
+                        <div class="carousel-item active">
+                            <img loading="lazy" src="{% static 'img/competition-back.png' %}" class="carousel_background_img"
+                                 width="100%">
+                            <div class="carousel_content carousel-caption">
+                                <div class="grid_item"></div>
+                                <div class="carousel_col">
+                                    <p>Кокос GROUP</p>
+                                    <img loading="lazy" src="{% static 'img/icons/logo.png' %}" class="carousel_logo">
+                                </div>
+                                <div class="carousel_center_col">
+                                    <p class="competiton_type">Прошедший матч</p>
+                                    <p class="competiton_date">20 сентября</p>
+                                    <p class="competiton_score">3 : 0</p>
+                                    <p class="competiton_place">Ак Барс Арена</p>
+                                    <p class="competiton_name">FONBET Кубок России, 4 тур</p>
+                                </div>
+                                <div class="carousel_col">
+                                    <img loading="lazy" src="{% static 'img/icons/dinamo.png' %}" class="carousel_logo">
+                                    <p>Динамо</p>
+                                </div>
+                                <div class="grid_item"></div>
+                            </div>
+                        </div>
+                        <!-- ОДИН СЛАЙД КАРУСЕЛИ -->
+
+                        <div class="carousel-item">
+                            <img loading="lazy" src="{% static 'img/competition-back.png' %}" class="carousel_background_img"
+                                 width="100%">
+                            <div class="carousel_content carousel-caption">
+                                <div class="grid_item"></div>
+                                <div class="carousel_col">
+                                    <p>Кокос GROUP</p>
+                                    <img loading="lazy" src="{% static 'img/icons/logo.png' %}" class="carousel_logo">
+                                </div>
+                                <div class="carousel_center_col">
+                                    <p class="competiton_type">Следующий матч</p>
+                                    <p class="competiton_date">20 сентября</p>
+                                    <p class="competiton_score">3 : 0</p>
+                                    <p class="competiton_place">Ак Барс Арена</p>
+                                    <p class="competiton_name">FONBET Кубок России, 4 тур</p>
+                                </div>
+                                <div class="carousel_col">
+                                    <img loading="lazy" src="{% static 'img/icons/dinamo.png' %}g" class="carousel_logo">
+                                    <p>Динамо</p>
+                                </div>
+                                <div class="grid_item"></div>
+                            </div>
+                        </div>
+
+                        <div class="carousel-indicators">
+                            <button class="active" data-bs-slide-to="0" data-bs-target="#competitionSlider"></button>
+                            <button data-bs-slide-to="1" data-bs-target="#competitionSlider"></button>
+                            <button data-bs-slide-to="2" data-bs-target="#competitionSlider"></button>
+                            <button data-bs-slide-to="3" data-bs-target="#competitionSlider"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="standings_and_next_competition">
+            <div class="container">
+                <p class="heading">Турнирная таблица</p>
+                <div class="row standings_row">
+                    <div class="col-md-6">
+                        <div class="standings">
+                            <div class="standings_header">
+                                <select name="competition-select" id="" class="form-select selector">
+                                    <option>FONBET КУБОК РОССИИ ПО ФУТБОЛУ</option>
+                                    <option>Meow</option>
+                                </select>
+                                <table class="table_header">
+                                    <tbody>
+                                    <tr>
+                                        <td class="col">№</td>
+                                        <td class="col">Команда</td>
+                                        <td class="col"></td>
+                                        <td class="col">И</td>
+                                        <td class="col">О</td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div class="standings_table">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col"></th>
+                                            <th scope="col"></th>
+                                            <th scope="col"></th>
+                                            <th scope="col"></th>
+                                            <th scope="col"></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td class="num">1</td>
+                                            <td class="td_logo"><img loading="lazy" src="{% static 'img/icons/dinamo.png' %}"></td>
+                                            <td>Динамо Москва</td>
+                                            <td>4</td>
+                                            <td>9</td>
+                                        </tr>
+                                        <!-- На строке турнир.таблицы у КОКОС ГРУПП должен быть красный шрифт ".home_red_txt"-->
+                                        <tr>
+                                            <td class="num home_red_txt">2</td>
+                                            <td class="td_logo"><img loading="lazy" src="{% static 'img/icons/logo.png' %}"></td>
+                                            <td class="home_red_txt">Кокос GROUP</td>
+                                            <td class="home_red_txt">4</td>
+                                            <td class="home_red_txt">9</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">3</td>
+                                            <td class="td_logo"><img loading="lazy" src="{% static 'img/icons/dinamo.png' %}"></td>
+                                            <td>тут все команды из конкретного турнира, выбранного выше</td>
+                                            <td>4</td>
+                                            <td>9</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="num">3</td>
+                                            <td class="td_logo"><img loading="lazy" src="{% static 'img/icons/dinamo.png' %}"></td>
+                                            <td>тут все команды из конкретного турнира, выбранного выше</td>
+                                            <td>4</td>
+                                            <td>9</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="next_competition">
+                            <div class="header">
+                                <p class="header_txt">Следующий матч</p>
+                                <p class="date">30 октября 20:30</p>
+                            </div>
+                            <div class="score">
+                                <div class="team">
+                                    <img loading="lazy" src="{% static 'img/icons/logo.png' %}">
+                                    <p>Кокос GROUP</p>
+                                </div>
+                                <div class="score_empty">- : -</div>
+                                <div class="team">
+                                    <img loading="lazy" src="{% static 'img/icons/dinamo.png' %}">
+                                    <p>Динамо</p>
+                                </div>
+                            </div>
+                            <div class="info">
+                                <p class="place">Ак Барс Арена</p>
+                                <p class="name">FONBET Кубок России, 4 тур</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="news my-5">
+            <div class="container my-5">
+                <p class="heading">Новости</p>
+                <div class="news">
+                    <div class="row news_block">
+                        <div class="col-md-8">
+                            <div class="row">
+                                <!-- Максимум 4 таких новостных блоков -->
+                                <div class="col-md-6 card_gap">
+                                    <a href="">
+                                        <div class="post_card">
+                                            <img src="{% static 'img/cover.jpg' %}">
+                                            <div class="text_block">
+                                                <div class="text">
+                                                    <p class="post_name">
+                                                        ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
+                                                    </p>
+                                                    <p class="post_description">
+                                                        Footer прижимается вниз за счет вытягивания блока контента и его
+                                                        «родителей» на всю высоту окна браузера и подъема футера вверх.
+                                                    </p>
+                                                    <div class="post_date">
+                                                        <p class="date">02.10.2024</p>
+                                                        <button class="post_btn">
+                                                            Узнать больше →
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-6 card_gap">
+                                    <a href="">
+                                        <div class="post_card">
+                                            <img src="{% static 'img/cover.jpg' %}">
+                                            <div class="text_block">
+                                                <div class="text">
+                                                    <p class="post_name">
+                                                        ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
+                                                    </p>
+                                                    <p class="post_description">
+                                                        Footer прижимается вниз за счет вытягивания блока контента и его
+                                                        «родителей» на всю высоту окна браузера и подъема футера вверх.
+                                                    </p>
+                                                    <div class="post_date">
+                                                        <p class="date">02.10.2024</p>
+                                                        <button class="post_btn">
+                                                            Узнать больше →
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-6 card_gap">
+                                    <a href="">
+                                        <div class="post_card">
+                                            <img src="{% static 'img/cover.jpg' %}">
+                                            <div class="text_block">
+                                                <div class="text">
+                                                    <p class="post_name">
+                                                        ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
+                                                    </p>
+                                                    <p class="post_description">
+                                                        Footer прижимается вниз за счет вытягивания блока контента и его
+                                                        «родителей» на всю высоту окна браузера и подъема футера вверх.
+                                                    </p>
+                                                    <div class="post_date">
+                                                        <p class="date">02.10.2024</p>
+                                                        <button class="post_btn">
+                                                            Узнать больше →
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+
+                                <div class="col-md-6 card_gap">
+                                    <a href="">
+                                        <div class="post_card">
+                                            <img src="{% static 'img/cover.jpg' %}">
+                                            <div class="text_block">
+                                                <div class="text">
+                                                    <p class="post_name">
+                                                        ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
+                                                    </p>
+                                                    <p class="post_description">
+                                                        Footer прижимается вниз за счет вытягивания блока контента и его
+                                                        «родителей» на всю высоту окна браузера и подъема футера вверх.
+                                                    </p>
+                                                    <div class="post_date">
+                                                        <p class="date">02.10.2024</p>
+                                                        <button class="post_btn">
+                                                            Узнать больше →
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="col-md-4 card_gap ad">
+                            <a href="">
+                                <div class="ad_block">
+                                    <img loading="lazy" src="{% static 'img/ad2.png' %}">
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <a href="" class="link">БОЛЬШЕ МАТРИАЛОВ →</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="subscription my-5">
+            <div class="container">
+                <div class="subscription_block">
+                    <div class="subscription_form_block">
+                        <p class="header">Хотите первыми узнавать новости “Кокос Групп”?</p>
+                        <form action="">
+                            <input type="email" placeholder="Введите ваш e-mail">
+                            <button type="submit">Подписаться</button>
+                        </form>
+                        <p class="substring">Вводя свой e-mail и нажимая кнопку “Подписаться”, я даю согласие на
+                            получение рекламно-информационных рассылок</p>
+                    </div>
+                    <div class="subscription_img">
+                        <img loading="lazy" src="{% static 'img/icons/ball.png' %}">
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="media_block">
+            <div class="container">
+                <div class="media my-5">
+                    <p class="heading">ФОТО И ВИДЕО</p>
+                    <div class="row">
+                        <div class="col-md-9">
+                            <div class="media_card_wrapper">
+                                <a href="">
+                                    <div class="media_card">
+                                        <img loading="lazy" src="{% static 'img/cover.jpg' %}">
+                                    </div>
+                                    <div class="card_text">
+                                        <p class="album_name">ФОТО “КОКОС ГРУПП” – “КЛАССИКО”</p>
+                                        <p class="date">02.10.2024</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                        </div>
+                        <div class="col-md-3">
+                            <div class="media_card_wrapper small_media_card">
+                                <a href="">
+                                    <div class="media_card">
+                                        <img loading="lazy" src="{% static 'img/cover.jpg' %}">
+                                    </div>
+                                    <div class="card_text">
+                                        <p class="album_name">ФОТО “КОКОС ГРУПП” – “КЛАССИКО”</p>
+                                        <p class="date">02.10.2024</p>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="media_card_wrapper small_media_card">
+                                <a href="">
+                                    <div class="media_card">
+                                        <img loading="lazy" src="{% static 'img/cover.jpg' %}">
+                                    </div>
+                                    <div class="card_text small_media_card">
+                                        <p class="album_name">ФОТО “КОКОС ГРУПП” – “КЛАССИКО”</p>
+                                        <p class="date">02.10.2024</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="" class="link">БОЛЬШЕ МАТРИАЛОВ →</a>
+                </div>
+            </div>
+        </div>
+    </main>
 {% endblock %}

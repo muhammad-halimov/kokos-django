@@ -73,3 +73,17 @@ def register(request):
 def logout_page(request):
     logout(request)
     return redirect('index')
+
+
+# Функция для отображения новостной страницы
+def news(request):
+    # Передача данных в контекст для рендеринга шаблона
+    context = {}
+    return render(request, template_name='base/news.html', context=context)
+
+
+# Функция для отображения конкретного поста
+def post_page(request):
+    # Передача данных в контекст для рендеринга шаблона
+    context = {}
+    return render(request, template_name='base/post.html', context=context)

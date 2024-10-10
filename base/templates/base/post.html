@@ -1,0 +1,108 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}ФК Кокос | Новости{% endblock %}
+{% block content %}
+    <main>
+        <div class="menu_overlay"></div>
+        <div class="menu_container">
+            <button class="close_btn clear_btn">
+                <img src="{% static 'img/icons/close.svg' %}">
+            </button>
+            <nav class="menu_navigation">
+                <ul>
+                    <li><a href="">Магазин</a></li>
+                    <li><a href="">Матчи</a></li>
+                    <li><a href="{% url 'news' %}">Новости</a></li>
+                    <li><a href="">Команда</a></li>
+                    <li><a href="">История</a></li>
+                    <li><a href="">Медиа</a></li>
+                    <li><a href="">Партнерам</a></li>
+                    <li><a href="">Билеты</a></li>
+                </ul>
+            </nav>
+        </div>
+
+        <!-- ТУТ ФОТКА ПОСТА. к каждому посту идет картинка и она должна быть здесь
+         Сюда она прикручена через background-image: url(...);  -->
+        <div class="wrap fixed_img"></div>
+        <div class="wrap">
+            <div class="container">
+                <div class="post">
+                    <div class="post_name_block">
+                        <div class="date_and_repost">
+                            <div class="date">
+                                <p>06.10.2024</p>
+                            </div>
+                            <div class="repost">
+                                <p>Поделиться:</p>
+                                <a href=""> <img src="{% static 'img/icons/vk_repost.png' %}"></a>
+                                <a href=""><img src="{% static 'img/icons/tg_repost.png' %}"></a>
+                            </div>
+                        </div>
+                        <div class="post_name">Такие дела, такой вот случай</div>
+                    </div>
+
+                    <div class="post_content">
+                        <div class="post_text_block">
+                            <p class="post_description">Тут описание того что произошло и почему эта новость лучшая
+                                новость в мире по футболу. (то самое краткое описание)</p>
+                            <!-- Можем ли мы как то сделать такие заголовки для абзаца
+                             (не для всего поста!) как с класом .paragraph_heading ?
+                             Если нет то кикай -->
+                            <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Deleniti nobis
+                                rerum esse distinctio! In soluta reprehenderit asperiores. Est tempore deserunt at amet,
+                                sapiente accusamus, nisi laborum voluptates eaque facilis similique!</p>
+                            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel,
+                                corporis voluptatibus laborum eveniet, ipsam delectus minima excepturi adipisci nobis
+                                incidunt! Provident explicabo sequi asperiores iusto molestiae placeat voluptatum nobis?
+                                Iusto est atque exercitationem tempore, aliquam dicta. Totam ea magni, odio, quia rerum
+                                autem ipsum consectetur eaque debitis voluptatibus velit omnis esse vero, distinctio ad
+                                ex molestias voluptate. A, aliquam.</p>
+                            <p class="paragraph_heading">Lorem ipsum dolor amet</p>
+                            <p class="paragraph">Lorem, ipsum dolor sit amet consectetur adipisicing elit. Magni vel,
+                                corporis voluptatibus laborum eveniet, ipsam delectus minima excepturi adipisci nobis
+                                incidunt! Provident explicabo sequi asperiores iusto molestiae placeat voluptatum nobis?
+                                Iusto est atque exercitationem tempore, aliquam dicta. Totam ea magni, odio, quia rerum
+                                autem ipsum consectetur eaque debitis voluptatibus velit omnis esse vero, distinctio ad
+                                ex molestias voluptate. A, aliquam.</p>
+                            <p class="paragraph_heading">Lorem ipsum dolor amet</p>
+                            <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto aliquid
+                                ipsum totam! Qui tempore inventore repudiandae mollitia sed dolore maiores,
+                                reprehenderit vel ullam, quam eveniet itaque rem veritatis neque saepe?
+                                Non, labore nobis, debitis atque dolorum soluta officiis sit ducimus neque ea quidem
+                                dolorem. Dolorum quibusdam cumque voluptate commodi libero optio eius laboriosam aut, ea
+                                ipsum molestias nisi reiciendis accusamus.
+                                Animi nobis, vitae sunt optio nostrum harum consequuntur, necessitatibus sit quibusdam
+                                expedita et illum consectetur culpa earum similique quis eos pariatur maiores vero? Quam
+                                et minima odio rem optio officiis?</p>
+                        </div>
+                        <div class="sidebar_other_posts">
+                            <p class="heading">ДРУГИЕ НОВОСТИ:</p>
+                            <div class="other_news">
+                                <!-- Сюда 4 популярные новости или 4 рандомные
+                                 или 4 ближайшие по дате к открытой новости-->
+                                <div class="main_news_card another_post">
+                                    <img loading="lazy" src="{% static 'img/happy_team.png' %}">
+                                    <p>Ого вот это жесть случилась на поле</p>
+                                </div>
+                                <div class="main_news_card another_post">
+                                    <img loading="lazy" src="{% static 'img/happy_team.png' %}">
+                                    <p>Ого вот это жесть случилась на поле</p>
+                                </div>
+                                <div class="main_news_card another_post">
+                                    <img loading="lazy" src="{% static 'img/happy_team.png' %}">
+                                    <p>Ого вот это жесть случилась на поле</p>
+                                </div>
+                                <div class="main_news_card another_post">
+                                    <img loading="lazy" src="{% static 'img/happy_team.png' %}">
+                                    <p>Ого вот это жесть случилась на поле</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+{% endblock %}

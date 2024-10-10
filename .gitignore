@@ -1,5 +1,7 @@
 /venv
+/lvenv
 /.idea
 /.vscode
 /.code
 /uploads
+/frontend

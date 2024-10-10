@@ -1,0 +1,270 @@
+@media (max-width: 1199px) {
+  .logo_text {
+    display: none;
+  }
+  .header_content nav ul {
+    padding-left: 0;
+  }
+  .grid_item {
+    display: none;
+  }
+  .carousel_content {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .small_media_card {
+    border-radius: 7px;
+  }
+}
+@media (max-width: 767px) {
+  .header_content {
+    padding: 9px 13px !important;
+  }
+  .header_content .navigation {
+    display: none;
+  }
+  .menu_btn {
+    display: block;
+  }
+  .intro_img {
+    overflow: visible;
+    height: 40rem;
+    min-height: 200px;
+    z-index: 2;
+  }
+  .intro_img img {
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .common_intro_block {
+    height: 40rem;
+    padding: 0;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .news_teaser {
+    width: 100%;
+    position: relative;
+    height: 40rem;
+    bottom: 13.5rem;
+    display: flex;
+    align-items: end;
+  }
+  .news_teaser .news_teaser_wrapper {
+    position: relative;
+    z-index: 1;
+  }
+  .news_teaser .news_teaser_wrapper .news_name,
+  .news_teaser .news_teaser_wrapper .news_description {
+    width: 100%;
+  }
+  .intro_news_block {
+    width: 100%;
+    margin-top: 20px;
+    height: 40rem;
+  }
+  .intro_news_block .intro_news {
+    position: absolute;
+    z-index: 7;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 0;
+  }
+  .intro_news_block .intro_news_wrapper {
+    flex-direction: row;
+    width: 100%;
+    order: 1;
+    gap: 1vw;
+    position: relative;
+    z-index: 0;
+  }
+  .intro_news_block .intro_news_wrapper .one_news {
+    flex: 1;
+    height: 9rem;
+    margin-top: 0;
+  }
+  .intro_news_block .intro_news_wrapper .one_news img {
+    min-width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+  }
+  .intro_news_block .intro_news_wrapper .one_news p {
+    font-size: 10px;
+  }
+  .intro_news_block .intro_news .indicator {
+    width: 100%;
+    height: 6px;
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    order: 2;
+  }
+  .intro_news_block .intro_news .indicator .section {
+    width: 25%;
+    height: 100%;
+  }
+  .subscription_block .subscription_form_block {
+    width: 100%;
+  }
+  .subscription_block .subscription_form_block .header {
+    font-size: 20px;
+    margin: 8px;
+  }
+  .subscription_block .subscription_form_block form {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .subscription_block .subscription_form_block form input {
+    width: 100% !important;
+    margin: 0;
+    margin-bottom: 10px;
+  }
+  .subscription_block .subscription_form_block form button {
+    font-size: 14px;
+    width: 100%;
+    margin: 0;
+    margin-bottom: 8px;
+    padding: 10px 0;
+  }
+  .subscription_block .subscription_form_block .substring {
+    font-size: 12px;
+  }
+  .subscription_block .subscription_img {
+    position: absolute;
+    display: none;
+  }
+  .standings_row .col-md-6 {
+    padding-bottom: 50%;
+    margin-bottom: 5vw;
+  }
+  .standings_row .col-md-6 .standings {
+    width: 100%;
+    min-height: 320px;
+  }
+  .standings_row .col-md-6 .next_competition {
+    min-height: 250px !important;
+  }
+  .table:not(caption) td {
+    font-size: 20px !important;
+  }
+  .table .table_header td {
+    font-size: 12px;
+  }
+  .table .next_competition {
+    margin: auto 0;
+  }
+  .table .next_competition .header .header_txt {
+    font-size: clamp(1.25rem, 0.929rem + 1.71vw, 1.75rem);
+  }
+  .table .next_competition .header .date {
+    font-size: clamp(0.875rem, 0.714rem + 0.86vw, 1.125rem);
+  }
+  .table .next_competition .score .team {
+    margin-top: -10%;
+  }
+  .table .next_competition .score .team img {
+    height: clamp(3.75rem, 2.144rem + 8.57vw, 6.25rem);
+  }
+  .table .next_competition .score .team p {
+    font-size: clamp(0.75rem, 0.509rem + 1.28vw, 1.125rem);
+  }
+  .table .next_competition .info {
+    margin-top: 0;
+  }
+  .table .next_competition .info .place {
+    font-size: clamp(0.75rem, 0.509rem + 1.28vw, 1.125rem);
+  }
+  .table .next_competition .info .name {
+    font-size: clamp(0.875rem, 0.634rem + 1.28vw, 1.25rem);
+  }
+  .table .ad {
+    height: 25vw;
+  }
+  .table .media_card_wrapper {
+    margin-bottom: 2vw !important;
+  }
+  .table .card_text {
+    padding: 16px 8px !important;
+  }
+  .post_name_block {
+    padding: 20px;
+  }
+  .post_content {
+    display: block;
+  }
+  .post_content .post_text_block {
+    padding: 20px;
+  }
+  .sidebar_other_posts {
+    margin-top: 2vw;
+  }
+  .sidebar_other_posts .other_news {
+    gap: 1vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .sidebar_other_posts .other_news .another_post p {
+    padding: clamp(0.75rem, -0.186rem + 3vw, 1.25rem);
+    font-size: clamp(1rem, 0.532rem + 1.5vw, 1.25rem);
+  }
+  .post_card {
+    margin-bottom: 4vw;
+  }
+  .post_name {
+    font-size: 16px !important;
+    margin-bottom: 2vw !important;
+  }
+  .posts_filter {
+    width: 100%;
+  }
+}
+@media (max-width: 600px) {
+  .standings_row .col-md-6 {
+    margin-bottom: 5rem;
+  }
+}
+@media (max-width: 500px) {
+  .carousel_col img {
+    height: 40px;
+  }
+  .carousel_col p {
+    margin-top: 4vw;
+  }
+  .carousel_center_col .competiton_name {
+    white-space: nowrap;
+  }
+  .carousel_center_col .competiton_score {
+    margin-top: 7vw;
+  }
+  .carousel_center_col .competiton_place {
+    margin-top: 6vw;
+  }
+  .carousel-indicators {
+    margin-bottom: 0;
+  }
+  .next_competition .score .team {
+    margin-top: -5%;
+  }
+  .next_competition .info {
+    margin-top: 5%;
+  }
+  .standings_row .col-md-6 {
+    margin-bottom: 8rem;
+  }
+  .img_block {
+    display: none;
+  }
+  .other_news {
+    display: block;
+  }
+  .sidebar_other_posts .other_news {
+    display: block;
+  }
+  .sidebar_other_posts .other_news .another_post {
+    margin-bottom: 3vw;
+  }
+  .sidebar_other_posts .other_news .another_post p {
+    padding: clamp(0.75rem, -0.417rem + 5.33vw, 1.25rem);
+  }
+}/*# sourceMappingURL=media.css.map */

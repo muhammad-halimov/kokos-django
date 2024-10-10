@@ -5,7 +5,9 @@ from django.db import models
 # Модель пользователя, наследующая от AbstractUser
 class User(AbstractUser):
     username = models.CharField(max_length=255, unique=True, null=True, blank=True)
+    surname = models.CharField(max_length=255, unique=True, null=True, blank=True)
     email = models.EmailField(max_length=255, unique=True, null=True, blank=True)
+    phone = models.CharField(max_length=255, unique=True, null=True, blank=True)
     login = models.CharField(max_length=255, null=True, blank=True)
     avatar = models.ImageField(upload_to='avatars', default='assets/img/icons/avatar.svg', null=True, blank=True)
 
@@ -14,7 +16,7 @@ class User(AbstractUser):
     updated = models.DateTimeField(auto_now=True)
 
     # Настройки отображения, поиска и фильтрации в админке
-    DisplayFields = ['id', 'username', 'email', 'login', 'avatar', 'created', 'updated']
+    DisplayFields = ['id', 'username', 'surname', 'email', 'phone', 'login', 'avatar', 'created', 'updated']
     SearchableFields = DisplayFields
     FilterFields = ['created', 'updated']
 

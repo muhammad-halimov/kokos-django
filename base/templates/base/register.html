@@ -1,0 +1,127 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}ФК Кокос | Регистрация{% endblock %}
+{% block content %}
+    <div class="menu_overlay"></div>
+    <div class="menu_container">
+        <button class="close_btn clear_btn">
+            <img src="{% static 'img/icons/close.svg' %}">
+        </button>
+        <nav class="menu_navigation">
+            <ul>
+                <li><a href="">Магазин</a></li>
+                <li><a href="">Матчи</a></li>
+                <li><a href="">Новости</a></li>
+                <li><a href="">Команда</a></li>
+                <li><a href="">История</a></li>
+                <li><a href="">Медиа</a></li>
+                <li><a href="">Партнерам</a></li>
+                <li><a href="">Билеты</a></li>
+            </ul>
+        </nav>
+    </div>
+
+    <div class="wrap">
+        <div class="container">
+            <div class="center_block">
+                <div class="form_block">
+                    <form method="post" class="signup_form">
+                        {% csrf_token %}
+                        <p class="heading">Регистрация</p>
+                        {% if messages %}
+                            <ul class="messages alert alert-warning">
+                                {% for message in messages %}
+                                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <!-- КНОПКА ВК сюда подставить, класс можно оставить, хз -->
+                        <div style="margin-bottom: 20px">
+                            <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
+                            <script type="text/javascript">
+                                if ('VKIDSDK' in window) {
+                                    const VKID = window.VKIDSDK;
+
+                                    VKID.Config.init({
+                                        app: 52427018,
+                                        redirectUrl: 'https://muhammadmalimov.pythonanywhere.com',
+                                        responseMode: VKID.ConfigResponseMode.Callback,
+                                        source: VKID.ConfigSource.LOWCODE,
+                                    });
+
+                                    const oneTap = new VKID.OneTap();
+
+                                    oneTap.render({
+                                        container: document.currentScript.parentElement,
+                                        fastAuthEnabled: false,
+                                        showAlternativeLogin: true
+                                    })
+                                        .on(VKID.WidgetEvents.ERROR, vkidOnError)
+                                        .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS, function (payload) {
+                                            const code = payload.code;
+                                            const deviceId = payload.device_id;
+
+                                            VKID.Auth.exchangeCode(code, deviceId)
+                                                .then(vkidOnSuccess)
+                                                .catch(vkidOnError);
+                                        });
+                                }
+
+                                function vkidOnSuccess(data) {
+                                    // Обработка полученного результата
+                                }
+
+                                function vkidOnError(error) {
+                                    // Обработка ошибки
+                                }
+                            </script>
+                        </div>
+                        <!-- КНОПКА ВК -->
+                        <label class="" for="id_surname">
+                            Фамилия
+                            {{ form.surname }}
+                        </label>
+                        <label class="" for="id_username">
+                            Имя
+                            {{ form.username }}
+                        </label>
+                        <label class="" for="id_email">
+                            E-mail
+                            {{ form.email }}
+                        </label>
+                        <label class="" for="id_phone">
+                            Телефон
+                            {{ form.phone }}
+                        </label>
+                        <label class="" for="id_password1">
+                            Пароль
+                            {{ form.password1 }}
+                        </label>
+                        <label class="" for="id_password2">
+                            Повторите пароль
+                            {{ form.password2 }}
+                        </label>
+                        <label class="white">
+                            <input type="checkbox" name="checkbox" class="checkbox" required>
+                            Я даю согласие на обработку персональных данных
+                        </label>
+                        <label class="white">
+                            <input type="checkbox" name="checkbox" class="checkbox" required>
+                            Я даю согласие на получение информационных сообщений
+                        </label>
+                        <button type="submit">Зарегистрироваться</button>
+                    </form>
+                    <div class="create_account_link">
+                        <a href="{% url 'authorize' %}">Войти в аккаунт →</a>
+                    </div>
+                </div>
+                <div class="img_block">
+                    <img src="{% static 'img/happy_team.png' %}" class="img-fluid">
+                    <img src="{% static 'img/team_color.jpg' %}" class="img-fluid">
+                    <img src="{% static 'img/news1.jpg' %}" class="img-fluid">
+                    <img src="{% static 'img/cover.jpg' %}" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
