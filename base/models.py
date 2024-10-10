@@ -537,7 +537,7 @@ class Outcome(models.Model):
         return self.title
     
 class Match(models.Model):
-    number = models.IntegerField(blank=True, null=True)
+    # number = models.IntegerField(blank=True, null=True)
     tour = models.IntegerField(blank=True, null=True)
     arena = models.ForeignKey(Arena, on_delete=models.CASCADE, blank=True, null=True)
     teams = models.ManyToManyField(Team, related_name='match_teams')
@@ -548,17 +548,17 @@ class Match(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     
-    DisplayFields = ['id', 'number', 'created', 'updated', 'date', 'tour', 'arena', 'outcome']
+    DisplayFields = ['id', 'created', 'updated', 'date', 'tour', 'arena', 'outcome']
     SearchableFields = DisplayFields
-    FilterFields = ['created', 'updated', 'date', 'number']
+    FilterFields = ['created', 'updated', 'date']
     
     class Meta:
-        ordering = ['id', 'created', '-updated', 'number', 'date']
+        ordering = ['id', 'created', '-updated', 'date']
         verbose_name = 'Match'
         verbose_name_plural = 'Matches'
     
     def __str__(self):
-        return str(self.number)
+        return str(self.pk)
 
 class Ticket_place(models.Model):
     sector = models.IntegerField(blank=True, null=True)
@@ -639,11 +639,11 @@ class Tournament(models.Model):
         verbose_name_plural = 'Tournaments'
     
     def __str__(self):
-        return 'Tournament'
+        return self.pk
 
 class Gallery(models.Model):
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, blank=True, null=True)
-    teams = models.ManyToManyField(Team, related_name='teams') #TEAM
+    teams = models.ManyToManyField(Team, related_name='teams')
     media_links = models.ManyToManyField(Media, related_name='media_links')
     
     created = models.DateTimeField(auto_now_add=True)
