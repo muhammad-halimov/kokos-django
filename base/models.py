@@ -609,7 +609,7 @@ class Match(models.Model):
         verbose_name_plural = 'Matches'
 
     def __str__(self):
-        return str(self.pk)
+        return f"Match #{self.id}"
 
 
 class TicketPlace(models.Model):
@@ -694,7 +694,7 @@ class Tournament(models.Model):
         verbose_name_plural = 'Tournaments'
 
     def __str__(self):
-        return self.pk
+        return f"Tournament #{self.id}"
 
 
 class Gallery(models.Model):
