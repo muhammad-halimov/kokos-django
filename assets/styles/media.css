@@ -29,7 +29,7 @@
     min-height: 200px;
     z-index: 2;
   }
-  .intro_img #introImg {
+  .intro_img .intro_img_photo {
     width: 100%;
     -o-object-fit: cover;
        object-fit: cover;
@@ -260,6 +260,9 @@
   }
   .tickets .tickets_block {
     display: block;
+  }
+  .tickets .tickets_block .ticket_user_info_form input {
+    width: 100%;
   }
 }
 @media (max-width: 600px) {

@@ -41,7 +41,7 @@
         height: 40rem; 
         min-height: 200px;
         z-index: 2;
-        #introImg {
+        .intro_img_photo {
             width: 100%;
             object-fit: cover;
         }
@@ -227,6 +227,7 @@
 }
   // MEDIA //
 
+
 .media_card_wrapper  {
     margin-bottom: 2vw !important;
 }
@@ -321,6 +322,12 @@
     .tickets{
         .tickets_block{
             display: block;
+
+            .ticket_user_info_form{
+                input{
+                    width: 100%;
+                }
+            }
         }
     }
 }

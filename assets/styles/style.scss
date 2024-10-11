@@ -34,12 +34,14 @@ a {
 
 .heading {
     font-size: clamp(1.875rem, 1.249rem + 1.3vw, 2.5rem);
+    line-height: clamp(1.875rem, 1.249rem + 1.3vw, 2.5rem);
     font-weight: 700;
     text-transform: uppercase;
 }
 
 .small_heading{
-    font-size: clamp(1.5rem, 0.999rem + 1.04vw, 2rem);
+    font-size: clamp(1.25rem, 1.037rem + 1vw, 2rem);
+    line-height: clamp(1.25rem, 1.037rem + 1vw, 2rem);
     font-weight: 700;
 }
 
@@ -87,7 +89,7 @@ a {
     min-width: 100%;
     min-height: 40rem;
 
-    #introImg {
+    .intro_img_photo {
         position: absolute;
         top: 0;
         left: 50%;
@@ -1063,77 +1065,80 @@ button {
         z-index: 2;
     }
 
-    .media {
+    .media_wrapper {
         position: relative;
         z-index: 3;
+    }
+}
 
-        .media_card_wrapper {
-            background-color: #151515;
-            overflow: hidden;
-            border-radius: 15px;
+.media_card_wrapper {
+    background-color: #151515;
+    overflow: hidden;
+    border-radius: 15px;
 
-            .card_text {
-                padding: clamp(1.094rem, -0.001rem + 2.28vw, 2.188rem) clamp(0.625rem, -0.001rem + 1.3vw, 1.25rem);
-                line-height: 1.2;
+    .card_text {
+        padding: clamp(1.094rem, -0.001rem + 2.28vw, 2.188rem) clamp(0.625rem, -0.001rem + 1.3vw, 1.25rem);
+        line-height: 1.2;
 
-                .album_name {
-                    font-size: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
-                    font-family: "Museo700";
-                    margin-bottom: clamp(0.5rem, -0.001rem + 1.04vw, 1rem);
-                }
-
-                .date {
-                    margin-bottom: 0;
-                    color: #888888;
-                    font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
-                }
-            }
-
-            &:hover {
-                img {
-                    filter: grayscale(1);
-                    transform: translate(-50%, -50%) scale(1.1);
-                }
-
-                p {
-                    color: #c1c1c1;
-                }
-            }
+        .album_name {
+            font-size: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
+            font-family: "Museo700";
+            margin-bottom: clamp(0.5rem, -0.001rem + 1.04vw, 1rem);
         }
 
-        .media_card {
-            width: 100%;
-            padding-bottom: 50%;
-            z-index: 6;
-            width: 100%;
-            display: flex;
-            position: relative;
-            overflow: hidden;
-            min-width: 100%;
-
-            img {
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -50%);
-                min-width: 100%;
-                height: 100%;
-                object-fit: cover;
-                transition: all 0.2s ease-in-out;
+        .date {
+            margin-bottom: 0;
+            color: #888888;
+            font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
+            img{
+                height:  clamp(0.825rem, 0.25rem + 0.78vw, 1.2rem);
             }
         }
+    }
 
-        .small_media_card {
-            margin-bottom: 0.35vw;
-
-            .media_card {
-                padding-bottom: 60%;
-            }
-
-            .card_text {
-                padding: clamp(0.875rem, 0.061rem + 1.69vw, 1.688rem)clamp(0.75rem, 0.124rem + 1.3vw, 1.375rem) clamp(0.438rem, 0.062rem + 0.78vw, 0.813rem);
-            }
+    &:hover {
+        .media_card_img {
+            filter: grayscale(1);
+            transform: translate(-50%, -50%) scale(1.1);
         }
+
+        p {
+            color: #c1c1c1;
+        }
+    }
+}
+
+.media_card {
+    width: 100%;
+    padding-bottom: 50%;
+    z-index: 6;
+    width: 100%;
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    min-width: 100%;
+
+    .media_card_img {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: all 0.2s ease-in-out;
+    }
+}
+
+.small_media_card {
+    margin-bottom: 0.35vw !important;
+
+    .media_card {
+        padding-bottom: 60%;
+    }
+
+    .card_text {
+        padding: clamp(0.875rem, 0.061rem + 1.69vw, 1.688rem)clamp(0.75rem, 0.124rem + 1.3vw, 1.375rem) clamp(0.438rem, 0.062rem + 0.78vw, 0.813rem);
     }
 }
 
@@ -1449,6 +1454,7 @@ footer {
 }
 
 .post_card{
+    margin-bottom: 1vw;
     padding-bottom: 100%;
     z-index: 6;
     width: 100%;
@@ -1827,16 +1833,17 @@ display: block;
 }
 
 .tab_pages{
-    margin-top: 4vw;
+    margin-top: clamp(3.75rem, 3.039rem + 3.35vw, 6.25rem);
 }
 
 .tickets{
     .tickets_block{
         background-color: #1A1A1A;
         border-radius: 15px;
-        padding: 30px;
+        padding: clamp(0.938rem, 0.671rem + 1.26vw, 1.875rem);
         display: grid;
         grid-template-columns:  35% 1fr;
+        margin-top: 3vw;
         .ticket_competition_info{
             font-family: "Museo500";
             font-weight: 300;
@@ -1891,15 +1898,24 @@ display: block;
                 padding-top:clamp(1.25rem, -0.94rem + 4.56vw, 2rem);
                 padding-bottom: clamp(0.938rem, -0.001rem + 1.96vw, 1.875rem);
                 .small_heading{
-
                     margin-bottom: 1vw;
                     font-size: clamp(1rem, 0.75rem + 0.52vw, 1.25rem);
                 }
+                
+                .input_wrapper {
+                    display: flex;
+                    align-items: center;
+                    margin-top: 5px; 
+                    input {
+                        margin-right: 5px;
+                    
+                    }
+                }             
             }
         }
 
         .next_btn{
-            margin-top: 1vw;
+            margin-top: 20px;
             transition: all 0.2s;
             border: none;
             width: 100%;
@@ -1918,5 +1934,81 @@ display: block;
 }
 
 .error{
-    color: #650d0d;
+    color: #c72020;
+    display: none;
+}
+
+/* материалы на странице одного МАТЧА */
+.one_competition_media_section{
+    margin-bottom: clamp(2.5rem, 1.967rem + 2.51vw, 4.375rem);
+    .media_card_wrapper{
+        margin-bottom: 1vw !important;
+    }
+}
+.no_media{
+    text-align: center;
+    margin: 3vw auto;
+    margin-bottom: 5vw;
+    dotlottie-player{
+        margin: 0 auto;
+    }
+    p{
+        font-size: clamp(1rem, 0.858rem + 0.67vw, 1.5rem);
+    }
+}
+
+/* СОСТАВ КОМАНДЫ */
+
+.player_position_title{
+    text-transform: uppercase;
+    font-family: "Oswald", sans-serif;
+    line-height: clamp(3rem, 2.146rem + 4.02vw, 6rem);
+    font-size: clamp(3rem, 2.146rem + 4.02vw, 6rem);
+    color: #505050;
+    font-weight: 600;
+    text-align: center;
+}
+
+.players{
+    margin-bottom: 4vw;
+    display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+
+}
+.player_card{
+    background-color: #1A1A1A;
+    padding-bottom: 130%;
+    &:hover{
+        background: linear-gradient(0deg, rgba(43,3,3,1) 0%, rgba(26,26,26,1) 100%);
+    }
+   
+    .player_img{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        min-width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .post_name{
+        word-spacing: 9999999px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        p{
+            margin-bottom: 0;
+        }
+        .player_name{
+            text-transform: uppercase;
+            font-size:clamp(1rem, 0.715rem + 1.34vw, 2rem);
+            line-height: clamp(1rem, 0.715rem + 1.34vw, 2rem);
+        }
+        .player_num{
+            font-size: clamp(2rem, 1.431rem + 2.68vw, 4rem);
+            line-height: clamp(2rem, 1.431rem + 2.68vw, 4rem);
+        }
+    }
+    
 }
