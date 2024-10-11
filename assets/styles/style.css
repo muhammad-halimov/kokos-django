@@ -35,6 +35,11 @@ a {
   text-transform: uppercase;
 }
 
+.small_heading {
+  font-size: clamp(1.5rem, 0.999rem + 1.04vw, 2rem);
+  font-weight: 700;
+}
+
 .txt32 {
   font-size: 24px;
 }
@@ -79,7 +84,7 @@ a {
   min-width: 100%;
   min-height: 40rem;
 }
-.intro_img img {
+.intro_img #introImg {
   position: absolute;
   top: 0;
   left: 50%;
@@ -153,7 +158,7 @@ header .header_content nav ul .networks a img {
   margin: 0;
   padding: 0;
 }
-.logo_text .name {
+.logo_text .name, .logo_text .full_screen_score .arena, .full_screen_score .logo_text .arena {
   letter-spacing: 4px;
   text-transform: uppercase;
   font-size: clamp(0.75rem, -0.185rem + 1.5vw, 1.25rem);
@@ -735,7 +740,7 @@ button {
   font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
   margin-bottom: 1%;
 }
-.next_competition .info .name {
+.next_competition .info .name, .next_competition .info .full_screen_score .arena, .full_screen_score .next_competition .info .arena {
   text-transform: uppercase;
   font-size: clamp(0.688rem, 0.124rem + 1.17vw, 1.25rem);
 }
@@ -1444,32 +1449,44 @@ footer {
 }
 
 .tabs {
+  margin-bottom: 0;
   display: flex;
-  border-bottom: 4px solid #ccc;
+  border-bottom: 4px solid transparent;
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-x: scroll;
 }
 
 .tab {
-  font-size: clamp(1rem, 0.926rem + 0.34vw, 1.25rem);
-  padding: 10px 30px;
+  font-size: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
+  padding: clamp(0.375rem, 0.125rem + 0.52vw, 0.625rem) clamp(0.875rem, -0.126rem + 2.09vw, 1.875rem);
   cursor: pointer;
   position: relative;
   text-transform: uppercase;
   font-family: "Museo700";
   color: white;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  color: #424242;
 }
 
 .tab.active {
-  color: #821313;
+  color: #9e1818;
 }
 
 .tab.active::after {
   content: "";
   position: absolute;
-  bottom: -4px;
+  bottom: 0px;
   left: 0;
   right: 0;
   height: 4px;
-  background-color: #821313;
+  background-color: #9e1818;
 }
 
 .posts_filter_year {
@@ -1484,6 +1501,13 @@ footer {
 .past-matches.active,
 .upcoming-matches.active {
   display: block;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  background-color: transparent;
 }
 
 .competition_card {
@@ -1590,4 +1614,156 @@ footer {
 }
 .right_part_ended:hover {
   background-color: #1d1d1d !important;
+}
+
+/* one COMPETITION page*/
+.full_screen_score {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Museo900";
+}
+.full_screen_score .name, .full_screen_score .arena {
+  font-family: "Museo500";
+  color: #B29898;
+  font-size: clamp(0.875rem, 0.5rem + 0.78vw, 1.25rem);
+}
+.full_screen_score .date {
+  font-size: clamp(1.5rem, -0.002rem + 3.13vw, 3rem);
+}
+.full_screen_score .arena {
+  text-transform: none;
+}
+.full_screen_score .full_screen_score_block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 2rem 0;
+}
+.full_screen_score .full_screen_score_block .full_screen_score_team {
+  position: relative;
+}
+.full_screen_score .full_screen_score_block .full_screen_score_team img {
+  height: clamp(6.25rem, 2.495rem + 7.82vw, 10rem);
+}
+.full_screen_score .full_screen_score_block .full_screen_score_team p {
+  margin-top: 2.7vw;
+  text-transform: uppercase;
+  line-height: clamp(1.25rem, 0.499rem + 1.56vw, 2rem);
+  font-size: clamp(1.25rem, 0.499rem + 1.56vw, 2rem);
+}
+.full_screen_score .full_screen_score_block .score {
+  margin: 0 auto;
+  white-space: nowrap;
+  font-size: clamp(3.75rem, -0.005rem + 7.82vw, 7.5rem);
+}
+
+.tickets_tab {
+  background-color: #1A1A1A;
+}
+
+.tickets,
+.stream,
+.team_composition, .statistics, .media {
+  display: none;
+}
+
+.tickets.active,
+.stream.active,
+.team_composition.active, .statistics.active, .media.active {
+  display: block;
+}
+
+.tab_pages {
+  margin-top: 4vw;
+}
+
+.tickets .tickets_block {
+  background-color: #1A1A1A;
+  border-radius: 15px;
+  padding: 30px;
+  display: grid;
+  grid-template-columns: 35% 1fr;
+}
+.tickets .tickets_block .ticket_competition_info {
+  font-family: "Museo500";
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 20px 10px 20px 0;
+  font-size: clamp(1rem, 0.499rem + 1.04vw, 1.5rem);
+}
+.tickets .tickets_block .ticket_competition_info span {
+  margin-right: 0.7vw;
+}
+.tickets .tickets_block .ticket_competition_info .ticket_competition_name {
+  color: #9a9a9a;
+}
+.tickets .tickets_block .ticket_competition_info .ticket_bold_info {
+  margin: 0;
+  font-size: clamp(1rem, 0.499rem + 1.04vw, 1.5rem);
+}
+.tickets .tickets_block .ticket_user_info_form {
+  background-color: #0E0E0E;
+  border-radius: 15px;
+  padding: clamp(1.25rem, -0.94rem + 4.56vw, 3.438rem) clamp(1.188rem, -0.002rem + 2.48vw, 2.375rem);
+  padding-bottom: clamp(0.938rem, -0.001rem + 1.96vw, 1.875rem);
+}
+.tickets .tickets_block .ticket_user_info_form label {
+  display: block;
+}
+.tickets .tickets_block .ticket_user_info_form input {
+  display: block;
+  width: clamp(18.75rem, -5.828rem + 51.2vw, 29.375rem);
+}
+.tickets .tickets_block .ticket_user_info_form .add_person_btn {
+  text-transform: none;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  padding: 9px 16px;
+  font-family: "Museo500";
+  transition: all 0.2s;
+}
+.tickets .tickets_block .ticket_user_info_form .add_person_btn span {
+  font-size: 22px;
+  margin-right: 0.5vw;
+}
+.tickets .tickets_block .ticket_user_info_form .add_person_btn:hover {
+  background-color: rgb(219, 219, 219);
+}
+.tickets .tickets_block .ticket_user_info_form .adding_person_bock {
+  display: none;
+  margin-top: 2vw;
+  background-color: #1A1A1A;
+  border-radius: 15px;
+  padding: clamp(1.25rem, -0.94rem + 4.56vw, 3.438rem) clamp(1.188rem, -0.002rem + 2.48vw, 2.375rem);
+  padding-top: clamp(1.25rem, -0.94rem + 4.56vw, 2rem);
+  padding-bottom: clamp(0.938rem, -0.001rem + 1.96vw, 1.875rem);
+}
+.tickets .tickets_block .ticket_user_info_form .adding_person_bock .small_heading {
+  margin-bottom: 1vw;
+  font-size: clamp(1rem, 0.75rem + 0.52vw, 1.25rem);
+}
+.tickets .tickets_block .next_btn {
+  margin-top: 1vw;
+  transition: all 0.2s;
+  border: none;
+  width: 100%;
+  background-color: #821313;
+  border-radius: 7px;
+  text-transform: uppercase;
+  color: white;
+  padding: clamp(0.838rem, 0.187rem + 0.52vw, 1rem) clamp(1.688rem, 0.248rem + 3vw, 3.125rem);
+  font-size: clamp(0.688rem, 0.375rem + 0.65vw, 1rem);
+}
+.tickets .tickets_block .next_btn:hover {
+  background-color: #520909;
+}
+
+.error {
+  color: #650d0d;
 }/*# sourceMappingURL=style.css.map */

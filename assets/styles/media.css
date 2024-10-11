@@ -29,7 +29,7 @@
     min-height: 200px;
     z-index: 2;
   }
-  .intro_img img {
+  .intro_img #introImg {
     width: 100%;
     -o-object-fit: cover;
        object-fit: cover;
@@ -246,6 +246,20 @@
     border-top: dashed rgb(105, 15, 15) 2px;
     padding: 20px 10px;
     border-radius: 15px;
+  }
+  .competition_card .right_part_ended {
+    border-top: dashed #151515 2px !important;
+    border-left: none;
+  }
+  /* one COMPETITION page*/
+  .full_screen_score_team img {
+    height: clamp(3.75rem, 1.759rem + 9.37vw, 6.25rem) !important;
+  }
+  .full_screen_score_team p {
+    font-size: clamp(0.875rem, 0.576rem + 1.41vw, 1.25rem) !important;
+  }
+  .tickets .tickets_block {
+    display: block;
   }
 }
 @media (max-width: 600px) {
