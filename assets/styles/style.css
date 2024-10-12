@@ -86,7 +86,8 @@ a {
   min-width: 100%;
   min-height: 40rem;
 }
-.intro_img .intro_img_photo {
+
+.intro_img_photo {
   position: absolute;
   top: 0;
   left: 50%;
@@ -1468,7 +1469,7 @@ footer {
   overflow-x: scroll;
 }
 
-.tab {
+.tab, .tab_one_competition {
   font-size: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
   padding: clamp(0.375rem, 0.125rem + 0.52vw, 0.625rem) clamp(0.875rem, -0.126rem + 2.09vw, 1.875rem);
   cursor: pointer;
@@ -1480,15 +1481,15 @@ footer {
   transition: all 0.2s;
 }
 
-.tab:hover {
+.tab:hover, .tab_one_competition:hover {
   color: #424242;
 }
 
-.tab.active {
+.tab.active, .active.tab_one_competition {
   color: #9e1818;
 }
 
-.tab.active::after {
+.tab.active::after, .active.tab_one_competition::after {
   content: "";
   position: absolute;
   bottom: 0px;

@@ -1,9 +1,9 @@
-const tabs = document.querySelectorAll('.tab');
+const tabsOneCompetition = document.querySelectorAll('.tab_one_competition');
 const tabContents = document.querySelectorAll('.tickets, .stream, .team_composition, .statistics, .media');
 
-tabs.forEach((tab, index) => {
+tabsOneCompetition.forEach((tab, index) => {
     tab.addEventListener('click', () => {
-        tabs.forEach(t => t.classList.remove('active'));
+      tabsOneCompetition.forEach(t => t.classList.remove('active'));
         tab.classList.add('active');
 
         tabContents.forEach(content => content.classList.remove('active'));
@@ -98,3 +98,4 @@ ticketForm.addEventListener('submit', (event) => {
     console.log('Не все поля заполнены');
   }
 });
+

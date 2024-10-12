@@ -88,21 +88,20 @@ a {
     overflow: hidden;
     min-width: 100%;
     min-height: 40rem;
-
-    .intro_img_photo {
-        position: absolute;
-        top: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        filter: brightness(60%);
-        min-width: 100%;
-        min-height: 100%;
-        width: auto;
-        height: auto;
-        max-width: none;
-        max-height: none;
-        object-fit: cover;
-    }
+}
+.intro_img_photo {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    filter: brightness(60%);
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    max-width: none;
+    max-height: none;
+    object-fit: cover;
 }
 
 
@@ -1621,6 +1620,10 @@ footer {
     color: white;
     flex-shrink: 0; 
     transition: all 0.2s;
+}
+
+.tab_one_competition{
+    @extend .tab;
 }
 
 .tab:hover{
