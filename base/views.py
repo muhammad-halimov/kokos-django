@@ -6,11 +6,15 @@ from django.shortcuts import render, redirect
 from . import forms
 from . import models
 
+
 # Функция для отображения главной страницы
 def index(request):
+    news_obj = models.News.objects.all()[:4]
+
     # Передача данных в контекст для рендеринга шаблона
-    context = {}
+    context = {'news': news_obj}
     return render(request, template_name='base/main.html', context=context)
+
 
 # Функция для отображения страницы входа в систему
 def authorize(request):
@@ -77,13 +81,32 @@ def logout_page(request):
 
 # Функция для отображения новостной страницы
 def news(request):
+    news_obj = models.News.objects.all()[:9]
+
     # Передача данных в контекст для рендеринга шаблона
-    context = {}
+    context = {'news': news_obj}
     return render(request, template_name='base/news.html', context=context)
 
 
 # Функция для отображения конкретного поста
-def post_page(request):
+def post_page(request, pk):
+    news_obj = models.News.objects.all()[:4]
+    post = models.News.objects.get(id=pk)
+
+    # Передача данных в контекст для рендеринга шаблона
+    context = {'post': post, 'news': news_obj}
+    return render(request, template_name='base/post.html', context=context)
+
+
+# Функция для отображения страницы матчей
+def competitions(request):
     # Передача данных в контекст для рендеринга шаблона
     context = {}
-    return render(request, template_name='base/post.html', context=context)
+    return render(request, template_name='base/competitions.html', context=context)
+
+
+# Функция для отображения страницы матчей
+def competition(request):
+    # Передача данных в контекст для рендеринга шаблона
+    context = {}
+    return render(request, template_name='base/competition.html', context=context)

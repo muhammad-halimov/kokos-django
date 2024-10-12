@@ -12,9 +12,3 @@ function changeImage() {
 }
 
 setInterval(changeImage, 10000);
-
-let pass1 = document.getElementById('id_password1');
-let pass2 = document.getElementById('id_password2');
-
-pass1['placeholder'] = 'Ваш пароль';
-pass2['placeholder'] = 'Ваш пароль';

@@ -11,8 +11,8 @@
             <nav class="navigation">
                 <ul>
                     <li><a href=""><img loading="lazy" src="{% static 'img/icons/cart.svg' %}"></a></li>
-                    <li><a href="">Магазин</a></li>
-                    <li><a href="">Матчи</a></li>
+                    <li><a href="{% url 'index' %}">Магазин</a></li>
+                    <li><a href="{% url 'competitions' %}">Матчи</a></li>
                     <li><a href="{% url 'news' %}">Новости</a></li>
                     <li><a href="">Команда</a></li>
                     <li><a href="">История</a></li>

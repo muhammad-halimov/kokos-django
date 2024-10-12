@@ -1,0 +1,297 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}ФК Кокос | Матч{% endblock %}
+{% block content %}
+    <main>
+        <div class="intro_img full_height_img">
+            <div class="intro_news_block">
+                <img src="{% static 'img/background.png' %}" class="intro_img_photo">
+                <div class="container">
+                    <div class="full_screen_score">
+                        <div class="full_screen_score_name_date">
+                            <p class="name">FONBET Кубок России</p>
+                            <p  class="date">20 октября 20:20</p>
+                        </div>
+                        <div class="container">
+                            <div class="full_screen_score_block">
+                                <div class="full_screen_score_team">
+                                    <img src="{% static 'img/icons/logo.png' %}">
+                                    <p>Кокос групп</p>
+                                </div>
+                                <p class="score">3 : 2</p>
+                                <div class="full_screen_score_team">
+                                    <img src="{% static 'img/icons/dinamo.png' %}">
+                                    <p>Динамо</p>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="arena">Название арены</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="margin_content">
+                <div class="tabs">
+                    <!-- если матч состоялся то убираем эту кнопку "Пойти на матч"
+                     и навешиавем .active на трансляции-->
+                    <div class="tab active tickets_tab">Пойти на матч</div>
+                    <div class="tab">Трансляция</div>
+                    <div class="tab">Команда</div>
+                    <div class="tab">Статистика</div>
+                    <div class="tab">Материалы</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="tab_pages">
+                <div class="tickets active">
+                    <div class="heading">РЕГИСТРАЦИЯ НА МАТЧ</div>
+                    <div class="tickets_block">
+                        <div class="ticket_competition_info">
+                            <p class="ticket_competition_name"><span>МАТЧ:</span>FONBET Кубок России</p>
+                            <p class="ticket_bold_info"><span>ВРЕМЯ:</span>20 октября 20:20</p>
+                            <p class="ticket_bold_info"><span>СТАДИОН:</span> АК бАРС аРЕНА</p>
+                        </div>
+                        <div class="ticket_user_info">
+
+                            <form id="ticketForm">
+                                <div class="ticket_user_info_form signup_form">
+                                    <p class="small_heading">Проверьте данные для получения билета:</p>
+                                    <label class="" for="name_surname">
+                                        Имя и фамилия
+                                        <input id="name_surname" name="name_surname" type="text">
+                                    </label>
+                                    <label class="" for="email">
+                                        E-mail
+                                        <input id="email" name="email" type="email">
+                                    </label>
+                                    <label class="" for="phone">
+                                        Телефон
+                                        <input id="phone" name="phone" type="tel">
+                                    </label>
+                                    <button class="add_person_btn" type=button><span>+</span> Добавить болельщика</button>
+                                    <div class="adding_person_bock">
+                                        <div class="small_heading">Дополнительные билеты:</div>
+                                        <!-- здесь поля для доп билетов появляются -->
+                                    </div>
+                                </div>
+                                <button class="next_btn">Далее →</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="stream">
+                    <div class="heading">Трансляция</div>
+                    <div class="one_competition_media_section">
+                        <!-- если записи стрима или самого стрима нет => .no_media в .one_competition_media_section ↑ -->
+                        <div class="no_media">
+                            <dotlottie-player src="https://lottie.host/8476df42-7ef8-48b2-893f-c03f70f2d29a/ojpfNf37L1.json" background="transparent" speed="1" style="width: 150px; height: 150px;" load="lazy" frameborder="0" loop autoplay></dotlottie-player>
+                            <p>Запись матча появится позже...</p>
+                        </div>
+                        <div class="stream_wrapper">
+                            <iframe src="https://vk.com/video_ext.php?oid=-85447322&id=456241574&hd=3" width="1535" height="570" allow="autoplay; encrypted-media; fullscreen; picture-in-picture; screen-wake-lock;" allowfullscreen></iframe>
+                        </div>
+                        <!-- здесь наверно будет текстовая транса -->
+                        <div class="small_heading my-5">Комментарии</div>
+                    </div>
+                </div>
+
+                <div class="team_composition">
+                    <p class="heading">Команда</p>
+                    <div class="one_competition_media_section">
+                        <p class="player_position_title">ВРАТАРИ</p>
+                        <div class="row players">
+                            <div class="col-md-4 col-sm-6">
+                                <a href="">
+                                    <div class="post_card player_card">
+                                        <img src="{% static 'img/icons/player.png' %}" class="player_img">
+                                        <div class="text_block">
+                                            <div class="text">
+                                                <div class="post_name ">
+                                                    <p class="player_name">
+                                                        Коновалов Егор
+                                                    </p>
+                                                    <p class="player_num">7</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <a href="">
+                                    <div class="post_card player_card">
+                                        <img src="{% static 'img/icons/player.png' %}" class="player_img">
+                                        <div class="text_block">
+                                            <div class="text">
+                                                <div class="post_name ">
+                                                    <p class="player_name">
+                                                        Коновалов Егор
+                                                    </p>
+                                                    <p class="player_num">7</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <a href="">
+                                    <div class="post_card player_card">
+                                        <img src="{% static 'img/icons/player.png' %}" class="player_img">
+                                        <div class="text_block">
+                                            <div class="text">
+                                                <div class="post_name ">
+                                                    <p class="player_name">
+                                                        Коновалов Егор
+                                                    </p>
+                                                    <p class="player_num">7</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6">
+                                <a href="">
+                                    <div class="post_card player_card">
+                                        <img src="{% static 'img/icons/player.png' %}" class="player_img">
+                                        <div class="text_block">
+                                            <div class="text">
+                                                <div class="post_name ">
+                                                    <p class="player_name">
+                                                        Коновалов Егор
+                                                    </p>
+                                                    <p class="player_num">7</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <a href="">
+                                    <div class="post_card player_card">
+                                        <img src="{% static 'img/icons/player.png' %}" class="player_img">
+                                        <div class="text_block">
+                                            <div class="text">
+                                                <div class="post_name ">
+                                                    <p class="player_name">
+                                                        Коновалов Егор
+                                                    </p>
+                                                    <p class="player_num">7</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <p class="player_position_title">Защитники</p>
+                        <p class="player_position_title">Полузащитники</p>
+                        <p class="player_position_title">Нападающие</p>
+                        <p class="player_position_title">Тренерский штаб</p>
+                    </div>
+                </div>
+
+                <div class="statistics">
+                    <p class="heading">Статистика</p>
+                    <div class="one_competition_media_section"></div>
+                </div>
+
+                <div class="media">
+                    <p class="heading">Материалы</p>
+                    <p class="small_heading">Новости</p>
+                    <div class="one_competition_media_section">
+                        <!-- если новости нет => .no_media в .one_competition_media_section ↑ -->
+                        <div class="no_media">
+                            <dotlottie-player src="https://lottie.host/8476df42-7ef8-48b2-893f-c03f70f2d29a/ojpfNf37L1.json" background="transparent" speed="1" style="width: 150px; height: 150px;" load="lazy" frameborder="0" loop autoplay></dotlottie-player>
+                            <p>Новости с матча появятся позже...</p>
+                        </div>
+                        <div class="row">
+                            <!-- если новости есть => ... в row ↑ (в .one_competition_media_section ↑) -->
+                            <div class="col-md-4 col-sm-6">
+                                <a href="">
+                                    <div class="post_card">
+                                        <img src="{% static 'img/cover.jpg' %}" class="post_img">
+                                        <div class="text_block">
+                                            <div class="text">
+                                                <p class="post_name">
+                                                    ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
+                                                </p>
+                                                <p class="post_description">
+                                                    Footer прижимается вниз за счет вытягивания блока контента и его «родителей» на всю высоту окна браузера и подъема футера вверх.
+                                                </p>
+                                                <div class="post_date">
+                                                    <p class="date"><img src="{% static 'img/icons/interview.png' %}"> 02.10.2024 &nbsp;&nbsp; 20:42</p>
+                                                    <button class="post_btn">
+                                                        →
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="small_heading">Фото и видео</p>
+                    <div class="one_competition_media_section">
+                        <div class="no_media">
+                            <dotlottie-player src="https://lottie.host/8476df42-7ef8-48b2-893f-c03f70f2d29a/ojpfNf37L1.json" background="transparent" speed="1" style="width: 150px; height: 150px;" load="lazy" frameborder="0" loop autoplay></dotlottie-player>
+                            <p>Фото и видео с матча появятся позже...</p>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="media_card_wrapper">
+                                    <a href="">
+                                        <div class="media_card">
+                                            <img loading="lazy" src="{% static 'img/cover.jpg' %}" class="media_card_img">
+                                        </div>
+                                        <div class="card_text">
+                                            <p class="album_name">ФОТО “КОКОС ГРУПП” – “КЛАССИКО”</p>
+                                            <p class="date">02.10.2024 &nbsp;&nbsp; 20:42 &nbsp;&nbsp; <img src="{% static 'img/icons/camera.png' %}"> 35</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="media_card_wrapper">
+                                    <a href="">
+                                        <div class="media_card">
+                                            <img loading="lazy" src="{% static 'img/cover.jpg' %}" class="media_card_img">
+                                        </div>
+                                        <div class="card_text">
+                                            <p class="album_name">ФОТО “КОКОС ГРУПП” – “КЛАССИКО”</p>
+                                            <p class="date">02.10.2024 &nbsp;&nbsp; 20:42 &nbsp;&nbsp; <img src="{% static 'img/icons/camera.png' %}"> 35</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div><div class="col-md-6">
+                            <div class="media_card_wrapper">
+                                <a href="">
+                                    <div class="media_card">
+                                        <img loading="lazy" src="{% static 'img/cover.jpg' %}" class="media_card_img">
+                                    </div>
+                                    <div class="card_text">
+                                        <p class="album_name">ФОТО “КОКОС ГРУПП” – “КЛАССИКО”</p>
+                                        <p class="date">02.10.2024 &nbsp;&nbsp; 20:42 &nbsp;&nbsp; <img src="{% static 'img/icons/camera.png' %}"> 35</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script defer type="application/javascript" rel="script" src="{% static 'js/one_competition_tabs.js' %}"></script>
+{% endblock %}

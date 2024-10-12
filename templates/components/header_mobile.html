@@ -1,0 +1,19 @@
+{% load static %}
+<div class="menu_overlay"></div>
+<div class="menu_container">
+    <button class="close_btn clear_btn">
+        <img src="{% static 'img/icons/close.svg' %}">
+    </button>
+    <nav class="menu_navigation">
+        <ul>
+            <li><a href="">Магазин</a></li>
+            <li><a href="{% url 'competitions' %}">Матчи</a></li>
+            <li><a href="{% url 'news' %}">Новости</a></li>
+            <li><a href="">Команда</a></li>
+            <li><a href="">История</a></li>
+            <li><a href="">Медиа</a></li>
+            <li><a href="">Партнерам</a></li>
+            <li><a href="">Билеты</a></li>
+        </ul>
+    </nav>
+</div>

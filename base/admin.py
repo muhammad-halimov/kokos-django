@@ -198,11 +198,18 @@ class Ticket(admin.ModelAdmin):
     list_filter = models.Ticket.FilterFields
 
 
-@admin.register(models.City)
-class City(admin.ModelAdmin):
-    list_display = models.City.DisplayFields
-    search_fields = models.City.SearchableFields
-    list_filter = models.City.FilterFields
+@admin.register(models.Countries)
+class Countries(admin.ModelAdmin):
+    list_display = models.Countries.DisplayFields
+    search_fields = models.Countries.SearchableFields
+    list_filter = models.Countries.FilterFields
+
+
+@admin.register(models.Cities)
+class Cities(admin.ModelAdmin):
+    list_display = models.Cities.DisplayFields
+    search_fields = models.Cities.SearchableFields
+    list_filter = models.Cities.FilterFields
 
 
 @admin.register(models.Tournament)

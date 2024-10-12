@@ -31,8 +31,15 @@ a {
 
 .heading {
   font-size: clamp(1.875rem, 1.249rem + 1.3vw, 2.5rem);
+  line-height: clamp(1.875rem, 1.249rem + 1.3vw, 2.5rem);
   font-weight: 700;
   text-transform: uppercase;
+}
+
+.small_heading {
+  font-size: clamp(1.25rem, 1.037rem + 1vw, 2rem);
+  line-height: clamp(1.25rem, 1.037rem + 1vw, 2rem);
+  font-weight: 700;
 }
 
 .txt32 {
@@ -79,7 +86,7 @@ a {
   min-width: 100%;
   min-height: 40rem;
 }
-.intro_img img {
+.intro_img .intro_img_photo {
   position: absolute;
   top: 0;
   left: 50%;
@@ -106,7 +113,7 @@ header .header_content {
   display: flex;
   align-items: center;
   width: 100%;
-  padding: 3px 15px;
+  padding: 9px 13px;
   justify-content: space-between;
   background: rgba(22, 22, 22, 0.6);
   -webkit-backdrop-filter: blur(15px);
@@ -115,11 +122,11 @@ header .header_content {
 }
 header .header_content nav {
   text-transform: uppercase;
-  margin-top: clamp(0.938rem, 0.625rem + 0.65vw, 1.25rem);
 }
 header .header_content nav ul {
+  margin-bottom: 0;
   display: flex;
-  gap: clamp(1.18rem, 0.179rem + 2.09vw, 2.18rem);
+  gap: clamp(0.688rem, -0.502rem + 2.48vw, 1.875rem);
   font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
 }
 header .header_content nav ul li a {
@@ -131,7 +138,7 @@ header .header_content nav ul li a:hover {
 }
 header .header_content nav ul .networks {
   display: flex;
-  gap: 10px;
+  gap: clamp(0.375rem, 0.125rem + 0.52vw, 0.625rem);
 }
 header .header_content nav ul .networks a img {
   height: clamp(0.938rem, 0.75rem + 0.39vw, 1.125rem);
@@ -153,26 +160,27 @@ header .header_content nav ul .networks a img {
   margin: 0;
   padding: 0;
 }
-.logo_text .name {
+.logo_text .name, .logo_text .full_screen_score .arena, .full_screen_score .logo_text .arena {
   letter-spacing: 4px;
   text-transform: uppercase;
   font-size: clamp(0.75rem, -0.185rem + 1.5vw, 1.25rem);
 }
 
-.log_in img {
+.header_side_buttons a img {
   width: clamp(1.75rem, 0.874rem + 1.83vw, 2.625rem);
 }
 
 .header_side_buttons {
   display: flex;
   align-items: center;
-  gap: 1vw;
+  gap: 0.8vw;
 }
 
-.clear_btn {
+button {
   background-color: transparent;
   border: none;
   outline: none;
+  box-shadow: none;
 }
 
 .menu_btn {
@@ -526,11 +534,6 @@ header .header_content nav ul .networks a img {
   color: #B07575;
   font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
 }
-.carousel_center_col .competiton_score {
-  font-weight: 800;
-  font-size: clamp(1.8rem, 0.375rem + 1.625vw, 2.25rem);
-  font-family: "Oswald", sans-serif;
-}
 .carousel_center_col .competiton_place {
   color: #B07575;
   margin-bottom: 0;
@@ -538,6 +541,12 @@ header .header_content nav ul .networks a img {
 }
 .carousel_center_col .competiton_name {
   font-size: clamp(0.625rem, 0.219rem + 1.094vw, 1.25rem);
+}
+
+.competiton_score {
+  font-weight: 800;
+  font-size: clamp(1.8rem, 0.375rem + 1.625vw, 2.25rem);
+  font-family: "Oswald", sans-serif;
 }
 
 .standings_row {
@@ -733,7 +742,7 @@ header .header_content nav ul .networks a img {
   font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
   margin-bottom: 1%;
 }
-.next_competition .info .name {
+.next_competition .info .name, .next_competition .info .full_screen_score .arena, .full_screen_score .next_competition .info .arena {
   text-transform: uppercase;
   font-size: clamp(0.688rem, 0.124rem + 1.17vw, 1.25rem);
 }
@@ -948,37 +957,42 @@ header .header_content nav ul .networks a img {
   left: 0;
   z-index: 2;
 }
-.media_block .media {
+.media_block .media_wrapper {
   position: relative;
   z-index: 3;
 }
-.media_block .media .media_card_wrapper {
+
+.media_card_wrapper {
   background-color: #151515;
   overflow: hidden;
   border-radius: 15px;
 }
-.media_block .media .media_card_wrapper .card_text {
+.media_card_wrapper .card_text {
   padding: clamp(1.094rem, -0.001rem + 2.28vw, 2.188rem) clamp(0.625rem, -0.001rem + 1.3vw, 1.25rem);
   line-height: 1.2;
 }
-.media_block .media .media_card_wrapper .card_text .album_name {
+.media_card_wrapper .card_text .album_name {
   font-size: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
   font-family: "Museo700";
   margin-bottom: clamp(0.5rem, -0.001rem + 1.04vw, 1rem);
 }
-.media_block .media .media_card_wrapper .card_text .date {
+.media_card_wrapper .card_text .date {
   margin-bottom: 0;
   color: #888888;
   font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
 }
-.media_block .media .media_card_wrapper:hover img {
+.media_card_wrapper .card_text .date img {
+  height: clamp(0.825rem, 0.25rem + 0.78vw, 1.2rem);
+}
+.media_card_wrapper:hover .media_card_img {
   filter: grayscale(1);
   transform: translate(-50%, -50%) scale(1.1);
 }
-.media_block .media .media_card_wrapper:hover p {
+.media_card_wrapper:hover p {
   color: #c1c1c1;
 }
-.media_block .media .media_card {
+
+.media_card {
   width: 100%;
   padding-bottom: 50%;
   z-index: 6;
@@ -988,7 +1002,7 @@ header .header_content nav ul .networks a img {
   overflow: hidden;
   min-width: 100%;
 }
-.media_block .media .media_card img {
+.media_card .media_card_img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -999,20 +1013,25 @@ header .header_content nav ul .networks a img {
      object-fit: cover;
   transition: all 0.2s ease-in-out;
 }
-.media_block .media .small_media_card {
-  margin-bottom: 0.35vw;
+
+.small_media_card {
+  margin-bottom: 0.35vw !important;
 }
-.media_block .media .small_media_card .media_card {
+.small_media_card .media_card {
   padding-bottom: 60%;
 }
-.media_block .media .small_media_card .card_text {
+.small_media_card .card_text {
   padding: clamp(0.875rem, 0.061rem + 1.69vw, 1.688rem) clamp(0.75rem, 0.124rem + 1.3vw, 1.375rem) clamp(0.438rem, 0.062rem + 0.78vw, 0.813rem);
 }
 
 footer {
+  background-color: #0E0E0E;
+  margin-top: 5vw;
   color: #656565;
   text-align: center;
   padding: 3rem 0;
+  position: relative;
+  z-index: 3;
 }
 
 /* страница SIGN UP SIGN IN */
@@ -1153,7 +1172,7 @@ footer {
   border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
   width: 100%;
   margin-top: 70vh;
-  padding: clamp(2.125rem, 0.06rem + 4.3vw, 4.188rem) clamp(1.5rem, -0.065rem + 3.26vw, 3.063rem);
+  padding: clamp(1.25rem, 0.382rem + 3.97vw, 4.188rem);
 }
 .post .post_name_block .date_and_repost {
   width: 100%;
@@ -1163,30 +1182,41 @@ footer {
 }
 .post .post_name_block .date_and_repost .date {
   color: #868686;
-  margin-right: clamp(1.625rem, -0.002rem + 3.39vw, 3.25rem);
 }
-.post .post_name_block .date_and_repost .repost {
+.post .post_name_block .date_and_repost .repost, .post .post_name_block .date_and_repost .news_type {
+  margin-left: clamp(1.625rem, -0.002rem + 3.39vw, 3.25rem);
   display: flex;
   color: #0E0E0E;
   text-transform: uppercase;
 }
-.post .post_name_block .date_and_repost .repost p {
+.post .post_name_block .date_and_repost .repost p, .post .post_name_block .date_and_repost .news_type p {
   margin-right: 0.4vw;
 }
-.post .post_name_block .date_and_repost .repost a {
+.post .post_name_block .date_and_repost .repost a, .post .post_name_block .date_and_repost .news_type a {
   margin-right: 0.4vw;
   cursor: pointer;
 }
-.post .post_name_block .date_and_repost .repost a img {
+.post .post_name_block .date_and_repost .repost a img, .post .post_name_block .date_and_repost .news_type a img {
   height: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);
+  width: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);
 }
-.post .post_name_block .post_name {
+.post .post_name_block .date_and_repost .news_type .type_icon {
+  text-align: center;
+  border-radius: 4px;
+  background-color: #821313;
+  height: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);
+  width: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);
+}
+.post .post_name_block .date_and_repost .news_type .type_icon img {
+  height: 70%;
+}
+.post .post_name_block .post_title {
   margin-top: 1vw;
   color: #0E0E0E;
   text-transform: uppercase;
-  font-size: clamp(2.188rem, 0.122rem + 4.3vw, 4.25rem);
+  font-size: clamp(1.5rem, 0.706rem + 3.63vw, 4.188rem);
   font-family: "Museo900";
-  line-height: clamp(2.188rem, 0.122rem + 4.3vw, 4.25rem);
+  line-height: clamp(1.5rem, 0.706rem + 3.63vw, 4.188rem);
 }
 
 .post_content {
@@ -1198,7 +1228,6 @@ footer {
 }
 .post_content .post_text_block, .post_content .sidebar_other_posts {
   background-color: white;
-  align-self: start;
   border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
 }
 .post_content .post_text_block {
@@ -1274,6 +1303,8 @@ footer {
   margin-top: 4vw;
   margin-bottom: 2vw;
   width: 100%;
+  display: flex;
+  gap: 1.2vw;
 }
 
 .posts_filter {
@@ -1282,6 +1313,7 @@ footer {
 }
 
 .post_card {
+  margin-bottom: 1vw;
   padding-bottom: 100%;
   z-index: 6;
   width: 100%;
@@ -1291,7 +1323,7 @@ footer {
   min-width: 100%;
   border-radius: 15px;
 }
-.post_card img {
+.post_card .post_img {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -1302,7 +1334,7 @@ footer {
      object-fit: cover;
   transition: all 0.2s ease-in-out;
 }
-.post_card img:hover {
+.post_card .post_img:hover {
   filter: grayscale(1);
   transform: translate(-50%, -50%) scale(1.1);
 }
@@ -1337,10 +1369,13 @@ footer {
   line-height: clamp(0.7rem, 0.312rem + 0.65vw, 1rem);
 }
 .post_card .text_block .text .post_date {
-  font-size: clamp(0.75rem, 0.625rem + 0.26vw, 0.875rem);
+  font-size: clamp(0.625rem, 0.551rem + 0.34vw, 0.875rem);
   display: flex;
   align-items: end;
   justify-content: space-between;
+}
+.post_card .text_block .text .post_date img {
+  width: 22px;
 }
 .post_card .text_block .text .post_date .date {
   margin-bottom: 0;
@@ -1350,8 +1385,12 @@ footer {
   background-color: #821313;
   border: none;
   color: white;
+  transition: all 0.2s;
   border-radius: 7px;
   padding: clamp(0.25rem, 0.52vw, 0.5rem) clamp(0.5rem, -0.001rem + 1.04vw, 1rem);
+}
+.post_card .text_block .text .post_date .post_btn:hover {
+  background-color: #650d0d;
 }
 
 .pagination_block {
@@ -1381,4 +1420,443 @@ footer {
   background-color: #121212;
   color: #2b2b2b;
   border: #0E0E0E;
+}
+
+.comments {
+  z-index: 3;
+  position: relative;
+  background-color: white;
+  border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
+  width: 100%;
+  margin-top: 1.3vw;
+  padding: clamp(1.25rem, 0.382rem + 3.97vw, 4.188rem);
+}
+.comments .heading {
+  color: #0E0E0E;
+}
+
+.news_search_block {
+  display: flex;
+  text-align: center;
+  background-color: #1A1A1A;
+  border-radius: 7px;
+}
+.news_search_block .news_search {
+  width: 90%;
+  background-color: #1A1A1A;
+}
+.news_search_block button {
+  float: right;
+}
+.news_search_block button img {
+  max-width: 30px;
+}
+
+/* COMPETITIONS TICKETS PAGE */
+.margin_content {
+  margin-top: 4vw;
+}
+
+.tabs {
+  margin-bottom: 0;
+  display: flex;
+  border-bottom: 4px solid transparent;
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-x: scroll;
+}
+
+.tab {
+  font-size: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
+  padding: clamp(0.375rem, 0.125rem + 0.52vw, 0.625rem) clamp(0.875rem, -0.126rem + 2.09vw, 1.875rem);
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  font-family: "Museo700";
+  color: white;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  color: #424242;
+}
+
+.tab.active {
+  color: #9e1818;
+}
+
+.tab.active::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #9e1818;
+}
+
+.posts_filter_year {
+  margin: 2vw 0 4vw 0;
+}
+
+.past-matches,
+.upcoming-matches {
+  display: none;
+}
+
+.past-matches.active,
+.upcoming-matches.active {
+  display: block;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+}
+
+.competition_card {
+  margin: 0;
+  margin-bottom: 2vh;
+  display: grid;
+  grid-template-columns: 1fr minmax(200px, 20%);
+}
+.competition_card_date {
+  font-family: "Museo900";
+  font-size: clamp(0.875rem, 0.5rem + 0.78vw, 1.25rem) !important;
+  color: white !important;
+}
+.competition_card .left_part {
+  overflow: hidden;
+  border-radius: 15px 30px 30px 15px;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+}
+.competition_card .left_part .competition_card_info {
+  background-color: #1A1A1A;
+  padding: 0;
+  padding: clamp(1.438rem, -0.252rem + 3.52vw, 3.125rem) 0;
+  padding-right: clamp(0.5rem, 0.062rem + 0.91vw, 0.938rem);
+  padding-left: clamp(1.125rem, -0.001rem + 2.35vw, 2.25rem);
+}
+.competition_card .left_part .competition_card_info p {
+  font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+  line-height: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+  color: #6A6A6A;
+}
+.competition_card .left_part .competition_card_teams {
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  background-color: #821313;
+}
+.competition_card .left_part .competition_card_teams .teams {
+  display: flex;
+  align-items: center;
+}
+.competition_card .left_part .competition_card_teams .teams .team_label {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Museo700";
+}
+.competition_card .left_part .competition_card_teams .teams .team_label .team_name_left {
+  text-align: right;
+}
+.competition_card .left_part .competition_card_teams .teams .team_label p {
+  margin: 0;
+}
+.competition_card .left_part .competition_card_teams .teams .team_label .team_logo {
+  height: clamp(1.875rem, -0.002rem + 3.91vw, 3.75rem);
+}
+.competition_card .left_part .competition_card_teams .teams .team_label .team_logo_left {
+  margin-right: clamp(0.938rem, -1.253rem + 4.56vw, 3.125rem);
+  margin-left: clamp(0.625rem, -0.001rem + 1.3vw, 1.25rem);
+}
+.competition_card .left_part .competition_card_teams .teams .team_label .team_logo_right {
+  margin-right: clamp(0.625rem, -0.001rem + 1.3vw, 1.25rem);
+  margin-left: clamp(0.938rem, -1.253rem + 4.56vw, 3.125rem);
+}
+.competition_card .left_part .competition_card_teams .vs {
+  margin-right: 10px;
+  font-family: "Oswald";
+  font-size: clamp(3.75rem, -0.506rem + 8.87vw, 8rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.3);
+}
+.competition_card .left_part .competition_card_teams .competiton_score {
+  white-space: nowrap;
+  font-weight: 800;
+  margin: 0;
+  color: #949494;
+  font-size: clamp(1.8rem, 0.375rem + 1.625vw, 2.25rem);
+  font-family: "Oswald", sans-serif;
+}
+.competition_card .right_part {
+  border-left: dashed rgb(105, 15, 15) 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Museo900";
+  font-size: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
+  background-color: #821313;
+  transition: all 0.2s;
+  border-radius: 30px 15px 15px 30px;
+  cursor: pointer;
+}
+.competition_card .right_part:hover {
+  background-color: #5E0A0A;
+}
+
+.competition_over {
+  background-color: #282828 !important;
+}
+
+.right_part_ended {
+  border-left: dashed #151515 2px !important;
+}
+.right_part_ended:hover {
+  background-color: #1d1d1d !important;
+}
+
+/* one COMPETITION page*/
+.full_screen_score {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Museo900";
+}
+.full_screen_score .name, .full_screen_score .arena {
+  font-family: "Museo500";
+  color: #B29898;
+  font-size: clamp(0.875rem, 0.5rem + 0.78vw, 1.25rem);
+}
+.full_screen_score .date {
+  font-size: clamp(1.5rem, -0.002rem + 3.13vw, 3rem);
+}
+.full_screen_score .arena {
+  text-transform: none;
+}
+.full_screen_score .full_screen_score_block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 2rem 0;
+}
+.full_screen_score .full_screen_score_block .full_screen_score_team {
+  position: relative;
+}
+.full_screen_score .full_screen_score_block .full_screen_score_team img {
+  height: clamp(6.25rem, 2.495rem + 7.82vw, 10rem);
+}
+.full_screen_score .full_screen_score_block .full_screen_score_team p {
+  margin-top: 2.7vw;
+  text-transform: uppercase;
+  line-height: clamp(1.25rem, 0.499rem + 1.56vw, 2rem);
+  font-size: clamp(1.25rem, 0.499rem + 1.56vw, 2rem);
+}
+.full_screen_score .full_screen_score_block .score {
+  margin: 0 auto;
+  white-space: nowrap;
+  font-size: clamp(3.75rem, -0.005rem + 7.82vw, 7.5rem);
+}
+
+.tickets_tab {
+  background-color: #1A1A1A;
+}
+
+.tickets,
+.stream,
+.team_composition, .statistics, .media {
+  display: none;
+}
+
+.tickets.active,
+.stream.active,
+.team_composition.active, .statistics.active, .media.active {
+  display: block;
+}
+
+.tab_pages {
+  margin-top: clamp(3.75rem, 3.039rem + 3.35vw, 6.25rem);
+}
+
+.tickets .tickets_block {
+  background-color: #1A1A1A;
+  border-radius: 15px;
+  padding: clamp(0.938rem, 0.671rem + 1.26vw, 1.875rem);
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  margin-top: 3vw;
+}
+.tickets .tickets_block .ticket_competition_info {
+  font-family: "Museo500";
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 20px 10px 20px 0;
+  font-size: clamp(1rem, 0.499rem + 1.04vw, 1.5rem);
+}
+.tickets .tickets_block .ticket_competition_info span {
+  margin-right: 0.7vw;
+}
+.tickets .tickets_block .ticket_competition_info .ticket_competition_name {
+  color: #9a9a9a;
+}
+.tickets .tickets_block .ticket_competition_info .ticket_bold_info {
+  margin: 0;
+  font-size: clamp(1rem, 0.499rem + 1.04vw, 1.5rem);
+}
+.tickets .tickets_block .ticket_user_info_form {
+  background-color: #0E0E0E;
+  border-radius: 15px;
+  padding: clamp(1.25rem, -0.94rem + 4.56vw, 3.438rem) clamp(1.188rem, -0.002rem + 2.48vw, 2.375rem);
+  padding-bottom: clamp(0.938rem, -0.001rem + 1.96vw, 1.875rem);
+}
+.tickets .tickets_block .ticket_user_info_form label {
+  display: block;
+}
+.tickets .tickets_block .ticket_user_info_form input {
+  display: block;
+  width: clamp(18.75rem, -5.828rem + 51.2vw, 29.375rem);
+}
+.tickets .tickets_block .ticket_user_info_form .add_person_btn {
+  text-transform: none;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  padding: 9px 16px;
+  font-family: "Museo500";
+  transition: all 0.2s;
+}
+.tickets .tickets_block .ticket_user_info_form .add_person_btn span {
+  font-size: 22px;
+  margin-right: 0.5vw;
+}
+.tickets .tickets_block .ticket_user_info_form .add_person_btn:hover {
+  background-color: rgb(219, 219, 219);
+}
+.tickets .tickets_block .ticket_user_info_form .adding_person_bock {
+  display: none;
+  margin-top: 2vw;
+  background-color: #1A1A1A;
+  border-radius: 15px;
+  padding: clamp(1.25rem, -0.94rem + 4.56vw, 3.438rem) clamp(1.188rem, -0.002rem + 2.48vw, 2.375rem);
+  padding-top: clamp(1.25rem, -0.94rem + 4.56vw, 2rem);
+  padding-bottom: clamp(0.938rem, -0.001rem + 1.96vw, 1.875rem);
+}
+.tickets .tickets_block .ticket_user_info_form .adding_person_bock .small_heading {
+  margin-bottom: 1vw;
+  font-size: clamp(1rem, 0.75rem + 0.52vw, 1.25rem);
+}
+.tickets .tickets_block .ticket_user_info_form .adding_person_bock .input_wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+.tickets .tickets_block .ticket_user_info_form .adding_person_bock .input_wrapper input {
+  margin-right: 5px;
+}
+.tickets .tickets_block .next_btn {
+  margin-top: 20px;
+  transition: all 0.2s;
+  border: none;
+  width: 100%;
+  background-color: #821313;
+  border-radius: 7px;
+  text-transform: uppercase;
+  color: white;
+  padding: clamp(0.838rem, 0.187rem + 0.52vw, 1rem) clamp(1.688rem, 0.248rem + 3vw, 3.125rem);
+  font-size: clamp(0.688rem, 0.375rem + 0.65vw, 1rem);
+}
+.tickets .tickets_block .next_btn:hover {
+  background-color: #520909;
+}
+
+.error {
+  color: #c72020;
+  display: none;
+}
+
+/* материалы на странице одного МАТЧА */
+.one_competition_media_section {
+  margin-bottom: clamp(2.5rem, 1.967rem + 2.51vw, 4.375rem);
+}
+.one_competition_media_section .media_card_wrapper {
+  margin-bottom: 1vw !important;
+}
+
+.no_media {
+  text-align: center;
+  margin: 3vw auto;
+  margin-bottom: 5vw;
+}
+.no_media dotlottie-player {
+  margin: 0 auto;
+}
+.no_media p {
+  font-size: clamp(1rem, 0.858rem + 0.67vw, 1.5rem);
+}
+
+/* СОСТАВ КОМАНДЫ */
+.player_position_title {
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  line-height: clamp(3rem, 2.146rem + 4.02vw, 6rem);
+  font-size: clamp(3rem, 2.146rem + 4.02vw, 6rem);
+  color: #505050;
+  font-weight: 600;
+  text-align: center;
+}
+
+.players {
+  margin-bottom: 4vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.player_card {
+  background-color: #1A1A1A;
+  padding-bottom: 130%;
+}
+.player_card:hover {
+  background: linear-gradient(0deg, rgb(43, 3, 3) 0%, rgb(26, 26, 26) 100%);
+}
+.player_card .player_img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.player_card .post_name {
+  word-spacing: 9999999px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.player_card .post_name p {
+  margin-bottom: 0;
+}
+.player_card .post_name .player_name {
+  text-transform: uppercase;
+  font-size: clamp(1rem, 0.715rem + 1.34vw, 2rem);
+  line-height: clamp(1rem, 0.715rem + 1.34vw, 2rem);
+}
+.player_card .post_name .player_num {
+  font-size: clamp(2rem, 1.431rem + 2.68vw, 4rem);
+  line-height: clamp(2rem, 1.431rem + 2.68vw, 4rem);
 }/*# sourceMappingURL=style.css.map */

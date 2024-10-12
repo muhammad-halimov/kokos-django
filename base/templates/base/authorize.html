@@ -3,102 +3,81 @@
 {% block title %}ФК Кокос | Авторизация{% endblock %}
 {% block content %}
     <main>
-        <div class="menu_overlay"></div>
-        <div class="menu_container">
-            <button class="close_btn clear_btn">
-                <img src="{% static 'img/icons/close.svg' %}">
-            </button>
-            <nav class="menu_navigation">
-                <ul>
-                    <li><a href="">Магазин</a></li>
-                    <li><a href="">Матчи</a></li>
-                    <li><a href="">Новости</a></li>
-                    <li><a href="">Команда</a></li>
-                    <li><a href="">История</a></li>
-                    <li><a href="">Медиа</a></li>
-                    <li><a href="">Партнерам</a></li>
-                    <li><a href="">Билеты</a></li>
-                </ul>
-            </nav>
-        </div>
+        <div class="container">
+            <div class="center_block">
+                <div class="form_block">
+                    <form method="post" class="signup_form">
+                        {% csrf_token %}
+                        <p class="heading">Вход</p>
+                        {% if messages %}
+                            <ul class="messages alert alert-warning">
+                                {% for message in messages %}
+                                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                        <label class="" for="email">
+                            E-mail
+                            <input id="email" name="email" type="email" required/>
+                        </label>
+                        <label class="" for="password">
+                            Пароль
+                            <input id="password" name="password" type="password" required/>
+                        </label>
+                        <button type="submit">Войти</button>
+                        <div style="margin: 10px 0">
+                            <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
+                            <script type="text/javascript">
+                                if ('VKIDSDK' in window) {
+                                    const VKID = window.VKIDSDK;
 
-        <div class="wrap">
-            <div class="container">
-                <div class="center_block">
-                    <div class="form_block">
-                        <form method="post" class="signup_form">
-                            {% csrf_token %}
-                            <p class="heading">Вход</p>
-                            {% if messages %}
-                                <ul class="messages alert alert-warning">
-                                    {% for message in messages %}
-                                        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
-                                    {% endfor %}
-                                </ul>
-                            {% endif %}
-                            <label class="" for="email">
-                                E-mail
-                                <input id="email" name="email" type="email" required/>
-                            </label>
-                            <label class="" for="password">
-                                Пароль
-                                <input id="password" name="password" type="password" required/>
-                            </label>
-                            <button type="submit">Войти</button>
-                            <div style="margin: 10px 0">
-                                <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
-                                <script type="text/javascript">
-                                    if ('VKIDSDK' in window) {
-                                        const VKID = window.VKIDSDK;
+                                    VKID.Config.init({
+                                        app: 52427018,
+                                        redirectUrl: 'https://muhammadmalimov.pythonanywhere.com',
+                                        responseMode: VKID.ConfigResponseMode.Callback,
+                                        source: VKID.ConfigSource.LOWCODE,
+                                    });
 
-                                        VKID.Config.init({
-                                            app: 52427018,
-                                            redirectUrl: 'https://muhammadmalimov.pythonanywhere.com',
-                                            responseMode: VKID.ConfigResponseMode.Callback,
-                                            source: VKID.ConfigSource.LOWCODE,
+                                    const oneTap = new VKID.OneTap();
+
+                                    oneTap.render({
+                                        container: document.currentScript.parentElement,
+                                        fastAuthEnabled: false,
+                                        showAlternativeLogin: true
+                                    })
+                                        .on(VKID.WidgetEvents.ERROR, vkidOnError)
+                                        .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS, function (payload) {
+                                            const code = payload.code;
+                                            const deviceId = payload.device_id;
+
+                                            VKID.Auth.exchangeCode(code, deviceId)
+                                                .then(vkidOnSuccess)
+                                                .catch(vkidOnError);
                                         });
+                                }
 
-                                        const oneTap = new VKID.OneTap();
+                                function vkidOnSuccess(data) {
+                                    // Обработка полученного результата
+                                }
 
-                                        oneTap.render({
-                                            container: document.currentScript.parentElement,
-                                            fastAuthEnabled: false,
-                                            showAlternativeLogin: true
-                                        })
-                                            .on(VKID.WidgetEvents.ERROR, vkidOnError)
-                                            .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS, function (payload) {
-                                                const code = payload.code;
-                                                const deviceId = payload.device_id;
-
-                                                VKID.Auth.exchangeCode(code, deviceId)
-                                                    .then(vkidOnSuccess)
-                                                    .catch(vkidOnError);
-                                            });
-                                    }
-
-                                    function vkidOnSuccess(data) {
-                                        // Обработка полученного результата
-                                    }
-
-                                    function vkidOnError(error) {
-                                        // Обработка ошибки
-                                    }
-                                </script>
-                            </div>
-                        </form>
-                        <div class="forgot_pass_link">
-                            <a href="">Забыли пароль?</a>
+                                function vkidOnError(error) {
+                                    // Обработка ошибки
+                                }
+                            </script>
                         </div>
-                        <div class="create_account_link">
-                            <a href="{% url 'register' %}">Создать аккаунт →</a>
-                        </div>
+                    </form>
+                    <div class="forgot_pass_link">
+                        <a href="">Забыли пароль?</a>
                     </div>
-                    <div class="img_block">
-                        <img src="{% static 'img/happy_team.png' %}" class="img-fluid">
-                        <img src="{% static 'img/team_color.jpg' %}" class="img-fluid">
-                        <img src="{% static 'img/news1.jpg' %}" class="img-fluid">
-                        <img src="{% static 'img/cover.jpg' %}" class="img-fluid">
+                    <div class="create_account_link">
+                        <a href="{% url 'register' %}">Создать аккаунт →</a>
                     </div>
+                </div>
+                <div class="img_block">
+                    <img src="{% static 'img/happy_team.png' %}" class="img-fluid">
+                    <img src="{% static 'img/team_color.jpg' %}" class="img-fluid">
+                    <img src="{% static 'img/news1.jpg' %}" class="img-fluid">
+                    <img src="{% static 'img/cover.jpg' %}" class="img-fluid">
                 </div>
             </div>
         </div>

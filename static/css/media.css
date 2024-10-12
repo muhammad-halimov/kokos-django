@@ -1,3 +1,4 @@
+@charset "UTF-8";
 @media (max-width: 1199px) {
   .logo_text {
     display: none;
@@ -16,9 +17,6 @@
   }
 }
 @media (max-width: 767px) {
-  .header_content {
-    padding: 9px 13px !important;
-  }
   .header_content .navigation {
     display: none;
   }
@@ -31,7 +29,7 @@
     min-height: 200px;
     z-index: 2;
   }
-  .intro_img img {
+  .intro_img .intro_img_photo {
     width: 100%;
     -o-object-fit: cover;
        object-fit: cover;
@@ -178,13 +176,13 @@
   .table .next_competition .info .name {
     font-size: clamp(0.875rem, 0.634rem + 1.28vw, 1.25rem);
   }
-  .table .ad {
+  .ad {
     height: 25vw;
   }
-  .table .media_card_wrapper {
+  .media_card_wrapper {
     margin-bottom: 2vw !important;
   }
-  .table .card_text {
+  .card_text {
     padding: 16px 8px !important;
   }
   .post_name_block {
@@ -208,14 +206,62 @@
     padding: clamp(0.75rem, -0.186rem + 3vw, 1.25rem);
     font-size: clamp(1rem, 0.532rem + 1.5vw, 1.25rem);
   }
+  .select_block {
+    display: block;
+  }
+  .select_block .news_search_block, .select_block select {
+    margin-bottom: 2vw !important;
+  }
   .post_card {
     margin-bottom: 4vw;
   }
+  .post_name_block {
+    padding: 34px 20px !important;
+  }
   .post_name {
-    font-size: 16px !important;
+    line-height: clamp(1.25rem, 1.176rem + 0.34vw, 1.5rem) !important;
+    font-size: clamp(1.25rem, 1.176rem + 0.34vw, 1.5rem) !important;
     margin-bottom: 2vw !important;
   }
   .posts_filter {
+    width: 100%;
+  }
+  /*КАРТОЧКА МАТЧА*/
+  .competition_card {
+    display: block;
+  }
+  .competition_card .left_part {
+    border-radius: 15px;
+    display: block;
+  }
+  .competition_card .left_part .team_label {
+    font-size: clamp(0.688rem, 0.531rem + 0.72vw, 0.875rem);
+    line-height: clamp(0.688rem, 0.531rem + 0.72vw, 0.875rem);
+  }
+  .competition_card .left_part .vs, .competition_card .left_part .competiton_score {
+    font-size: clamp(2.5rem, 1.453rem + 4.78vw, 3.75rem) !important;
+  }
+  .competition_card .right_part {
+    border-left: none;
+    border-top: dashed rgb(105, 15, 15) 2px;
+    padding: 20px 10px;
+    border-radius: 15px;
+  }
+  .competition_card .right_part_ended {
+    border-top: dashed #151515 2px !important;
+    border-left: none;
+  }
+  /* one COMPETITION page*/
+  .full_screen_score_team img {
+    height: clamp(3.75rem, 1.759rem + 9.37vw, 6.25rem) !important;
+  }
+  .full_screen_score_team p {
+    font-size: clamp(0.875rem, 0.576rem + 1.41vw, 1.25rem) !important;
+  }
+  .tickets .tickets_block {
+    display: block;
+  }
+  .tickets .tickets_block .ticket_user_info_form input {
     width: 100%;
   }
 }
@@ -266,5 +312,16 @@
   }
   .sidebar_other_posts .other_news .another_post p {
     padding: clamp(0.75rem, -0.417rem + 5.33vw, 1.25rem);
+  }
+  .date_and_repost {
+    flex-direction: column;
+  }
+  .date_and_repost .news_type, .date_and_repost .repost {
+    margin-left: 0 !important;
+    margin-bottom: -0.5rem;
+  }
+  .menu_container {
+    right: -100vw;
+    width: 100vw;
   }
 }/*# sourceMappingURL=media.css.map */

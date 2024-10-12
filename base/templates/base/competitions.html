@@ -1,0 +1,100 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}ФК Кокос | Матчи{% endblock %}
+{% block content %}
+    <main>
+        <div class="intro_img full_height_img">
+            <div class="intro_news_block">
+                <img src="{% static 'img/arena.jpg' %}" class="intro_img_photo">
+                <div class="container">
+                    <div class="name_page">
+                        <p>Матчи</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="margin_content">
+                <div class="tabs">
+                    <div class="tab active"> Предстоящие</div>
+                    <div class="tab">Прошедшие</div>
+                </div>
+                <select name="posts_filter_year" id="postsFilterYear" class="form-select posts_filter_year selector posts_filter">
+                    <option value="2025">2025</option>
+                    <option value="2024" selected>2024</option>
+                    <option value="2023">2023</option>
+                    <option value="2022">2022</option>
+                    <option value="2021">2021</option>
+                    <option value="2020">2020</option>
+                </select>
+                <div class="competitions">
+                    <!-- карточка будущего матча который еще не состоялся-->
+                    <a href="{% url 'competition' %}" class="competition_card">
+                        <div class="left_part">
+                            <div class="competition_card_info">
+                                <p class="competition_card_date">20 сентября, 20:30</p>
+                                <p>FONBET Кубок России, 4 тур</p>
+                                <p>Ак Барс Арена</p>
+                            </div>
+                            <div class="competition_card_teams">
+                                <div class="teams">
+                                    <div class="team_label">
+                                        <p class="team_name_left">Кокос групп</p>
+                                        <img src="{% static 'img/icons/logo.png' %}" class="team_logo team_logo_left">
+                                    </div>
+                                    <i class="vs">VS</i>
+                                    <div class="team_label">
+                                        <img src="{% static 'img/icons/logo.png' %}" class="team_logo team_logo_right">
+                                        <p class="team_name">Кокос групп</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_part">
+                            ПОЙТИ НА МАТЧ →
+                        </div>
+                    </a>
+
+                    <!-- карточка СОСТОЯВШЕГОСЯ матча -->
+                    <a href="{% url 'competition' %}" class="competition_card">
+                        <div class="left_part">
+                            <div class="competition_card_info">
+                                <p class="competition_card_date">20 мая, 20:30</p>
+                                <p>FONBET Кубок России, 4 тур</p>
+                                <p>Ак Барс Арена</p>
+                            </div>
+                            <div class="competition_card_teams competition_over">
+                                <div class="teams">
+                                    <div class="team_label">
+                                        <p class="team_name_left">Кокос групп</p>
+                                        <img src="{% static 'img/icons/logo.png' %}" class="team_logo team_logo_left">
+                                    </div>
+                                    <p class="competiton_score">3 : 1</p>
+                                    <div class="team_label">
+                                        <img src="{% static 'img/icons/logo.png' %}" class="team_logo team_logo_right">
+                                        <p class="team_name">Кокос групп</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_part competition_over right_part_ended">
+                            РЕЗУЛЬТАТЫ МАТЧА →
+                        </div>
+                    </a>
+
+                    <!-- ЗДЕСЬ ЧЕРЕЗ tabs.js ЗАПОЛНЯЮТСЯ МЕСЯЦА (я ваще хз надо было ли это делать)
+                     Каждый блок заполняется так: <p class="heading">$месяц $выбранный_год</p><div id="$месяц_$выбранный_год"></div>
+                     Айдишники у них на русском... Если надо могу переделать -->
+                    <div class="upcoming-matches active">
+                        ыыы<!-- карточки СОСТОЯВШИХСЯ матчей для вкладки "Прошедшие матчи" -->
+                    </div>
+                    <div class="past-matches ">
+                        <!-- НЕСОСТОЯВШИЕСЯ карточки вкладки "Предстоящие матчи" -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script defer type="application/javascript" rel="script" src="{% static 'js/tabs.js' %}"></script>
+{% endblock %}
