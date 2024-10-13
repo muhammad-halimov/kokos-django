@@ -1,4 +1,3 @@
-// Последние 4 новости выводятся на фон
 const blocks = document.querySelectorAll('.one_news');
 const sections = document.querySelectorAll('.section');
 const introImg = document.getElementById('introImg');
@@ -6,10 +5,13 @@ const introImg = document.getElementById('introImg');
 let currentIndex = 0;
 let interval;
 let isClicked = false;
+let currentNewsLink = '';
 
 function updateIntroImg() {
   const images = Array.from(blocks).map(block => block.querySelector('img').src);
+  const links = Array.from(blocks).map(block => block.querySelector('a').href);
   introImg.src = images[currentIndex];
+  currentNewsLink = links[currentIndex];
   introImg.classList.add('fade-out');
 
   setTimeout(() => {
@@ -28,12 +30,14 @@ function updateIntroImg() {
 
 function resetInterval() {
   clearInterval(interval);
-  interval = setInterval(updateIntroImg, isClicked ? 8000 : 7000);
+  interval = setInterval(updateIntroImg, isClicked ? 8000 : 5000);
 }
 
 blocks.forEach((block, index) => {
-  block.addEventListener('click', () => {
+  block.addEventListener('click', (event) => {
+    event.preventDefault(); // Предотвратить переход по ссылке
     introImg.classList.add('fade-out');
+    currentNewsLink = block.querySelector('a').href;
 
     setTimeout(() => {
       introImg.src = block.querySelector('img').src;
@@ -46,6 +50,8 @@ blocks.forEach((block, index) => {
       isClicked = true;
       resetInterval();
 
+      document.querySelector('.news_teaser_wrapper a').href = currentNewsLink;
+
       setTimeout(() => {
         introImg.classList.remove('fade-in');
       }, 500);
@@ -53,5 +59,6 @@ blocks.forEach((block, index) => {
   });
 });
 
-interval = setInterval(updateIntroImg, 7000);
+interval = setInterval(updateIntroImg, 5000);
 updateIntroImg();
+document.querySelector('.news_teaser_wrapper a').href = currentNewsLink;
