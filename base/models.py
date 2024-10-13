@@ -24,7 +24,7 @@ class User(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username']
 
-    # Метакласс и свод правил отображения в Админке по умолчанию
+    # Мета класс и свод правил отображения в Админке по умолчанию
     class Meta:
         ordering = ['id', 'created']
         verbose_name = 'User'
@@ -35,7 +35,7 @@ class User(AbstractUser):
         return self.email
 
 
-# Модель пунктов в хеддере
+# Модель пунктов в хедере
 class HeaderModel(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
     url = models.CharField(max_length=255, blank=True, null=True)
@@ -49,7 +49,7 @@ class HeaderModel(models.Model):
     SearchableFields = DisplayFields
     FilterFields = ['created', 'updated']
 
-    # Метакласс и свод правил отображения в Админке по умолчанию
+    # Мета класс и свод правил отображения в Админке по умолчанию
     class Meta:
         ordering = ['id', 'created']
         verbose_name = 'Header Link'
@@ -214,12 +214,12 @@ class Gender(models.Model):
 
 class Media(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
-    image = models.ImageField(default='img/icons/random.svg', null=True, blank=True)
+    link = models.TextField(blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    DisplayFields = ['id', 'title', 'created', 'updated']
+    DisplayFields = ['id', 'title', 'link', 'created', 'updated']
     SearchableFields = DisplayFields
     FilterFields = ['created', 'updated']
 
@@ -240,7 +240,7 @@ class Clothes(models.Model):
     size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True, blank=True)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, null=True, blank=True)
     gender = models.ForeignKey(Gender, on_delete=models.CASCADE, null=True, blank=True)
-    color = models.ForeignKey(Color, on_delete=models.CASCADE, null=True, blank=True)
+    colour = models.ForeignKey(Color, on_delete=models.CASCADE, null=True, blank=True)
     season = models.ForeignKey(Season, on_delete=models.CASCADE, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     media_links = models.ManyToManyField(Media, related_name='clothes_media_links', blank=True)
@@ -260,7 +260,7 @@ class Clothes(models.Model):
         'size',
         'brand',
         'gender',
-        'color',
+        'colour',
         'season',
         'description',
         'remaining_number',
@@ -278,7 +278,7 @@ class Clothes(models.Model):
         'size',
         'brand',
         'gender',
-        'color',
+        'colour',
         'season',
         'remaining_number',
         'discount',
@@ -314,12 +314,95 @@ class FootballerPosition(models.Model):
         return self.title
 
 
+class PenaltyScored(models.Model):
+    kicked = models.IntegerField(blank=True, null=True)
+    scored = models.IntegerField(blank=True, null=True)
+    earned_points = models.IntegerField(blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = ['id', 'kicked', 'scored', 'earned_points', 'updated']
+    SearchableFields = DisplayFields
+    FilterFields = ['created', 'updated', 'kicked', 'scored', 'earned_points']
+
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'Penalty Scored'
+        verbose_name_plural = "Penalty's Scored"
+
+    def __str__(self):
+        return f"Penalty scored #{self.id}"
+
+
+class FootballerStatistics(models.Model):
+    years = models.DateField(auto_now=True, blank=True, null=True)
+    matches = models.IntegerField(blank=True, null=True)
+    starting_lineup = models.IntegerField(blank=True, null=True)
+    came_substitute = models.IntegerField(blank=True, null=True)
+    been_replaced = models.IntegerField(blank=True, null=True)
+    goals = models.IntegerField(blank=True, null=True)
+    yellow_cards = models.IntegerField(blank=True, null=True)
+    red_cards = models.IntegerField(blank=True, null=True)
+    minutes_played = models.IntegerField(blank=True, null=True)
+    ball_selection = models.IntegerField(blank=True, null=True)
+    assists = models.IntegerField(blank=True, null=True)
+    penalties = models.ManyToManyField(PenaltyScored, related_name='penalties_statistics', blank=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = [
+        'id',
+        'years',
+        'matches',
+        'starting_lineup',
+        'came_substitute',
+        'been_replaced',
+        'goals',
+        'yellow_cards',
+        'red_cards',
+        'minutes_played',
+        'ball_selection',
+        'assists'
+    ]
+    SearchableFields = DisplayFields
+    FilterFields = [
+        'created',
+        'updated',
+        'years',
+        'matches',
+        'starting_lineup',
+        'came_substitute',
+        'been_replaced',
+        'goals',
+        'yellow_cards',
+        'minutes_played',
+        'ball_selection',
+        'assists',
+    ]
+
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'Footballer statistics'
+        verbose_name_plural = 'Footballers statistics'
+
+    def __str__(self):
+        return f"#Footballer statistics #{self.id}"
+
+
 class Footballer(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
     surname = models.CharField(max_length=255, blank=True, null=True)
     patronymic = models.CharField(max_length=255, blank=True, null=True)
     age = models.DecimalField(decimal_places=2, max_digits=3, null=True, blank=True)
     weight = models.DecimalField(decimal_places=2, max_digits=3, null=True, blank=True)
+    statistics = models.ForeignKey(
+        FootballerStatistics,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
 
     image = models.ManyToManyField(
         Media,
@@ -349,6 +432,33 @@ class Footballer(models.Model):
 
     def __str__(self):
         return self.name or self.surname
+
+
+class GoalkeeperStatistics(models.Model):
+    goalkeeper = models.ForeignKey(
+        Footballer,
+        on_delete=models.CASCADE,
+        related_name='goalkeeper_id',
+        blank=True,
+        null=True
+    )
+    years = models.DateField(auto_now=True, blank=True, null=True)
+    games = models.IntegerField(blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = ['id', 'goalkeeper', 'years', 'games', 'updated']
+    SearchableFields = DisplayFields
+    FilterFields = ['created', 'updated', 'games']
+
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'Goalkeeper statistics'
+        verbose_name_plural = 'Goalkeepers statistics'
+
+    def __str__(self):
+        return f"#{self.goalkeeper} statistics"
 
 
 class DirectorType(models.Model):
@@ -413,6 +523,50 @@ class CoachStaffType(models.Model):
         return self.title
 
 
+class CoachSummaryStatistics(models.Model):
+    years = models.DateField(blank=True, null=True)
+    games = models.IntegerField(blank=True, null=True)
+    winnings = models.IntegerField(blank=True, null=True)
+    draws = models.IntegerField(blank=True, null=True)
+    defeats = models.IntegerField(blank=True, null=True)
+    point_scored = models.IntegerField(blank=True, null=True)
+    percentage_max_possible = models.FloatField(blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = [
+        'id',
+        'years',
+        'games',
+        'winnings',
+        'draws',
+        'defeats',
+        'point_scored',
+        'percentage_max_possible',
+        'updated'
+    ]
+    SearchableFields = DisplayFields
+    FilterFields = [
+        'created',
+        'updated',
+        'games',
+        'winnings',
+        'draws',
+        'defeats',
+        'point_scored',
+        'percentage_max_possible'
+    ]
+
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'Coach summary statistics'
+        verbose_name_plural = 'Coaches summary statistics'
+
+    def __str__(self):
+        return f"Coach summary statistics #{self.id}"
+
+
 class CoachStaff(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
     surname = models.CharField(max_length=255, blank=True, null=True)
@@ -420,6 +574,12 @@ class CoachStaff(models.Model):
     age = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
     work_experience = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
     type_coach = models.ManyToManyField(CoachStaffType, related_name='coach_staff_type', blank=True)
+    statistics = models.ForeignKey(
+        CoachSummaryStatistics,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -523,6 +683,265 @@ class Staff(models.Model):
         return self.name or self.surname
 
 
+class OwnField(models.Model):
+    matches = models.IntegerField(blank=True, null=True)
+    winnings = models.IntegerField(blank=True, null=True)
+    defeats = models.IntegerField(blank=True, null=True)
+    draws = models.IntegerField(blank=True, null=True)
+    goals_scored = models.IntegerField(blank=True, null=True)
+    goals_conceded = models.IntegerField(blank=True, null=True)
+    score = models.IntegerField(blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = [
+        'id',
+        'matches',
+        'winnings',
+        'defeats',
+        'draws',
+        'goals_scored',
+        'goals_conceded',
+        'goals_conceded',
+        'score'
+    ]
+    SearchableFields = DisplayFields
+    FilterFields = [
+        'created',
+        'updated',
+        'matches',
+        'winnings',
+        'defeats',
+        'draws',
+        'goals_scored',
+        'goals_conceded',
+        'goals_conceded',
+        'score'
+    ]
+
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'Own field statistics'
+        verbose_name_plural = 'Own fields statistics'
+
+    def __str__(self):
+        return f"Own field matches: #{self.score}"
+
+
+class SomeoneField(models.Model):
+    matches = models.IntegerField(blank=True, null=True)
+    winnings = models.IntegerField(blank=True, null=True)
+    defeats = models.IntegerField(blank=True, null=True)
+    draws = models.IntegerField(blank=True, null=True)
+    goals_scored = models.IntegerField(blank=True, null=True)
+    goals_conceded = models.IntegerField(blank=True, null=True)
+    score = models.IntegerField(blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = [
+        'id',
+        'matches',
+        'winnings',
+        'defeats',
+        'draws',
+        'goals_scored',
+        'goals_conceded',
+        'goals_conceded',
+        'score'
+    ]
+    SearchableFields = DisplayFields
+    FilterFields = [
+        'created',
+        'updated',
+        'matches',
+        'winnings',
+        'defeats',
+        'draws',
+        'goals_scored',
+        'goals_conceded',
+        'goals_conceded',
+        'score'
+    ]
+
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'Someone field statistics'
+        verbose_name_plural = 'Someone fields statistics'
+
+    def __str__(self):
+        return f"Someone field matches: #{self.score}"
+
+
+class NeutralField(models.Model):
+    matches = models.IntegerField(blank=True, null=True)
+    winnings = models.IntegerField(blank=True, null=True)
+    defeats = models.IntegerField(blank=True, null=True)
+    draws = models.IntegerField(blank=True, null=True)
+    goals_scored = models.IntegerField(blank=True, null=True)
+    goals_conceded = models.IntegerField(blank=True, null=True)
+    score = models.IntegerField(blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = [
+        'id',
+        'matches',
+        'winnings',
+        'defeats',
+        'draws',
+        'goals_scored',
+        'goals_conceded',
+        'goals_conceded',
+        'score'
+    ]
+    SearchableFields = DisplayFields
+    FilterFields = [
+        'created',
+        'updated',
+        'matches',
+        'winnings',
+        'defeats',
+        'draws',
+        'goals_scored',
+        'goals_conceded',
+        'goals_conceded',
+        'score'
+    ]
+
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'Neutral field statistics'
+        verbose_name_plural = 'Neutral fields statistics'
+
+    def __str__(self):
+        return f"Neutral field matches: #{self.score}"
+
+
+class GeneralStatisticsAll(models.Model):
+    winnings = models.IntegerField(blank=True, null=True)
+    defeats = models.IntegerField(blank=True, null=True)
+    draws = models.IntegerField(blank=True, null=True)
+    goals_scored = models.IntegerField(blank=True, null=True)
+    goals_conceded = models.IntegerField(blank=True, null=True)
+    score = models.IntegerField(blank=True, null=True)
+    own_field = models.ForeignKey(
+        OwnField,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+    someone_field = models.ForeignKey(
+        SomeoneField,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+    neutral_field = models.ForeignKey(
+        NeutralField,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = [
+        'id',
+        'winnings',
+        'defeats',
+        'draws',
+        'goals_scored',
+        'goals_conceded',
+        'goals_conceded',
+        'score',
+        'own_field',
+        'someone_field',
+        'neutral_field'
+    ]
+    SearchableFields = DisplayFields
+    FilterFields = [
+        'created',
+        'updated',
+        'winnings',
+        'defeats',
+        'draws',
+        'goals_scored',
+        'goals_conceded',
+        'goals_conceded',
+        'score'
+    ]
+
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'General statistics all'
+        verbose_name_plural = 'Generals statistics all'
+
+    def __str__(self):
+        return f"General statistics all #{self.id}"
+
+
+class GeneralStatisticsTournament(models.Model):
+    winnings = models.IntegerField(blank=True, null=True)
+    defeats = models.IntegerField(blank=True, null=True)
+    draws = models.IntegerField(blank=True, null=True)
+    goals_scored = models.IntegerField(blank=True, null=True)
+    goals_conceded = models.IntegerField(blank=True, null=True)
+    score = models.IntegerField(blank=True, null=True)
+    own_field = models.ForeignKey(
+        OwnField,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+    someone_field = models.ForeignKey(
+        SomeoneField,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = [
+        'id',
+        'winnings',
+        'defeats',
+        'draws',
+        'goals_scored',
+        'goals_conceded',
+        'goals_conceded',
+        'score',
+        'own_field',
+        'someone_field'
+    ]
+    SearchableFields = DisplayFields
+    FilterFields = [
+        'created',
+        'updated',
+        'winnings',
+        'defeats',
+        'draws',
+        'goals_scored',
+        'goals_conceded',
+        'goals_conceded',
+        'score'
+    ]
+
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'General statistics tournament'
+        verbose_name_plural = 'Generals statistics tournament'
+
+    def __str__(self):
+        return f"Generals statistics tournament #{self.id}"
+
+
 class Team(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
     football_players = models.ManyToManyField(Footballer, related_name='football_players', blank=True)
@@ -530,6 +949,17 @@ class Team(models.Model):
     coach_staff = models.ManyToManyField(CoachStaff, related_name='team_coach_staff', blank=True)
     breeding_service = models.ManyToManyField(BreedingService, related_name='team_breeding_service', blank=True)
     staff = models.ManyToManyField(Staff, related_name='team_staff', blank=True)
+    all_statistics = models.ForeignKey(
+        GeneralStatisticsAll,
+        on_delete=models.CASCADE,
+        blank=True,
+        null=True
+    )
+    tournaments_statistics = models.ManyToManyField(
+        GeneralStatisticsTournament,
+        related_name='team_tournaments_statistics',
+        blank=True
+    )
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -547,53 +977,10 @@ class Team(models.Model):
         return self.title
 
 
-class Cities(models.Model):
-    city = models.CharField(max_length=255, blank=True, null=True)
-    date = models.DateField(auto_now=True, blank=True, null=True)
-
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-
-    DisplayFields = ['id', 'city', 'created', 'updated']
-    SearchableFields = DisplayFields
-    FilterFields = ['created', 'updated']
-
-    class Meta:
-        ordering = ['id', 'created']
-        verbose_name = 'City'
-        verbose_name_plural = 'Cities'
-
-    def __str__(self):
-        return self.city
-
-
-class Countries(models.Model):
-    country = models.CharField(max_length=255, blank=True, null=True)
-    cities = models.ManyToManyField(Cities, related_name='city_coutry_belongs')
-    date = models.DateField(auto_now=True, blank=True, null=True)
-
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-
-    DisplayFields = ['id', 'country', 'created', 'updated']
-    SearchableFields = DisplayFields
-    FilterFields = ['created', 'updated']
-
-    class Meta:
-        ordering = ['id', 'created']
-        verbose_name = 'Country'
-        verbose_name_plural = 'Countries'
-
-    def __str__(self):
-        return self.country
-
-
 class Arena(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
-    # Первое внешнее поле ключа: связано с полем 'country' модели CitiesAndCountries
-    country = models.ForeignKey(Countries, on_delete=models.SET_NULL, null=True, related_name='country_arenas')
-    # Второе внешнее поле ключа: связано с полем 'city' модели CitiesAndCountries
-    city = models.ForeignKey(Cities, on_delete=models.SET_NULL, null=True, related_name='city_arenas')
+    country = models.CharField(max_length=255, blank=True, null=True)
+    city = models.CharField(max_length=255, blank=True, null=True)
     street = models.CharField(max_length=255, blank=True, null=True)
     places_count = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
 
@@ -611,7 +998,6 @@ class Arena(models.Model):
 
     def __str__(self):
         return self.name
-
 
 
 class Outcome(models.Model):
@@ -698,12 +1084,33 @@ class Ticket(models.Model):
         return f'Ticket #{self.id}'
 
 
+class City(models.Model):
+    title = models.CharField(max_length=255, blank=True, null=True)
+    date = models.DateField(auto_now=True, blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = ['id', 'title', 'created', 'updated']
+    SearchableFields = DisplayFields
+    FilterFields = ['created', 'updated']
+
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'City'
+        verbose_name_plural = 'Cities'
+
+    def __str__(self):
+        return self.title
+
+
 class Tournament(models.Model):
-    matchs = models.ManyToManyField(Match, related_name='matches', blank=True)
+    name = models.CharField(max_length=255, null=True, blank=True)
+    matches = models.ManyToManyField(Match, related_name='matches', blank=True)
     start_date = models.DateField(auto_now=True, null=True, blank=True)
     end_date = models.DateField(auto_now=True, null=True, blank=True)
     tours = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
-    cities = models.ManyToManyField(Cities, related_name='cities', blank=True)
+    cities = models.ManyToManyField(City, related_name='tournament_cities', blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -718,13 +1125,13 @@ class Tournament(models.Model):
         verbose_name_plural = 'Tournaments'
 
     def __str__(self):
-        return f"Tournament #{self.id}"
+        return self.name
 
 
 class Gallery(models.Model):
     tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, blank=True, null=True)
     teams = models.ManyToManyField(Team, related_name='teams', blank=True)
-    images = models.ManyToManyField(Media, related_name='media_links', blank=True)
+    media_links = models.ManyToManyField(Media, related_name='media_links', blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -744,7 +1151,6 @@ class Gallery(models.Model):
 
 class News(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
-    tags = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
     gallery = models.ManyToManyField(Gallery, related_name='news_gallery', blank=True)
 
@@ -758,7 +1164,7 @@ class News(models.Model):
     class Meta:
         ordering = ['id', 'created', '-updated']
         verbose_name = 'News'
-        verbose_name_plural = 'News'
+        verbose_name_plural = 'Newses'
 
     def __str__(self):
         return self.title

@@ -18,22 +18,21 @@
                         {% endif %}
                         <label class="" for="email">
                             E-mail
-                            <input id="email" name="email" type="email" required/>
+                            <input id="email" name="email" type="email" placeholder="Ваша почта" required/>
                         </label>
                         <label class="" for="password">
                             Пароль
-                            <input id="password" name="password" type="password" required/>
+                            <input id="password" name="password" type="password" placeholder="Ваш пароль" required/>
                         </label>
                         <button type="submit">Войти</button>
                         <div style="margin: 10px 0">
-                            <script src="https://unpkg.com/@vkid/sdk@<3.0.0/dist-sdk/umd/index.js"></script>
                             <script type="text/javascript">
                                 if ('VKIDSDK' in window) {
                                     const VKID = window.VKIDSDK;
 
                                     VKID.Config.init({
                                         app: 52427018,
-                                        redirectUrl: 'https://muhammadmalimov.pythonanywhere.com',
+                                        redirectUrl: 'http://localhost',
                                         responseMode: VKID.ConfigResponseMode.Callback,
                                         source: VKID.ConfigSource.LOWCODE,
                                     });
@@ -43,7 +42,11 @@
                                     oneTap.render({
                                         container: document.currentScript.parentElement,
                                         fastAuthEnabled: false,
-                                        showAlternativeLogin: true
+                                        showAlternativeLogin: true,
+                                        styles: {
+                                            borderRadius: 7,
+                                            height: 40
+                                        }
                                     })
                                         .on(VKID.WidgetEvents.ERROR, vkidOnError)
                                         .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS, function (payload) {
@@ -52,8 +55,10 @@
 
                                             VKID.Auth.exchangeCode(code, deviceId)
                                                 .then(vkidOnSuccess)
-                                                .catch(vkidOnError);
+                                                .catch(vkidOnErro8r);
                                         });
+
+
                                 }
 
                                 function vkidOnSuccess(data) {
