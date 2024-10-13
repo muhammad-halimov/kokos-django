@@ -85,7 +85,7 @@ WSGI_APPLICATION = 'kokos.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'mysql',
+        'NAME': 'kokos-django',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'USER': 'root',
