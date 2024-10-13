@@ -240,7 +240,7 @@ class Clothes(models.Model):
     size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True, blank=True)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, null=True, blank=True)
     gender = models.ForeignKey(Gender, on_delete=models.CASCADE, null=True, blank=True)
-    colour = models.ForeignKey(Color, on_delete=models.CASCADE, null=True, blank=True)
+    color = models.ForeignKey(Color, on_delete=models.CASCADE, null=True, blank=True)
     season = models.ForeignKey(Season, on_delete=models.CASCADE, null=True, blank=True)
     description = models.TextField(null=True, blank=True)
     media_links = models.ManyToManyField(Media, related_name='clothes_media_links', blank=True)
@@ -260,7 +260,7 @@ class Clothes(models.Model):
         'size',
         'brand',
         'gender',
-        'colour',
+        'color',
         'season',
         'description',
         'remaining_number',
@@ -278,7 +278,7 @@ class Clothes(models.Model):
         'size',
         'brand',
         'gender',
-        'colour',
+        'color',
         'season',
         'remaining_number',
         'discount',
