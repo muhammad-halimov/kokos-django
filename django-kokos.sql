@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: localhost
--- Время создания: Окт 14 2024 г., 17:10
+-- Время создания: Окт 14 2024 г., 20:55
 -- Версия сервера: 10.4.32-MariaDB
 -- Версия PHP: 8.2.12
 
@@ -315,7 +315,9 @@ CREATE TABLE `base_agecategory` (
 --
 
 INSERT INTO `base_agecategory` (`id`, `title`, `created`, `updated`) VALUES
-(1, 'Подросток', '2024-10-14 14:01:01.208740', '2024-10-14 14:01:01.208761');
+(1, 'Подросток', '2024-10-14 14:01:01.208740', '2024-10-14 14:01:01.208761'),
+(2, 'Ребенок', '2024-10-14 18:23:52.769098', '2024-10-14 18:23:52.769120'),
+(3, 'Взрослый', '2024-10-14 18:23:58.089984', '2024-10-14 18:23:58.090000');
 
 -- --------------------------------------------------------
 
@@ -339,7 +341,9 @@ CREATE TABLE `base_arena` (
 --
 
 INSERT INTO `base_arena` (`id`, `name`, `country`, `city`, `street`, `places_count`, `created`, `updated`) VALUES
-(1, 'Арена 1', 'Страна 1', 'Город 1', 'Улица разбитых фанарей', 250.00, '2024-10-14 14:01:31.774199', '2024-10-14 14:01:31.774211');
+(1, 'Арена 1', 'Страна 1', 'Город 1', 'Улица разбитых фанарей', 250.00, '2024-10-14 14:01:31.774199', '2024-10-14 14:01:31.774211'),
+(2, 'Зенит', 'Россия', 'Ижевск', 'Улица разбитых фонарей', 300.00, '2024-10-14 18:24:43.875033', '2024-10-14 18:24:43.875057'),
+(3, 'Торпедо', 'Россия', 'Ижевск', 'Странная', 150.00, '2024-10-14 18:28:04.314466', '2024-10-14 18:28:04.314480');
 
 -- --------------------------------------------------------
 
@@ -359,7 +363,10 @@ CREATE TABLE `base_brand` (
 --
 
 INSERT INTO `base_brand` (`id`, `title`, `created`, `updated`) VALUES
-(1, 'МугаМуга', '2024-10-14 14:02:12.032823', '2024-10-14 14:02:12.032836');
+(1, 'МугаМуга', '2024-10-14 14:02:12.032823', '2024-10-14 14:02:12.032836'),
+(2, 'Адидас', '2024-10-14 18:28:13.821770', '2024-10-14 18:28:13.821791'),
+(3, 'Найк', '2024-10-14 18:28:17.422170', '2024-10-14 18:28:17.422194'),
+(4, 'Merell', '2024-10-14 18:28:27.735263', '2024-10-14 18:28:27.735284');
 
 -- --------------------------------------------------------
 
@@ -422,7 +429,11 @@ CREATE TABLE `base_city` (
 --
 
 INSERT INTO `base_city` (`id`, `title`, `date`, `created`, `updated`) VALUES
-(1, 'Город 1', '2024-10-14', '2024-10-14 14:02:24.152403', '2024-10-14 14:02:24.152416');
+(1, 'Город 1', '2024-10-14', '2024-10-14 14:02:24.152403', '2024-10-14 14:02:24.152416'),
+(2, 'Ижевск', '2024-10-14', '2024-10-14 18:28:37.983117', '2024-10-14 18:28:37.983135'),
+(3, 'Краснодар', '2024-10-14', '2024-10-14 18:28:42.685215', '2024-10-14 18:28:42.685233'),
+(4, 'Красноярск', '2024-10-14', '2024-10-14 18:28:46.785749', '2024-10-14 18:28:46.785759'),
+(5, 'Москва', '2024-10-14', '2024-10-14 18:28:50.426876', '2024-10-14 18:28:50.426893');
 
 -- --------------------------------------------------------
 
@@ -452,7 +463,10 @@ CREATE TABLE `base_clothes` (
 --
 
 INSERT INTO `base_clothes` (`id`, `name`, `price`, `description`, `remaining_number`, `discount`, `created`, `updated`, `age_category_id`, `brand_id`, `color_id`, `gender_id`, `season_id`, `type_id`) VALUES
-(3, '1', 12.00, '1212', 12.00, 0.00, '2024-10-14 14:09:27.870891', '2024-10-14 14:09:27.870909', 1, 1, 1, 1, 1, 1);
+(3, '1', 12.00, '1212', 12.00, 0.00, '2024-10-14 14:09:27.870891', '2024-10-14 14:09:27.870909', 1, 1, 1, 1, 1, 1),
+(4, 'Штаны скороходы', 12820.00, 'Крутые штанзики для скоростной ходьбы', 45.00, 0.00, '2024-10-14 18:32:58.374704', '2024-10-14 18:32:58.374722', 3, 2, 4, 3, 2, 2),
+(5, 'Шарф согревающий', 2500.00, 'Супер греющий шарф!', 20.00, 0.00, '2024-10-14 18:34:08.863360', '2024-10-14 18:34:08.863377', 2, 1, 1, 3, 1, 3),
+(6, 'Шорты беговые', 5000.00, 'Скоростные скороходы', 10.00, 500.00, '2024-10-14 18:36:36.710387', '2024-10-14 18:36:36.710410', 3, 3, 3, 2, 3, 4);
 
 -- --------------------------------------------------------
 
@@ -472,7 +486,10 @@ CREATE TABLE `base_clothestype` (
 --
 
 INSERT INTO `base_clothestype` (`id`, `title`, `created`, `updated`) VALUES
-(1, 'Куртка', '2024-10-14 14:02:39.196412', '2024-10-14 14:02:39.196427');
+(1, 'Куртка', '2024-10-14 14:02:39.196412', '2024-10-14 14:02:39.196427'),
+(2, 'Штаны', '2024-10-14 18:29:02.050724', '2024-10-14 18:29:02.050740'),
+(3, 'Шарф', '2024-10-14 18:33:05.661407', '2024-10-14 18:33:05.661432'),
+(4, 'Шорты', '2024-10-14 18:35:00.577289', '2024-10-14 18:35:00.577307');
 
 -- --------------------------------------------------------
 
@@ -492,7 +509,11 @@ CREATE TABLE `base_clothes_materials` (
 
 INSERT INTO `base_clothes_materials` (`id`, `clothes_id`, `material_id`) VALUES
 (1, 3, 1),
-(2, 3, 2);
+(2, 3, 2),
+(3, 4, 1),
+(4, 5, 2),
+(5, 6, 1),
+(6, 6, 2);
 
 -- --------------------------------------------------------
 
@@ -511,7 +532,12 @@ CREATE TABLE `base_clothes_media_links` (
 --
 
 INSERT INTO `base_clothes_media_links` (`id`, `clothes_id`, `media_id`) VALUES
-(1, 3, 1);
+(1, 3, 1),
+(2, 4, 3),
+(3, 5, 4),
+(4, 6, 5),
+(5, 6, 6),
+(6, 6, 7);
 
 -- --------------------------------------------------------
 
@@ -531,7 +557,16 @@ CREATE TABLE `base_clothes_size` (
 
 INSERT INTO `base_clothes_size` (`id`, `clothes_id`, `size_id`) VALUES
 (1, 3, 1),
-(2, 3, 2);
+(2, 3, 2),
+(3, 4, 1),
+(4, 4, 2),
+(5, 4, 5),
+(6, 5, 1),
+(7, 5, 2),
+(8, 5, 5),
+(9, 6, 1),
+(10, 6, 3),
+(11, 6, 5);
 
 -- --------------------------------------------------------
 
@@ -556,7 +591,8 @@ CREATE TABLE `base_coachstaff` (
 --
 
 INSERT INTO `base_coachstaff` (`id`, `name`, `surname`, `patronymic`, `age`, `work_experience`, `created`, `updated`, `statistics_id`) VALUES
-(1, 'Имя 1', 'Фамилия 1', 'Отчество 1', 18.00, 2.00, '2024-10-14 14:10:31.184376', '2024-10-14 14:10:31.184397', NULL);
+(1, 'Имя 1', 'Фамилия 1', 'Отчество 1', 18.00, 2.00, '2024-10-14 14:10:31.184376', '2024-10-14 14:10:31.184397', NULL),
+(2, 'Кирилл', 'Печенькин', 'Дмитриевич', 26.00, 4.00, '2024-10-14 18:38:35.711954', '2024-10-14 18:38:35.711970', NULL);
 
 -- --------------------------------------------------------
 
@@ -576,7 +612,8 @@ CREATE TABLE `base_coachstafftype` (
 --
 
 INSERT INTO `base_coachstafftype` (`id`, `title`, `created`, `updated`) VALUES
-(1, 'Тип 1', '2024-10-14 14:10:25.432223', '2024-10-14 14:10:25.432243');
+(1, 'Тип 1', '2024-10-14 14:10:25.432223', '2024-10-14 14:10:25.432243'),
+(2, 'Тип 2', '2024-10-14 18:38:32.090716', '2024-10-14 18:38:32.090730');
 
 -- --------------------------------------------------------
 
@@ -595,7 +632,8 @@ CREATE TABLE `base_coachstaff_type_coach` (
 --
 
 INSERT INTO `base_coachstaff_type_coach` (`id`, `coachstaff_id`, `coachstafftype_id`) VALUES
-(1, 1, 1);
+(1, 1, 1),
+(2, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -635,7 +673,9 @@ CREATE TABLE `base_color` (
 
 INSERT INTO `base_color` (`id`, `title`, `created`, `updated`) VALUES
 (1, 'Черный', '2024-10-14 14:05:07.764613', '2024-10-14 14:05:07.764627'),
-(2, 'Серый', '2024-10-14 14:05:12.615518', '2024-10-14 14:05:12.615537');
+(2, 'Серый', '2024-10-14 14:05:12.615518', '2024-10-14 14:05:12.615537'),
+(3, 'Белый', '2024-10-14 18:31:08.937803', '2024-10-14 18:31:08.937816'),
+(4, 'Синий', '2024-10-14 18:31:12.390991', '2024-10-14 18:31:12.391006');
 
 -- --------------------------------------------------------
 
@@ -703,7 +743,9 @@ CREATE TABLE `base_footballer` (
 --
 
 INSERT INTO `base_footballer` (`id`, `name`, `surname`, `patronymic`, `age`, `weight`, `created`, `updated`, `position_id`, `statistics_id`) VALUES
-(1, 'Имя 1', 'Фамилия 1', 'Отчество 1', 21, 21, '2024-10-14 14:12:56.679830', '2024-10-14 14:12:56.679842', 1, NULL);
+(1, 'Имя 1', 'Фамилия 1', 'Отчество 1', 21, 21, '2024-10-14 14:12:56.679830', '2024-10-14 14:12:56.679842', 1, NULL),
+(2, 'Максим', 'Футбик', 'Фуууутбоооол', 23, 67, '2024-10-14 18:48:48.330483', '2024-10-14 18:48:48.330501', 2, 1),
+(3, 'Артем', 'ОООфутбол', 'Крутяк', 32, 78, '2024-10-14 18:49:27.911095', '2024-10-14 18:49:27.911119', 3, 2);
 
 -- --------------------------------------------------------
 
@@ -723,7 +765,9 @@ CREATE TABLE `base_footballerposition` (
 --
 
 INSERT INTO `base_footballerposition` (`id`, `title`, `created`, `updated`) VALUES
-(1, 'Вратарь', '2024-10-14 14:10:44.829617', '2024-10-14 14:10:44.829631');
+(1, 'Вратарь', '2024-10-14 14:10:44.829617', '2024-10-14 14:10:44.829631'),
+(2, 'Нападающий', '2024-10-14 18:48:44.959213', '2024-10-14 18:48:44.959225'),
+(3, 'Полузащитник', '2024-10-14 18:49:26.654916', '2024-10-14 18:49:26.654937');
 
 -- --------------------------------------------------------
 
@@ -753,7 +797,8 @@ CREATE TABLE `base_footballerstatistics` (
 --
 
 INSERT INTO `base_footballerstatistics` (`id`, `years`, `matches`, `starting_lineup`, `came_substitute`, `been_replaced`, `goals`, `yellow_cards`, `red_cards`, `minutes_played`, `ball_selection`, `assists`, `created`, `updated`) VALUES
-(1, '2024-10-14', 21, 2, 23, 1, 55, 12, 1, 2390, 12, 12, '2024-10-14 14:17:57.294757', '2024-10-14 14:17:57.294769');
+(1, '2024-10-14', 21, 2, 23, 1, 55, 12, 1, 2390, 12, 12, '2024-10-14 14:17:57.294757', '2024-10-14 14:17:57.294769'),
+(2, '2024-10-14', 200, 190, 9, 1, 200, 5, 0, 900, 60, 45, '2024-10-14 18:41:22.454642', '2024-10-14 18:41:22.454655');
 
 -- --------------------------------------------------------
 
@@ -772,7 +817,8 @@ CREATE TABLE `base_footballerstatistics_penalties` (
 --
 
 INSERT INTO `base_footballerstatistics_penalties` (`id`, `footballerstatistics_id`, `penaltyscored_id`) VALUES
-(1, 1, 1);
+(1, 1, 1),
+(2, 2, 2);
 
 -- --------------------------------------------------------
 
@@ -791,7 +837,10 @@ CREATE TABLE `base_footballer_image` (
 --
 
 INSERT INTO `base_footballer_image` (`id`, `footballer_id`, `media_id`) VALUES
-(1, 1, 1);
+(1, 1, 1),
+(2, 2, 15),
+(3, 3, 16),
+(4, 3, 17);
 
 -- --------------------------------------------------------
 
@@ -805,6 +854,13 @@ CREATE TABLE `base_gallery` (
   `updated` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Дамп данных таблицы `base_gallery`
+--
+
+INSERT INTO `base_gallery` (`id`, `created`, `updated`) VALUES
+(1, '2024-10-14 18:46:37.783823', '2024-10-14 18:46:37.783845');
+
 -- --------------------------------------------------------
 
 --
@@ -816,6 +872,15 @@ CREATE TABLE `base_gallery_media` (
   `gallery_id` bigint(20) NOT NULL,
   `media_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `base_gallery_media`
+--
+
+INSERT INTO `base_gallery_media` (`id`, `gallery_id`, `media_id`) VALUES
+(1, 1, 12),
+(2, 1, 13),
+(3, 1, 14);
 
 -- --------------------------------------------------------
 
@@ -835,7 +900,9 @@ CREATE TABLE `base_gender` (
 --
 
 INSERT INTO `base_gender` (`id`, `title`, `created`, `updated`) VALUES
-(1, 'Женщина', '2024-10-14 14:05:01.534601', '2024-10-14 14:05:01.534624');
+(1, 'Женщина', '2024-10-14 14:05:01.534601', '2024-10-14 14:05:01.534624'),
+(2, 'Мужчина', '2024-10-14 18:30:58.676619', '2024-10-14 18:30:58.676640'),
+(3, 'Унисекс', '2024-10-14 18:31:03.278940', '2024-10-14 18:31:03.278960');
 
 -- --------------------------------------------------------
 
@@ -885,6 +952,13 @@ CREATE TABLE `base_generalstatisticstournament` (
   `someone_field_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Дамп данных таблицы `base_generalstatisticstournament`
+--
+
+INSERT INTO `base_generalstatisticstournament` (`id`, `winnings`, `defeats`, `draws`, `goals_scored`, `goals_conceded`, `score`, `created`, `updated`, `own_field_id`, `someone_field_id`) VALUES
+(1, 100, 20, 30, 500, 456, 500, '2024-10-14 18:42:47.483710', '2024-10-14 18:42:47.483725', 2, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -899,6 +973,13 @@ CREATE TABLE `base_goalkeeperstatistics` (
   `updated` datetime(6) NOT NULL,
   `goalkeeper_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `base_goalkeeperstatistics`
+--
+
+INSERT INTO `base_goalkeeperstatistics` (`id`, `years`, `games`, `created`, `updated`, `goalkeeper_id`) VALUES
+(1, '2024-10-14', 200, '2024-10-14 18:40:21.709440', '2024-10-14 18:40:21.709459', 1);
 
 -- --------------------------------------------------------
 
@@ -930,6 +1011,15 @@ CREATE TABLE `base_match` (
   `outcome_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Дамп данных таблицы `base_match`
+--
+
+INSERT INTO `base_match` (`id`, `tour`, `date`, `created`, `updated`, `arena_id`, `outcome_id`) VALUES
+(1, 1.00, '2024-10-14', '2024-10-14 18:52:53.741744', '2024-10-14 18:52:53.741754', 2, 3),
+(2, 2.00, '2024-10-14', '2024-10-14 18:53:02.347044', '2024-10-14 18:53:02.347056', 1, 1),
+(3, 1.00, '2024-10-14', '2024-10-14 18:54:01.749111', '2024-10-14 18:54:01.749121', 3, 4);
+
 -- --------------------------------------------------------
 
 --
@@ -941,6 +1031,18 @@ CREATE TABLE `base_match_teams` (
   `match_id` bigint(20) NOT NULL,
   `team_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `base_match_teams`
+--
+
+INSERT INTO `base_match_teams` (`id`, `match_id`, `team_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 2, 1),
+(4, 2, 2),
+(5, 3, 1),
+(6, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -982,7 +1084,23 @@ CREATE TABLE `base_media` (
 --
 
 INSERT INTO `base_media` (`id`, `title`, `created`, `updated`, `source`) VALUES
-(1, 'Медиа 1', '2024-10-14 14:05:54.569772', '2024-10-14 14:05:54.569790', 'media/1c3cd8bb08a081e8812271d9883a198e.webp');
+(1, 'Медиа 1', '2024-10-14 14:05:54.569772', '2024-10-14 14:05:54.569790', 'media/1c3cd8bb08a081e8812271d9883a198e.webp'),
+(2, 'Штаны', '2024-10-14 18:32:36.050647', '2024-10-14 18:32:36.050659', 'default.svg'),
+(3, NULL, '2024-10-14 18:32:46.566381', '2024-10-14 18:32:46.566398', 'media/images.jpg'),
+(4, NULL, '2024-10-14 18:34:00.619313', '2024-10-14 18:34:00.619330', 'media/2d8f2007d7200779e98447219c8aecd4.jpg'),
+(5, NULL, '2024-10-14 18:35:55.723000', '2024-10-14 18:35:55.723014', 'media/2255439743_1_5.jpg'),
+(6, NULL, '2024-10-14 18:36:10.688498', '2024-10-14 18:36:10.688510', 'media/3-9c4ceb10032dcdb531edcc102978572d.jpg'),
+(7, NULL, '2024-10-14 18:36:27.926569', '2024-10-14 18:36:27.926582', 'media/images1231231.jpg'),
+(8, NULL, '2024-10-14 18:45:25.107819', '2024-10-14 18:45:25.107843', 'media/145656_Futbolyniy_match_Ural_Terek_Ekaterinburg_5184.3456.0.0.jpg'),
+(9, NULL, '2024-10-14 18:45:58.317319', '2024-10-14 18:45:58.317340', 'media/145656_Futbolyniy_match_Ural_Terek_Ekaterinburg_5184.3456.0.0_ZY4jVS9.jpg'),
+(10, NULL, '2024-10-14 18:46:06.843384', '2024-10-14 18:46:06.843408', 'media/145656_Futbolyniy_match_Ural_Terek_Ekaterinburg_5184.3456.0.0_UEHmtSZ.jpg'),
+(11, NULL, '2024-10-14 18:46:13.010228', '2024-10-14 18:46:13.010251', 'media/Ekaterinburg_futbol_fk_ural_futbolisti_boryba_na_pole_futbolyniy_klub_ural_250x0_3_7IsEeCL.jpg'),
+(12, NULL, '2024-10-14 18:46:26.113578', '2024-10-14 18:46:26.113600', 'media/cbd00bc8d6652ad93d25915ad4c8744b_250x0_1440.811.0.0.jpg'),
+(13, NULL, '2024-10-14 18:46:30.457281', '2024-10-14 18:46:30.457303', 'media/145656_Futbolyniy_match_Ural_Terek_Ekaterinburg_5184.3456.0.0_0XxV3JN.jpg'),
+(14, NULL, '2024-10-14 18:46:36.360193', '2024-10-14 18:46:36.360206', 'media/Ekaterinburg_futbol_fk_ural_futbolisti_boryba_na_pole_futbolyniy_klub_ural_250x0_3_Rq9tIXB.jpg'),
+(15, NULL, '2024-10-14 18:48:37.563384', '2024-10-14 18:48:37.563405', 'media/photo_2024-09-17_04-37-22.jpg'),
+(16, NULL, '2024-10-14 18:49:12.050799', '2024-10-14 18:49:12.050820', 'media/1278643.webp'),
+(17, NULL, '2024-10-14 18:49:18.499232', '2024-10-14 18:49:18.499251', 'media/5893d2b339f547d7c7c95720b9ec0ba8.webp');
 
 -- --------------------------------------------------------
 
@@ -1021,20 +1139,17 @@ CREATE TABLE `base_news` (
   `title` varchar(255) DEFAULT NULL,
   `description` longtext DEFAULT NULL,
   `created` datetime(6) NOT NULL,
-  `updated` datetime(6) NOT NULL
+  `updated` datetime(6) NOT NULL,
+  `cover` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
-
 --
--- Структура таблицы `base_news_gallery`
+-- Дамп данных таблицы `base_news`
 --
 
-CREATE TABLE `base_news_gallery` (
-  `id` bigint(20) NOT NULL,
-  `news_id` bigint(20) NOT NULL,
-  `gallery_id` bigint(20) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+INSERT INTO `base_news` (`id`, `title`, `description`, `created`, `updated`, `cover`) VALUES
+(1, 'ОООоо футбик ПОБЕДА ЧЕМПИОН!!!', 'Ижевская команда \"КОКОС\" победила на чемпинате мира!!!!', '2024-10-14 18:50:36.324986', '2024-10-14 18:50:36.325002', 'news/1278643.webp'),
+(2, 'Жесть какая...', 'Игрок Артем Футбик Круто стал МВП матча!', '2024-10-14 18:51:17.462924', '2024-10-14 18:51:17.462938', 'news/145656_Futbolyniy_match_Ural_Terek_Ekaterinburg_5184.3456.0.0.jpg');
 
 -- --------------------------------------------------------
 
@@ -1048,6 +1163,16 @@ CREATE TABLE `base_outcome` (
   `created` datetime(6) NOT NULL,
   `updated` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `base_outcome`
+--
+
+INSERT INTO `base_outcome` (`id`, `title`, `created`, `updated`) VALUES
+(1, 'Победа', '2024-10-14 18:39:30.244817', '2024-10-14 18:39:30.244833'),
+(2, 'Поражение', '2024-10-14 18:39:35.066305', '2024-10-14 18:39:35.066317'),
+(3, 'Ничья', '2024-10-14 18:39:38.472526', '2024-10-14 18:39:38.472541'),
+(4, 'Не состоялся', '2024-10-14 18:53:48.982708', '2024-10-14 18:53:48.982723');
 
 -- --------------------------------------------------------
 
@@ -1073,7 +1198,8 @@ CREATE TABLE `base_ownfield` (
 --
 
 INSERT INTO `base_ownfield` (`id`, `matches`, `winnings`, `defeats`, `draws`, `goals_scored`, `goals_conceded`, `score`, `created`, `updated`) VALUES
-(1, 53, 32, 21, 0, 120, 23, 100, '2024-10-14 14:19:06.657472', '2024-10-14 14:19:06.657488');
+(1, 53, 32, 21, 0, 120, 23, 100, '2024-10-14 14:19:06.657472', '2024-10-14 14:19:06.657488'),
+(2, 100, 80, 20, 0, 124, 109, 126, '2024-10-14 18:42:21.816568', '2024-10-14 18:42:21.816582');
 
 -- --------------------------------------------------------
 
@@ -1095,7 +1221,8 @@ CREATE TABLE `base_penaltyscored` (
 --
 
 INSERT INTO `base_penaltyscored` (`id`, `kicked`, `scored`, `earned_points`, `created`, `updated`) VALUES
-(1, 12, 2, 12, '2024-10-14 14:17:55.164381', '2024-10-14 14:17:55.164404');
+(1, 12, 2, 12, '2024-10-14 14:17:55.164381', '2024-10-14 14:17:55.164404'),
+(2, 30, 20, 20, '2024-10-14 18:41:20.860933', '2024-10-14 18:41:20.860948');
 
 -- --------------------------------------------------------
 
@@ -1115,7 +1242,9 @@ CREATE TABLE `base_season` (
 --
 
 INSERT INTO `base_season` (`id`, `title`, `created`, `updated`) VALUES
-(1, 'Зима 24/25', '2024-10-14 14:05:22.886774', '2024-10-14 14:05:22.886793');
+(1, 'Зима 24/25', '2024-10-14 14:05:22.886774', '2024-10-14 14:05:22.886793'),
+(2, 'Весна 24/25', '2024-10-14 18:31:21.317856', '2024-10-14 18:31:21.317879'),
+(3, 'Лето 24/25', '2024-10-14 18:35:29.552416', '2024-10-14 18:35:29.552428');
 
 -- --------------------------------------------------------
 
@@ -1138,7 +1267,8 @@ INSERT INTO `base_size` (`id`, `title`, `created`, `updated`) VALUES
 (1, 'M', '2024-10-14 14:02:56.733446', '2024-10-14 14:02:56.733462'),
 (2, 'L', '2024-10-14 14:03:02.196294', '2024-10-14 14:03:02.196317'),
 (3, 'L', '2024-10-14 14:04:46.000681', '2024-10-14 14:04:46.000703'),
-(4, 'M', '2024-10-14 14:04:49.991282', '2024-10-14 14:04:49.991297');
+(4, 'M', '2024-10-14 14:04:49.991282', '2024-10-14 14:04:49.991297'),
+(5, 'S', '2024-10-14 18:30:47.443044', '2024-10-14 18:30:47.443060');
 
 -- --------------------------------------------------------
 
@@ -1164,7 +1294,8 @@ CREATE TABLE `base_someonefield` (
 --
 
 INSERT INTO `base_someonefield` (`id`, `matches`, `winnings`, `defeats`, `draws`, `goals_scored`, `goals_conceded`, `score`, `created`, `updated`) VALUES
-(1, 12, 10, 1, 1, 120, 21, 82, '2024-10-14 14:19:25.655888', '2024-10-14 14:19:25.655902');
+(1, 12, 10, 1, 1, 120, 21, 82, '2024-10-14 14:19:25.655888', '2024-10-14 14:19:25.655902'),
+(2, 30, 20, 10, 0, 45, 34, 50, '2024-10-14 18:42:46.431520', '2024-10-14 18:42:46.431541');
 
 -- --------------------------------------------------------
 
@@ -1179,6 +1310,14 @@ CREATE TABLE `base_team` (
   `updated` datetime(6) NOT NULL,
   `all_statistics_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `base_team`
+--
+
+INSERT INTO `base_team` (`id`, `title`, `created`, `updated`, `all_statistics_id`) VALUES
+(1, 'КОКОС', '2024-10-14 18:52:09.306090', '2024-10-14 18:52:09.306105', 1),
+(2, 'ФУТБИК ЧЕМПИКИ', '2024-10-14 18:52:31.780674', '2024-10-14 18:52:31.780688', 1);
 
 -- --------------------------------------------------------
 
@@ -1204,6 +1343,15 @@ CREATE TABLE `base_team_coach_staff` (
   `coachstaff_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Дамп данных таблицы `base_team_coach_staff`
+--
+
+INSERT INTO `base_team_coach_staff` (`id`, `team_id`, `coachstaff_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -1216,6 +1364,18 @@ CREATE TABLE `base_team_footballers` (
   `footballer_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Дамп данных таблицы `base_team_footballers`
+--
+
+INSERT INTO `base_team_footballers` (`id`, `team_id`, `footballer_id`) VALUES
+(1, 1, 1),
+(2, 1, 2),
+(3, 1, 3),
+(4, 2, 1),
+(5, 2, 2),
+(6, 2, 3);
+
 -- --------------------------------------------------------
 
 --
@@ -1227,6 +1387,14 @@ CREATE TABLE `base_team_tournaments_statistics` (
   `team_id` bigint(20) NOT NULL,
   `generalstatisticstournament_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `base_team_tournaments_statistics`
+--
+
+INSERT INTO `base_team_tournaments_statistics` (`id`, `team_id`, `generalstatisticstournament_id`) VALUES
+(1, 1, 1),
+(2, 2, 1);
 
 -- --------------------------------------------------------
 
@@ -1244,6 +1412,13 @@ CREATE TABLE `base_ticket` (
   `place_id` bigint(20) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Дамп данных таблицы `base_ticket`
+--
+
+INSERT INTO `base_ticket` (`id`, `price`, `date`, `created`, `updated`, `match_id`, `place_id`) VALUES
+(1, 0.00, '2024-10-14 18:54:29.520743', '2024-10-14 18:54:29.520761', '2024-10-14 18:54:29.520767', 2, 1);
+
 -- --------------------------------------------------------
 
 --
@@ -1257,6 +1432,14 @@ CREATE TABLE `base_ticketplace` (
   `created` datetime(6) NOT NULL,
   `updated` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `base_ticketplace`
+--
+
+INSERT INTO `base_ticketplace` (`id`, `sector`, `place`, `created`, `updated`) VALUES
+(1, 1.00, 45.00, '2024-10-14 18:54:12.895635', '2024-10-14 18:54:12.895648'),
+(2, 2.00, 12.00, '2024-10-14 18:54:17.029313', '2024-10-14 18:54:17.029328');
 
 -- --------------------------------------------------------
 
@@ -1274,6 +1457,13 @@ CREATE TABLE `base_tournament` (
   `updated` datetime(6) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Дамп данных таблицы `base_tournament`
+--
+
+INSERT INTO `base_tournament` (`id`, `name`, `start_date`, `end_date`, `tours`, `created`, `updated`) VALUES
+(1, 'Трунир 1', '2024-10-14', '2024-10-14', 1.00, '2024-10-14 18:53:35.877668', '2024-10-14 18:53:35.877678');
+
 -- --------------------------------------------------------
 
 --
@@ -1286,6 +1476,13 @@ CREATE TABLE `base_tournament_cities` (
   `city_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Дамп данных таблицы `base_tournament_cities`
+--
+
+INSERT INTO `base_tournament_cities` (`id`, `tournament_id`, `city_id`) VALUES
+(1, 1, 2);
+
 -- --------------------------------------------------------
 
 --
@@ -1297,6 +1494,14 @@ CREATE TABLE `base_tournament_matches` (
   `tournament_id` bigint(20) NOT NULL,
   `match_id` bigint(20) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Дамп данных таблицы `base_tournament_matches`
+--
+
+INSERT INTO `base_tournament_matches` (`id`, `tournament_id`, `match_id`) VALUES
+(1, 1, 1),
+(2, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -1403,7 +1608,75 @@ INSERT INTO `django_admin_log` (`id`, `action_time`, `object_id`, `object_repr`,
 (24, '2024-10-14 14:19:06.657978', '1', 'Own field matches: #100', 1, '[{\"added\": {}}]', 31, 1),
 (25, '2024-10-14 14:19:25.656206', '1', 'Someone field matches: #82', 1, '[{\"added\": {}}]', 35, 1),
 (26, '2024-10-14 14:19:39.276034', '1', 'Neutral field matches: #0', 1, '[{\"added\": {}}]', 29, 1),
-(27, '2024-10-14 14:19:42.372020', '1', 'General statistics all #1', 1, '[{\"added\": {}}]', 23, 1);
+(27, '2024-10-14 14:19:42.372020', '1', 'General statistics all #1', 1, '[{\"added\": {}}]', 23, 1),
+(28, '2024-10-14 18:23:52.769637', '2', 'Ребенок', 1, '[{\"added\": {}}]', 6, 1),
+(29, '2024-10-14 18:23:58.090370', '3', 'Взрослый', 1, '[{\"added\": {}}]', 6, 1),
+(30, '2024-10-14 18:24:43.875630', '2', 'Зенит', 1, '[{\"added\": {}}]', 7, 1),
+(31, '2024-10-14 18:28:04.334913', '3', 'Торпедо', 1, '[{\"added\": {}}]', 7, 1),
+(32, '2024-10-14 18:28:13.822199', '2', 'Адидас', 1, '[{\"added\": {}}]', 8, 1),
+(33, '2024-10-14 18:28:17.422664', '3', 'Найк', 1, '[{\"added\": {}}]', 8, 1),
+(34, '2024-10-14 18:28:27.735675', '4', 'Merell', 1, '[{\"added\": {}}]', 8, 1),
+(35, '2024-10-14 18:28:37.983562', '2', 'Ижевск', 1, '[{\"added\": {}}]', 11, 1),
+(36, '2024-10-14 18:28:42.685717', '3', 'Краснодар', 1, '[{\"added\": {}}]', 11, 1),
+(37, '2024-10-14 18:28:46.786033', '4', 'Красноярск', 1, '[{\"added\": {}}]', 11, 1),
+(38, '2024-10-14 18:28:50.427382', '5', 'Москва', 1, '[{\"added\": {}}]', 11, 1),
+(39, '2024-10-14 18:29:02.051087', '2', 'Штаны', 1, '[{\"added\": {}}]', 12, 1),
+(40, '2024-10-14 18:30:47.443378', '5', 'S', 1, '[{\"added\": {}}]', 34, 1),
+(41, '2024-10-14 18:30:58.677033', '2', 'Мужчина', 1, '[{\"added\": {}}]', 22, 1),
+(42, '2024-10-14 18:31:03.279360', '3', 'Унисекс', 1, '[{\"added\": {}}]', 22, 1),
+(43, '2024-10-14 18:31:08.938059', '3', 'Белый', 1, '[{\"added\": {}}]', 16, 1),
+(44, '2024-10-14 18:31:12.391327', '4', 'Синий', 1, '[{\"added\": {}}]', 16, 1),
+(45, '2024-10-14 18:31:21.318281', '2', 'Весна 24/25', 1, '[{\"added\": {}}]', 33, 1),
+(46, '2024-10-14 18:32:36.050968', '2', '/uploads/default.svg', 1, '[{\"added\": {}}]', 28, 1),
+(47, '2024-10-14 18:32:46.566967', '3', '/uploads/media/images.jpg', 1, '[{\"added\": {}}]', 28, 1),
+(48, '2024-10-14 18:32:58.387815', '4', 'Штаны скороходы', 1, '[{\"added\": {}}]', 45, 1),
+(49, '2024-10-14 18:33:05.661866', '3', 'Шарф', 1, '[{\"added\": {}}]', 12, 1),
+(50, '2024-10-14 18:34:00.619717', '4', '/uploads/media/2d8f2007d7200779e98447219c8aecd4.jpg', 1, '[{\"added\": {}}]', 28, 1),
+(51, '2024-10-14 18:34:08.878189', '5', 'Шарф согревающий', 1, '[{\"added\": {}}]', 45, 1),
+(52, '2024-10-14 18:35:00.577666', '4', 'Шорты', 1, '[{\"added\": {}}]', 12, 1),
+(53, '2024-10-14 18:35:29.552722', '3', 'Лето 24/25', 1, '[{\"added\": {}}]', 33, 1),
+(54, '2024-10-14 18:35:55.723483', '5', '/uploads/media/2255439743_1_5.jpg', 1, '[{\"added\": {}}]', 28, 1),
+(55, '2024-10-14 18:36:10.688870', '6', '/uploads/media/3-9c4ceb10032dcdb531edcc102978572d.jpg', 1, '[{\"added\": {}}]', 28, 1),
+(56, '2024-10-14 18:36:27.927023', '7', '/uploads/media/images1231231.jpg', 1, '[{\"added\": {}}]', 28, 1),
+(57, '2024-10-14 18:36:36.721020', '6', 'Шорты беговые', 1, '[{\"added\": {}}]', 45, 1),
+(58, '2024-10-14 18:38:32.090992', '2', 'Тип 2', 1, '[{\"added\": {}}]', 14, 1),
+(59, '2024-10-14 18:38:35.713408', '2', 'Кирилл', 1, '[{\"added\": {}}]', 13, 1),
+(60, '2024-10-14 18:39:30.245288', '1', 'Победа', 1, '[{\"added\": {}}]', 30, 1),
+(61, '2024-10-14 18:39:35.066596', '2', 'Поражение', 1, '[{\"added\": {}}]', 30, 1),
+(62, '2024-10-14 18:39:38.472855', '3', 'Ничья', 1, '[{\"added\": {}}]', 30, 1),
+(63, '2024-10-14 18:40:21.709966', '1', '#Имя 1 statistics', 1, '[{\"added\": {}}]', 43, 1),
+(64, '2024-10-14 18:41:20.861525', '2', 'Penalty scored #2', 1, '[{\"added\": {}}]', 32, 1),
+(65, '2024-10-14 18:41:22.456196', '2', '#Footballer statistics #2', 1, '[{\"added\": {}}]', 44, 1),
+(66, '2024-10-14 18:42:21.816873', '2', 'Own field matches: #2', 1, '[{\"added\": {}}]', 31, 1),
+(67, '2024-10-14 18:42:46.432005', '2', 'Someone field matches: #2', 1, '[{\"added\": {}}]', 35, 1),
+(68, '2024-10-14 18:42:47.484003', '1', 'Generals statistics tournament #1', 1, '[{\"added\": {}}]', 24, 1),
+(69, '2024-10-14 18:45:25.108393', '8', '/uploads/media/145656_Futbolyniy_match_Ural_Terek_Ekaterinburg_5184.3456.0.0.jpg', 1, '[{\"added\": {}}]', 28, 1),
+(70, '2024-10-14 18:45:58.317803', '9', '/uploads/media/145656_Futbolyniy_match_Ural_Terek_Ekaterinburg_5184.3456.0.0_ZY4jVS9.jpg', 1, '[{\"added\": {}}]', 28, 1),
+(71, '2024-10-14 18:46:06.843921', '10', '/uploads/media/145656_Futbolyniy_match_Ural_Terek_Ekaterinburg_5184.3456.0.0_UEHmtSZ.jpg', 1, '[{\"added\": {}}]', 28, 1),
+(72, '2024-10-14 18:46:13.010765', '11', '/uploads/media/Ekaterinburg_futbol_fk_ural_futbolisti_boryba_na_pole_futbolyniy_klub_ural_250x0_3_7IsEeCL.jpg', 1, '[{\"added\": {}}]', 28, 1),
+(73, '2024-10-14 18:46:26.114100', '12', '/uploads/media/cbd00bc8d6652ad93d25915ad4c8744b_250x0_1440.811.0.0.jpg', 1, '[{\"added\": {}}]', 28, 1),
+(74, '2024-10-14 18:46:30.457812', '13', '/uploads/media/145656_Futbolyniy_match_Ural_Terek_Ekaterinburg_5184.3456.0.0_0XxV3JN.jpg', 1, '[{\"added\": {}}]', 28, 1),
+(75, '2024-10-14 18:46:36.360584', '14', '/uploads/media/Ekaterinburg_futbol_fk_ural_futbolisti_boryba_na_pole_futbolyniy_klub_ural_250x0_3_Rq9tIXB.jpg', 1, '[{\"added\": {}}]', 28, 1),
+(76, '2024-10-14 18:46:37.785862', '1', 'Gallery #1', 1, '[{\"added\": {}}]', 21, 1),
+(77, '2024-10-14 18:48:37.563993', '15', '/uploads/media/photo_2024-09-17_04-37-22.jpg', 1, '[{\"added\": {}}]', 28, 1),
+(78, '2024-10-14 18:48:44.959502', '2', 'Нападающий', 1, '[{\"added\": {}}]', 20, 1),
+(79, '2024-10-14 18:48:48.331796', '2', 'Максим', 1, '[{\"added\": {}}]', 19, 1),
+(80, '2024-10-14 18:49:12.051297', '16', '/uploads/media/1278643.webp', 1, '[{\"added\": {}}]', 28, 1),
+(81, '2024-10-14 18:49:18.499748', '17', '/uploads/media/5893d2b339f547d7c7c95720b9ec0ba8.webp', 1, '[{\"added\": {}}]', 28, 1),
+(82, '2024-10-14 18:49:26.655277', '3', 'Полузащитник', 1, '[{\"added\": {}}]', 20, 1),
+(83, '2024-10-14 18:49:27.916182', '3', 'Артем', 1, '[{\"added\": {}}]', 19, 1),
+(84, '2024-10-14 18:50:36.325362', '1', 'News object (1)', 1, '[{\"added\": {}}]', 42, 1),
+(85, '2024-10-14 18:51:17.463311', '2', 'News object (2)', 1, '[{\"added\": {}}]', 42, 1),
+(86, '2024-10-14 18:52:09.318605', '1', 'КОКОС', 1, '[{\"added\": {}}]', 41, 1),
+(87, '2024-10-14 18:52:31.801950', '2', 'ФУТБИК ЧЕМПИКИ', 1, '[{\"added\": {}}]', 41, 1),
+(88, '2024-10-14 18:52:53.742950', '1', 'Match #1', 1, '[{\"added\": {}}]', 26, 1),
+(89, '2024-10-14 18:53:02.355043', '2', 'Match #2', 1, '[{\"added\": {}}]', 26, 1),
+(90, '2024-10-14 18:53:35.884093', '1', 'Трунир 1', 1, '[{\"added\": {}}]', 39, 1),
+(91, '2024-10-14 18:53:48.983010', '4', 'Не состоялся', 1, '[{\"added\": {}}]', 30, 1),
+(92, '2024-10-14 18:54:01.750485', '3', 'Match #3', 1, '[{\"added\": {}}]', 26, 1),
+(93, '2024-10-14 18:54:12.896149', '1', 'Ticket place #45', 1, '[{\"added\": {}}]', 38, 1),
+(94, '2024-10-14 18:54:17.029623', '2', 'Ticket place #12', 1, '[{\"added\": {}}]', 38, 1),
+(95, '2024-10-14 18:54:29.521059', '1', 'Ticket #1', 1, '[{\"added\": {}}]', 40, 1);
 
 -- --------------------------------------------------------
 
@@ -1509,7 +1782,8 @@ INSERT INTO `django_migrations` (`id`, `app`, `name`, `applied`) VALUES
 (20, 'base', '0002_rename_staff_administrativestaff_and_more', '2024-10-14 13:59:11.086657'),
 (21, 'base', '0003_remove_clothes_size_clothes_size', '2024-10-14 14:09:21.299848'),
 (22, 'base', '0004_alter_footballer_age_alter_footballer_weight', '2024-10-14 14:12:47.878151'),
-(23, 'base', '0005_alter_footballer_weight', '2024-10-14 14:44:12.818175');
+(23, 'base', '0005_alter_footballer_weight', '2024-10-14 14:44:12.818175'),
+(24, 'base', '0006_remove_news_gallery_news_cover', '2024-10-14 18:27:38.939543');
 
 -- --------------------------------------------------------
 
@@ -1842,14 +2116,6 @@ ALTER TABLE `base_news`
   ADD PRIMARY KEY (`id`);
 
 --
--- Индексы таблицы `base_news_gallery`
---
-ALTER TABLE `base_news_gallery`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `base_news_gallery_news_id_gallery_id_cfa7ad8b_uniq` (`news_id`,`gallery_id`),
-  ADD KEY `base_news_gallery_gallery_id_40f21324_fk_base_gallery_id` (`gallery_id`);
-
---
 -- Индексы таблицы `base_outcome`
 --
 ALTER TABLE `base_outcome`
@@ -2055,19 +2321,19 @@ ALTER TABLE `base_administrativestaff_type_staff`
 -- AUTO_INCREMENT для таблицы `base_agecategory`
 --
 ALTER TABLE `base_agecategory`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `base_arena`
 --
 ALTER TABLE `base_arena`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `base_brand`
 --
 ALTER TABLE `base_brand`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `base_breedingservice`
@@ -2091,55 +2357,55 @@ ALTER TABLE `base_breedingservice_type_service`
 -- AUTO_INCREMENT для таблицы `base_city`
 --
 ALTER TABLE `base_city`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `base_clothes`
 --
 ALTER TABLE `base_clothes`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `base_clothestype`
 --
 ALTER TABLE `base_clothestype`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `base_clothes_materials`
 --
 ALTER TABLE `base_clothes_materials`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `base_clothes_media_links`
 --
 ALTER TABLE `base_clothes_media_links`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `base_clothes_size`
 --
 ALTER TABLE `base_clothes_size`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT для таблицы `base_coachstaff`
 --
 ALTER TABLE `base_coachstaff`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `base_coachstafftype`
 --
 ALTER TABLE `base_coachstafftype`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `base_coachstaff_type_coach`
 --
 ALTER TABLE `base_coachstaff_type_coach`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `base_coachsummarystatistics`
@@ -2151,7 +2417,7 @@ ALTER TABLE `base_coachsummarystatistics`
 -- AUTO_INCREMENT для таблицы `base_color`
 --
 ALTER TABLE `base_color`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `base_director`
@@ -2175,49 +2441,49 @@ ALTER TABLE `base_director_type_director`
 -- AUTO_INCREMENT для таблицы `base_footballer`
 --
 ALTER TABLE `base_footballer`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `base_footballerposition`
 --
 ALTER TABLE `base_footballerposition`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `base_footballerstatistics`
 --
 ALTER TABLE `base_footballerstatistics`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `base_footballerstatistics_penalties`
 --
 ALTER TABLE `base_footballerstatistics_penalties`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `base_footballer_image`
 --
 ALTER TABLE `base_footballer_image`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `base_gallery`
 --
 ALTER TABLE `base_gallery`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `base_gallery_media`
 --
 ALTER TABLE `base_gallery_media`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `base_gender`
 --
 ALTER TABLE `base_gender`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `base_generalstatisticsall`
@@ -2229,13 +2495,13 @@ ALTER TABLE `base_generalstatisticsall`
 -- AUTO_INCREMENT для таблицы `base_generalstatisticstournament`
 --
 ALTER TABLE `base_generalstatisticstournament`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `base_goalkeeperstatistics`
 --
 ALTER TABLE `base_goalkeeperstatistics`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `base_headermodel`
@@ -2247,13 +2513,13 @@ ALTER TABLE `base_headermodel`
 -- AUTO_INCREMENT для таблицы `base_match`
 --
 ALTER TABLE `base_match`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `base_match_teams`
 --
 ALTER TABLE `base_match_teams`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `base_material`
@@ -2265,7 +2531,7 @@ ALTER TABLE `base_material`
 -- AUTO_INCREMENT для таблицы `base_media`
 --
 ALTER TABLE `base_media`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT для таблицы `base_neutralfield`
@@ -2277,55 +2543,49 @@ ALTER TABLE `base_neutralfield`
 -- AUTO_INCREMENT для таблицы `base_news`
 --
 ALTER TABLE `base_news`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
-
---
--- AUTO_INCREMENT для таблицы `base_news_gallery`
---
-ALTER TABLE `base_news_gallery`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `base_outcome`
 --
 ALTER TABLE `base_outcome`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT для таблицы `base_ownfield`
 --
 ALTER TABLE `base_ownfield`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `base_penaltyscored`
 --
 ALTER TABLE `base_penaltyscored`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `base_season`
 --
 ALTER TABLE `base_season`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `base_size`
 --
 ALTER TABLE `base_size`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT для таблицы `base_someonefield`
 --
 ALTER TABLE `base_someonefield`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `base_team`
 --
 ALTER TABLE `base_team`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `base_team_administrative_staff`
@@ -2337,49 +2597,49 @@ ALTER TABLE `base_team_administrative_staff`
 -- AUTO_INCREMENT для таблицы `base_team_coach_staff`
 --
 ALTER TABLE `base_team_coach_staff`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `base_team_footballers`
 --
 ALTER TABLE `base_team_footballers`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT для таблицы `base_team_tournaments_statistics`
 --
 ALTER TABLE `base_team_tournaments_statistics`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `base_ticket`
 --
 ALTER TABLE `base_ticket`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `base_ticketplace`
 --
 ALTER TABLE `base_ticketplace`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `base_tournament`
 --
 ALTER TABLE `base_tournament`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `base_tournament_cities`
 --
 ALTER TABLE `base_tournament_cities`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT для таблицы `base_tournament_matches`
 --
 ALTER TABLE `base_tournament_matches`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT для таблицы `base_user`
@@ -2403,7 +2663,7 @@ ALTER TABLE `base_user_user_permissions`
 -- AUTO_INCREMENT для таблицы `django_admin_log`
 --
 ALTER TABLE `django_admin_log`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=96;
 
 --
 -- AUTO_INCREMENT для таблицы `django_content_type`
@@ -2415,7 +2675,7 @@ ALTER TABLE `django_content_type`
 -- AUTO_INCREMENT для таблицы `django_migrations`
 --
 ALTER TABLE `django_migrations`
-  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=24;
+  MODIFY `id` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
 
 --
 -- Ограничения внешнего ключа сохраненных таблиц
@@ -2562,13 +2822,6 @@ ALTER TABLE `base_match`
 ALTER TABLE `base_match_teams`
   ADD CONSTRAINT `base_match_teams_match_id_2f5bbd49_fk_base_match_id` FOREIGN KEY (`match_id`) REFERENCES `base_match` (`id`),
   ADD CONSTRAINT `base_match_teams_team_id_b944bf44_fk_base_team_id` FOREIGN KEY (`team_id`) REFERENCES `base_team` (`id`);
-
---
--- Ограничения внешнего ключа таблицы `base_news_gallery`
---
-ALTER TABLE `base_news_gallery`
-  ADD CONSTRAINT `base_news_gallery_gallery_id_40f21324_fk_base_gallery_id` FOREIGN KEY (`gallery_id`) REFERENCES `base_gallery` (`id`),
-  ADD CONSTRAINT `base_news_gallery_news_id_193358d1_fk_base_news_id` FOREIGN KEY (`news_id`) REFERENCES `base_news` (`id`);
 
 --
 -- Ограничения внешнего ключа таблицы `base_team`
