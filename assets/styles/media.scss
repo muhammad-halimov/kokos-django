@@ -334,6 +334,16 @@
     .personal_info{
         padding: clamp(0.938rem, 0.191rem + 3.51vw, 1.875rem) 0;
     }
+
+    .characters {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto auto;
+        
+    
+        .vs {
+            margin: 1rem 0;
+        }
+    }
 }
 
 @media (max-width: 600px) {

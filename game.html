@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Игра с воротами</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link rel="stylesheet" href="assets/styles/media.css">
+</head>
+<body>
+    <!-- здесь хэдэр -->
+    <header>
+        <div class="container">
+            <div class="header_content">
+                <a href="index.html" class="logo">
+                    <img loading="lazy" src="assets/img/logo_transperent.png" class="logo_img">
+                    <div class="logo_text">
+                        <p class="name">Кокос GROUP</p>
+                    </div>
+                </a>
+                <nav class="navigation">
+                    <ul>
+                        <li><a href=""><img loading="lazy" src="assets/img/cart.svg"></a></li>
+                        <li><a href="">Магазин</a></li>
+                        <li><a href="">Матчи</a></li>
+                        <li><a href="">Новости</a></li>
+                        <li><a href="">Команда</a></li>
+                        <li><a href="">История</a></li>
+                        <li><a href="">Медиа</a></li>
+                        <li><a href="">Партнерам</a></li>
+                        <li class="networks">
+                            <a href=""><img loading="lazy" src="assets/img/tg.svg"></a>
+                            <a href=""><img loading="lazy" src="assets/img/youtube.svg"></a>
+                            <a href=""><img loading="lazy" src="assets/img/vk.svg"></a>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="header_side_buttons">
+                    <a href="" class="log_in">
+                        <img loading="lazy" src="assets/img/login.svg" width="42px">
+                    </a>
+
+                    <button class="menu_btn clear_btn">
+                        <img src="assets/img/menu_btn.svg">
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <div class="menu_overlay"></div>
+    <div class="menu_container">
+        <button class="close_btn clear_btn">
+            <img src="assets/img/close.svg">
+        </button>
+        <nav class="menu_navigation">
+            <ul>
+                <li><a href="">Магазин</a></li>
+                <li><a href="">Матчи</a></li>
+                <li><a href="">Новости</a></li>
+                <li><a href="">Команда</a></li>
+                <li><a href="">История</a></li>
+                <li><a href="">Медиа</a></li>
+                <li><a href="">Партнерам</a></li>
+            </ul>
+        </nav>
+    </div>
+    <div class="container">
+        <div class="canvas_game">
+            <div id="score-display">0 : 0</div>
+            <canvas id="canvas" width="2200" height="1070"></canvas>
+        </div>
+        
+    </div>
+    
+    
+    <button id="game-reset" style="display: none;">Играть снова</button>
+   <!-- здесь хэдэр футер -->
+    <script src="assets/scripts/game.js"></script>
+</body>
+</html>
