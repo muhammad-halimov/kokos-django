@@ -1,0 +1,2723 @@
+@charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap");
+@font-face {
+  font-family: Museo500;
+  src: url(../fonts/MuseoSansCyrl-500.ttf);
+}
+@font-face {
+  font-family: Museo700;
+  src: url(../fonts/MuseoSansCyrl-700.ttf);
+}
+@font-face {
+  font-family: Museo900;
+  src: url(../fonts/MuseoSansCyrl-900.ttf);
+}
+html,
+body {
+  font-family: "Museo500", sans-serif;
+  color: #ffffff;
+  height: 100%;
+  background-color: #0E0E0E;
+}
+
+ul {
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(255, 255, 255);
+}
+
+.heading {
+  font-size: clamp(1.875rem, 1.249rem + 1.3vw, 2.5rem);
+  line-height: clamp(1.875rem, 1.249rem + 1.3vw, 2.5rem);
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.small_heading {
+  font-size: clamp(1.25rem, 1.037rem + 1vw, 2rem);
+  line-height: clamp(1.25rem, 1.037rem + 1vw, 2rem);
+  font-weight: 700;
+}
+
+.txt32 {
+  font-size: 24px;
+}
+
+.end_block {
+  margin-bottom: 120px;
+}
+
+.end_block1 {
+  opacity: 0;
+  transform: translateY(100px);
+  margin-bottom: 120px;
+}
+
+.end_block1.element_show {
+  opacity: 1;
+  transition: all 0.4s;
+  transform: translateY(0%);
+}
+
+.wrap {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.container {
+  max-width: 1535px;
+  padding: 0 13px;
+}
+
+.intro_img {
+  top: 0;
+  left: 0;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  min-width: 100%;
+  min-height: 40rem;
+}
+
+.intro_img_photo {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  filter: brightness(60%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  max-width: none;
+  max-height: none;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.profile_background_img {
+  min-height: 50vh !important;
+}
+
+header {
+  width: 100%;
+  position: fixed;
+  padding-top: 10px;
+  top: 0;
+  z-index: 100;
+}
+header .header_content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  padding: 9px 13px;
+  justify-content: space-between;
+  background: rgba(22, 22, 22, 0.6);
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+  border-radius: 7px;
+}
+header .header_content nav {
+  text-transform: uppercase;
+}
+header .header_content nav ul {
+  margin-bottom: 0;
+  display: flex;
+  gap: clamp(0.688rem, -0.502rem + 2.48vw, 1.875rem);
+  font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
+}
+header .header_content nav ul li a {
+  transition: all 0.2s;
+}
+header .header_content nav ul li a:hover {
+  color: #ae2424;
+  margin: 0 10px;
+}
+header .header_content nav ul .networks {
+  display: flex;
+  gap: clamp(0.375rem, 0.125rem + 0.52vw, 0.625rem);
+}
+header .header_content nav ul .networks a img {
+  height: clamp(0.938rem, 0.75rem + 0.39vw, 1.125rem);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+.logo_img {
+  width: clamp(1.75rem, 0.874rem + 1.83vw, 2.625rem);
+  display: block;
+}
+.logo_text {
+  margin-left: 0.87vw;
+}
+.logo_text p {
+  line-height: 20px;
+  margin: 0;
+  padding: 0;
+}
+.logo_text .name, .logo_text .full_screen_score .arena, .full_screen_score .logo_text .arena {
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  font-size: clamp(0.75rem, -0.185rem + 1.5vw, 1.25rem);
+}
+
+.header_side_buttons a img {
+  width: clamp(1.75rem, 0.874rem + 1.83vw, 2.625rem);
+}
+
+.header_side_buttons {
+  display: flex;
+  align-items: center;
+  gap: 0.8vw;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.menu_btn {
+  display: none;
+}
+
+/* burger меню*/
+.menu_overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(41, 5, 5, 0.5);
+  -webkit-backdrop-filter: blur(5px);
+          backdrop-filter: blur(5px);
+  z-index: 99;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu_container {
+  position: fixed;
+  top: 0;
+  right: -50vw;
+  width: 50vw;
+  height: 100%;
+  background-color: #0E0E0E;
+  z-index: 100;
+  padding: 40px;
+  box-sizing: border-box;
+  transition: all 0.3s ease-in-out;
+}
+
+.menu_container .close_btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.menu_navigation ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.menu_navigation li {
+  margin-bottom: 20px;
+}
+
+.menu_navigation a {
+  text-transform: uppercase;
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+}
+.menu_navigation a:hover {
+  color: #600E0E;
+}
+
+.menu_open .menu_overlay {
+  opacity: 1;
+  visibility: visible;
+}
+
+.menu_open .menu_container {
+  right: 0;
+}
+
+/* burger меню*/
+.common_intro_block {
+  position: relative;
+  padding: 10.6rem 0;
+  display: flex;
+  align-items: center;
+}
+
+.intro_news_block {
+  right: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.news_teaser .news_teaser_wrapper .news_name {
+  text-transform: uppercase;
+  width: clamp(24.688rem, -1.033rem + 53.59vw, 50.375rem);
+  line-height: clamp(2rem, -0.003rem + 4.17vw, 4rem);
+  font-family: "Museo900";
+  font-size: clamp(2rem, -0.003rem + 4.17vw, 4rem);
+  margin-bottom: clamp(1rem, 0.374rem + 1.3vw, 1.625rem);
+}
+.news_teaser .news_teaser_wrapper .news_description {
+  margin-bottom: clamp(1.563rem, 0.624rem + 1.96vw, 2.5rem);
+  width: clamp(17.875rem, -1.15rem + 39.63vw, 36.875rem);
+  font-size: clamp(1rem, 0.75rem + 0.52vw, 1.25rem);
+  line-height: 1rem;
+}
+.news_teaser .news_teaser_wrapper a {
+  background-color: #0E0E0E;
+  transition: all 0.2s;
+  border-radius: 7px;
+  text-transform: uppercase;
+  font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+  padding: clamp(0.688rem, 0.187rem + 1.04vw, 1.188rem) clamp(1.813rem, -0.253rem + 4.3vw, 3.875rem);
+}
+.news_teaser .news_teaser_wrapper a:hover {
+  background-color: #821313;
+}
+
+.intro_news {
+  flex-direction: row;
+  height: 615px;
+  justify-content: flex-end;
+  z-index: 10;
+  display: flex;
+  position: relative;
+}
+.intro_news .indicator {
+  width: 6px;
+  background-color: #cbb3b3;
+  margin-right: 10px;
+  border-radius: 15px;
+}
+.intro_news .indicator .section {
+  border-radius: 15px;
+  height: 25%;
+  background-color: transparent;
+  transition: background-color 0.5s;
+}
+.intro_news_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+.intro_news_wrapper .one_news {
+  border-radius: 15px;
+  height: 25%;
+  background-color: #1e1e1e;
+  margin-bottom: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+.intro_news_wrapper .one_news::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgb(14, 14, 14);
+  background: linear-gradient(0deg, rgb(84, 15, 15) 0%, rgba(14, 14, 14, 0) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+.intro_news_wrapper .one_news img {
+  max-width: 100%;
+  max-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  filter: grayscale(0);
+  transition: all 0.13s ease-in-out;
+}
+.intro_news_wrapper .one_news p {
+  z-index: 4;
+  text-transform: uppercase;
+  color: white;
+  font-family: "Museo900";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  margin-bottom: 0;
+  translate: all 0.13s;
+  font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+  padding: clamp(0.5rem, 0.125rem + 0.78vw, 0.875rem);
+}
+.intro_news_wrapper .one_news:hover img {
+  filter: grayscale(1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.intro_news_wrapper .one_news:hover p {
+  color: #dadada;
+}
+
+/* эффекты затухания в интро
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.fade-in {
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+*/
+.main_news {
+  margin-top: -200px;
+}
+.main_news_card {
+  padding-bottom: 150%;
+  z-index: 6;
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  min-width: 100%;
+  border-radius: 7px;
+}
+.main_news_card::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgb(14, 14, 14);
+  background: linear-gradient(0deg, rgb(14, 14, 14) 0%, rgba(14, 14, 14, 0) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 7;
+  pointer-events: none;
+}
+.main_news_card img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.2s ease-in-out;
+}
+.main_news_card img:hover {
+  filter: grayscale(1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.main_news_text {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: clamp(0.313rem, 0.65vw, 0.625rem) clamp(0.625rem, -0.627rem + 2.61vw, 1.875rem);
+  line-height: 110%;
+  z-index: 8;
+  margin-bottom: 0;
+  z-index: 9;
+  font-size: clamp(0.875rem, 0.187rem + 1.43vw, 1.563rem);
+  font-weight: 800;
+}
+
+.carousel-inner {
+  border-radius: 7px;
+  height: 100%;
+  overflow: hidden;
+}
+.carousel button {
+  transition: all 0.2s;
+  background-color: #525252;
+}
+.carousel button.active {
+  background-color: #2b0303;
+}
+.carousel button:hover {
+  background-color: #2b0303;
+}
+.carousel_content {
+  width: 100%;
+  display: grid;
+  /* активация grid */
+  grid-template-columns: repeat(5, 1fr);
+}
+.carousel-caption {
+  position: absolute;
+  top: 0 !important;
+  right: 0;
+  left: 0;
+  padding: 0;
+  bottom: 0;
+  color: white;
+  text-align: center;
+}
+.carousel_col {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+  margin: 0 auto;
+}
+.carousel_col img {
+  height: 78px;
+}
+.carousel_col p {
+  font-size: 16px;
+  line-height: 3.3vw;
+  text-transform: uppercase;
+}
+
+.grid_item {
+  width: clamp(0.75rem, -2.266rem + 6.28vw, 3.75rem);
+}
+
+.carousel_background_img {
+  /*min-height: 201px;*/
+  height: clamp(12.5rem, 8.557rem + 8.21vw, 16.438rem);
+}
+
+.carousel_col {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.938rem, 0.313rem + 3.125vw, 3.125rem);
+  margin: 0 auto;
+}
+.carousel_col img {
+  height: clamp(3.25rem, 0.938rem + 5.625vw, 4.875rem);
+}
+.carousel_col p {
+  font-size: clamp(0.75rem, 0.25rem + 1.25vw, 1rem);
+  text-transform: uppercase;
+}
+
+.carousel_center_col {
+  margin-top: clamp(0.625rem, 0.156rem + 1.25vw, 1.25rem);
+  text-align: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.carousel_center_col .competiton_type {
+  margin-bottom: 0;
+  font-size: clamp(0.75rem, 0.25rem + 1.5vw, 1.5rem);
+  font-family: "Oswald", sans-serif;
+}
+.carousel_center_col .competiton_date {
+  color: #B07575;
+  font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+}
+.carousel_center_col .competiton_place {
+  color: #B07575;
+  margin-bottom: 0;
+  font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+}
+.carousel_center_col .competiton_name {
+  font-size: clamp(0.625rem, 0.219rem + 1.094vw, 1.25rem);
+}
+
+.competiton_score {
+  font-weight: 800;
+  font-size: clamp(1.8rem, 0.375rem + 1.625vw, 2.25rem);
+  font-family: "Oswald", sans-serif;
+}
+
+.standings_row {
+  height: 100%;
+  flex-wrap: wrap;
+  padding-right: 13px;
+}
+.standings_row .col-md-6 {
+  padding: 15px;
+  height: 100%;
+  padding-bottom: 30%;
+  position: relative;
+}
+
+.standings {
+  background-color: #1A1A1A;
+  border-radius: 7px;
+  overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+.standings_header {
+  padding-top: clamp(0.688rem, -0.063rem + 1.56vw, 1.438rem);
+  padding-right: clamp(0.75rem, -0.251rem + 2.09vw, 1.75rem);
+  padding-bottom: clamp(0.313rem, -0.251rem + 1.17vw, 0.875rem);
+  padding-left: clamp(0.75rem, -0.251rem + 2.09vw, 1.75rem);
+  background-image: url(../img/competition-back.png);
+  background-position: center;
+  background-size: cover;
+  background-position: center;
+  background-size: cover;
+}
+.standings_header .table_header th:nth-child(0), .standings_header .table_header td:nth-child(1) {
+  width: 10%;
+}
+.standings_header .table_header th:nth-child(1), .standings_header .table_header td:nth-child(2) {
+  width: 10%;
+}
+.standings_header .table_header th:nth-child(2), .standings_header .table_header td:nth-child(3) {
+  width: 65.5vw;
+}
+.standings_header .table_header th:nth-child(3), .standings_header .table_header td:nth-child(4) {
+  width: 6.5%;
+}
+.standings_header .table_header {
+  margin-top: 15px;
+  margin-right: 1vw;
+}
+.standings_header .table_header td {
+  font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
+}
+.standings_table {
+  overflow-y: auto;
+  max-height: 339px;
+  scrollbar-width: thin;
+  scrollbar-color: #600E0E #1A1A1A;
+  padding: 0 clamp(0.75rem, -0.251rem + 2.09vw, 1.75rem);
+}
+.standings_table .table > :not(caption) > * > * {
+  font-family: "Oswald", sans-serif;
+  color: white;
+  background-color: transparent;
+}
+.standings_table .table {
+  border-color: #4D2A2A;
+}
+.standings_table .table:not(caption) td {
+  font-size: clamp(0.875rem, 0.249rem + 1.3vw, 1.5rem);
+  font-weight: 300;
+}
+.standings_table .table:not(caption) td img {
+  margin-top: -5px;
+  height: clamp(1.063rem, -0.064rem + 2.35vw, 2.188rem);
+  right: 0;
+  padding: 0;
+}
+.standings_table .table:not(caption) .td_logo {
+  text-align: center;
+}
+.standings_table .table th:nth-child(3),
+.standings_table .table td:nth-child(4) {
+  width: 72%;
+}
+.standings_table .table th:nth-child(1),
+.standings_table .table td:nth-child(2) {
+  width: 10%;
+}
+
+.selector {
+  background-color: #0E0E0E;
+  color: white;
+  font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  border-radius: 7px;
+  padding: clamp(0.625rem, 0.312rem + 0.65vw, 0.938rem);
+  width: 100%;
+  outline: none;
+}
+.selector:focus {
+  box-shadow: none;
+}
+.selector option {
+  border: none;
+  background-color: #1A1A1A;
+}
+.selector option:focus {
+  background-color: #701D1D;
+}
+
+.home_red_txt {
+  color: #AF5F5F !important;
+}
+
+.num {
+  font-weight: 800 !important;
+}
+
+.next_competition {
+  background-color: #670c0c;
+  border-radius: 7px;
+  padding: clamp(0.563rem, -0.001rem + 1.17vw, 1.125rem) clamp(0.938rem, -0.189rem + 2.35vw, 2.063rem);
+  overflow: hidden;
+  background-image: url(../img/background.png);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.next_competition .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+.next_competition .header .header_txt {
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(0.969rem, -0.064rem + 2.15vw, 2rem);
+  font-weight: 500;
+}
+.next_competition .header .date {
+  text-decoration: underline;
+  font-size: clamp(0.625rem, -0.001rem + 1.3vw, 1.25rem);
+}
+.next_competition .score {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.next_competition .score .team {
+  text-align: center;
+  align-items: center;
+}
+.next_competition .score .team img {
+  height: clamp(2.625rem, -0.254rem + 6vw, 5.5rem);
+  margin-top: 40%;
+}
+.next_competition .score .team p {
+  margin-top: clamp(0.938rem, -0.001rem + 1.96vw, 1.875rem);
+  text-transform: uppercase;
+  font-size: clamp(0.688rem, 0.124rem + 1.17vw, 1.25rem);
+}
+.next_competition .score_empty {
+  margin-top: 50%;
+  text-align: center;
+  align-items: center;
+  font-size: clamp(1.938rem, -0.128rem + 4.3vw, 4rem);
+  font-weight: 800;
+}
+.next_competition .info {
+  margin-top: 4%;
+  text-align: center;
+}
+.next_competition .info .place {
+  color: #B29898;
+  font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
+  margin-bottom: 1%;
+}
+.next_competition .info .name, .next_competition .info .full_screen_score .arena, .full_screen_score .next_competition .info .arena {
+  text-transform: uppercase;
+  font-size: clamp(0.688rem, 0.124rem + 1.17vw, 1.25rem);
+}
+
+.news_block {
+  display: flex;
+  align-items: stretch;
+}
+
+.main_news {
+  margin-top: -200px;
+}
+.main_news_card {
+  padding-bottom: 150%;
+  z-index: 6;
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  min-width: 100%;
+  border-radius: 7px;
+}
+.main_news_card::after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to top, rgb(27, 5, 5) 0%, rgba(0, 0, 0, 0) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 7;
+  pointer-events: none;
+}
+.main_news_card img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.2s ease-in-out;
+}
+.main_news_card img:hover {
+  filter: grayscale(1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.main_news_text {
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: clamp(0.313rem, 0.65vw, 0.625rem) clamp(0.625rem, -0.627rem + 2.61vw, 1.875rem);
+  line-height: 110%;
+  z-index: 8;
+  margin-bottom: 0;
+  z-index: 9;
+  font-size: clamp(0.875rem, 0.187rem + 1.43vw, 1.563rem);
+  font-weight: 800;
+}
+
+.small_card {
+  padding-bottom: 100%;
+}
+.small_card p {
+  font-size: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
+  line-height: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
+  margin-bottom: clamp(0.375rem, 0.125rem + 0.52vw, 0.625rem);
+}
+.small_card .news_date {
+  color: #888888;
+  font-family: "Oswald", sans-serif;
+  font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
+  font-weight: 300;
+}
+
+.ad_block {
+  border-radius: 7px;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+  display: flex;
+  height: 100%;
+}
+.ad_block img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.card_gap {
+  padding: clamp(0.2rem, -0.1rem + 0.63vw, 0.5rem) !important;
+  padding-top: 0;
+}
+
+.link {
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+  color: #c6c6c6;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  font-size: 1.25rem;
+  overflow: hidden;
+  padding-right: 10px;
+  transition: color 0.2s ease;
+}
+
+.link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #ae2424;
+  transition: width 0.4s ease;
+}
+
+.link:hover {
+  color: #ae2424;
+}
+
+.link:hover::after {
+  width: 100%;
+}
+
+.subscription_block {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  background-color: #151515;
+  border-radius: 15px;
+  padding-top: clamp(1.563rem, 0.624rem + 1.96vw, 2.5rem);
+  padding-left: clamp(0.75rem, 0.187rem + 1.17vw, 1.313rem);
+}
+.subscription_block .subscription_form_block .header {
+  font-size: clamp(0.875rem, 0.249rem + 1.3vw, 1.5rem);
+  font-family: "Museo700";
+}
+.subscription_block .subscription_form_block form {
+  padding-top: 1vw;
+  padding-bottom: 1vw;
+  display: flex;
+}
+.subscription_block .subscription_form_block form input {
+  outline: none;
+  background-color: transparent;
+  border-radius: 7px;
+  color: white;
+  border: 1px solid #5D5D5D;
+  width: clamp(16rem, -1.147rem + 35.72vw, 33.125rem);
+  padding: 0.7vw 0.8vw;
+}
+.subscription_block .subscription_form_block form button {
+  margin-left: 0.7vw;
+  transition: all 0.2s;
+  border: none;
+  background-color: #821313;
+  border-radius: 7px;
+  text-transform: uppercase;
+  color: white;
+  padding: clamp(0.438rem, 0.187rem + 0.52vw, 0.688rem) clamp(1.688rem, 0.248rem + 3vw, 3.125rem);
+  font-size: clamp(0.688rem, 0.375rem + 0.65vw, 1rem);
+}
+.subscription_block .subscription_form_block form button:hover {
+  background-color: #520909;
+}
+.subscription_block .subscription_form_block .substring {
+  padding-bottom: 1vw;
+  color: #AAAAAA;
+  font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
+}
+.subscription_block .subscription_img {
+  position: relative;
+  right: 0;
+  bottom: 0;
+  position: absolute;
+}
+.subscription_block .subscription_img img {
+  height: clamp(7rem, -4.815rem + 24.62vw, 18.8rem);
+}
+
+.media_block {
+  overflow: hidden;
+  position: relative;
+  background-image: url(../img/team.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  z-index: 1;
+  align-items: center;
+  margin: auto 0;
+}
+.media_block:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: rgb(14, 14, 14);
+  background: linear-gradient(0deg, rgb(14, 14, 14) 0%, rgba(14, 14, 14, 0) 50%, rgb(14, 14, 14) 100%);
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+}
+.media_block .media_wrapper {
+  position: relative;
+  z-index: 3;
+}
+
+.media_card_wrapper {
+  background-color: #151515;
+  overflow: hidden;
+  border-radius: 15px;
+}
+.media_card_wrapper .card_text {
+  padding: clamp(1.094rem, -0.001rem + 2.28vw, 2.188rem) clamp(0.625rem, -0.001rem + 1.3vw, 1.25rem);
+  line-height: 1.2;
+}
+.media_card_wrapper .card_text .album_name {
+  font-size: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
+  font-family: "Museo700";
+  margin-bottom: clamp(0.5rem, -0.001rem + 1.04vw, 1rem);
+}
+.media_card_wrapper .card_text .date {
+  margin-bottom: 0;
+  color: #888888;
+  font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
+}
+.media_card_wrapper .card_text .date img {
+  height: clamp(0.825rem, 0.25rem + 0.78vw, 1.2rem);
+}
+.media_card_wrapper:hover .media_card_img {
+  filter: grayscale(1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.media_card_wrapper:hover p {
+  color: #c1c1c1;
+}
+
+.media_card {
+  width: 100%;
+  padding-bottom: 50%;
+  z-index: 6;
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  min-width: 100%;
+}
+.media_card .media_card_img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.2s ease-in-out;
+}
+
+.small_media_card {
+  margin-bottom: 0.35vw !important;
+}
+.small_media_card .media_card {
+  padding-bottom: 60%;
+}
+.small_media_card .card_text {
+  padding: clamp(0.875rem, 0.061rem + 1.69vw, 1.688rem) clamp(0.75rem, 0.124rem + 1.3vw, 1.375rem) clamp(0.438rem, 0.062rem + 0.78vw, 0.813rem);
+}
+
+footer {
+  background-color: #0E0E0E;
+  margin-top: 5vw;
+  color: #656565;
+  text-align: center;
+  padding: 3rem 0;
+  position: relative;
+  z-index: 3;
+}
+
+/* страница SIGN UP SIGN IN */
+.center_block {
+  background-color: #1A1A1A;
+  display: flex;
+  align-items: stretch;
+  margin: 0 auto;
+  margin-top: 200px;
+  max-width: 1100px;
+  width: 100%;
+  border-radius: 15px;
+  padding: clamp(0.938rem, 0.312rem + 1.3vw, 1.563rem);
+}
+
+.img_block {
+  position: relative;
+  border-radius: 15px;
+  background-color: #520909;
+  overflow: hidden;
+}
+.img_block img {
+  min-width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.form_block,
+.img_block {
+  flex: 1;
+}
+
+.form_block {
+  padding-right: clamp(0.938rem, 0.312rem + 1.3vw, 1.563rem);
+}
+
+.signup_form label {
+  cursor: pointer;
+  font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+  color: #676767;
+  margin-bottom: clamp(0.938rem, 0.312rem + 1.3vw, 1.563rem);
+  width: 100%;
+}
+.signup_form label input {
+  color: white;
+  padding: 5px 10px;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  background-color: #303030;
+  width: 100%;
+}
+.signup_form label select {
+  color: white;
+  padding: 10px 10px;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  background-color: #303030;
+  width: 100%;
+}
+.signup_form label textarea {
+  color: white;
+  padding: 10px 10px;
+  min-width: 8vw;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  background-color: #303030;
+  width: 100%;
+}
+.signup_form label .checkbox {
+  cursor: pointer;
+  margin-right: 0.5vw;
+  width: auto;
+  width: 14px;
+  background-color: #303030;
+  height: 14px;
+  accent-color: rgb(156, 25, 25);
+}
+.signup_form label .checkbox:not(:checked) {
+  background-color: #303030;
+}
+.signup_form label.white {
+  line-height: 16px;
+  color: white !important;
+}
+.signup_form button {
+  margin-top: 15px;
+  transition: all 0.2s;
+  border: none;
+  width: 100%;
+  background-color: #821313;
+  border-radius: 7px;
+  text-transform: uppercase;
+  color: white;
+  padding: clamp(0.438rem, 0.187rem + 0.52vw, 0.688rem) clamp(1.688rem, 0.248rem + 3vw, 3.125rem);
+  font-size: clamp(0.688rem, 0.375rem + 0.65vw, 1rem);
+}
+.signup_form button:hover {
+  background-color: #520909;
+}
+
+.forgot_pass_link {
+  width: 100%;
+  text-align: center;
+  margin-top: 5px;
+}
+.forgot_pass_link a {
+  color: #868686;
+  text-decoration: underline;
+  font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+}
+
+.create_account_link {
+  width: 100%;
+  text-align: center;
+  margin-top: 4vw;
+}
+.create_account_link a {
+  text-decoration: underline;
+  font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+}
+
+.vk_btn {
+  border-radius: 7px;
+  background-color: #303030;
+  margin-bottom: clamp(0.938rem, 0.312rem + 1.3vw, 1.563rem);
+  width: 100%;
+  padding: clamp(0.438rem, 0.187rem + 0.52vw, 0.688rem) clamp(1.688rem, 0.248rem + 3vw, 3.125rem);
+}
+
+/*страница одной новости POST */
+.fixed_img {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  filter: brightness(60%);
+  z-index: 1;
+  background-image: url(../img/happy_team.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.post {
+  z-index: 2;
+  position: relative;
+}
+.post .post_name_block {
+  background-color: white;
+  border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
+  width: 100%;
+  margin-top: 70vh;
+  padding: clamp(1.25rem, 0.382rem + 3.97vw, 4.188rem);
+}
+.post .post_name_block .date_and_repost {
+  width: 100%;
+  display: flex;
+  font-size: clamp(0.938rem, 0.625rem + 0.65vw, 1.25rem);
+  font-family: "Oswald", sans-serif;
+}
+.post .post_name_block .date_and_repost .date {
+  color: #868686;
+}
+.post .post_name_block .date_and_repost .repost,
+.post .post_name_block .date_and_repost .news_type {
+  margin-left: clamp(1.625rem, -0.002rem + 3.39vw, 3.25rem);
+  display: flex;
+  color: #0E0E0E;
+  text-transform: uppercase;
+}
+.post .post_name_block .date_and_repost .repost p,
+.post .post_name_block .date_and_repost .news_type p {
+  margin-right: 0.4vw;
+}
+.post .post_name_block .date_and_repost .repost a,
+.post .post_name_block .date_and_repost .news_type a {
+  margin-right: 0.4vw;
+  cursor: pointer;
+}
+.post .post_name_block .date_and_repost .repost a img,
+.post .post_name_block .date_and_repost .news_type a img {
+  height: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);
+  width: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);
+}
+.post .post_name_block .date_and_repost .news_type .type_icon {
+  text-align: center;
+  border-radius: 4px;
+  background-color: #821313;
+  height: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);
+  width: clamp(1.563rem, 0.937rem + 1.3vw, 2.188rem);
+}
+.post .post_name_block .date_and_repost .news_type .type_icon img {
+  height: 70%;
+}
+.post .post_name_block .post_title {
+  margin-top: 1vw;
+  color: #0E0E0E;
+  text-transform: uppercase;
+  font-size: clamp(1.5rem, 0.706rem + 3.63vw, 4.188rem);
+  font-family: "Museo900";
+  line-height: clamp(1.5rem, 0.706rem + 3.63vw, 4.188rem);
+}
+
+.post_content {
+  margin-top: 1.3vw;
+  display: grid;
+  grid-template-columns: 1fr minmax(100px, 25%);
+  gap: 1.3vw;
+  grid-auto-rows: auto;
+}
+.post_content .post_text_block,
+.post_content .sidebar_other_posts {
+  background-color: white;
+  border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
+}
+.post_content .post_text_block {
+  padding: clamp(2.063rem, -0.065rem + 4.43vw, 4.188rem);
+  padding-bottom: clamp(3.125rem, -6.262rem + 19.56vw, 12.5rem);
+}
+.post_content .post_text_block .post_description {
+  width: 70%;
+  color: #8B8B8B;
+  font-size: clamp(1rem, 0.75rem + 0.52vw, 1.25rem);
+  line-height: clamp(1rem, 0.75rem + 0.52vw, 1.25rem);
+}
+.post_content .post_text_block .paragraph {
+  font-size: clamp(1rem, 0.75rem + 0.52vw, 1.25rem);
+  color: #0E0E0E;
+  line-height: clamp(1.2rem, 0.75rem + 0.52vw, 1.45rem);
+}
+.post_content .post_text_block .paragraph_heading {
+  font-size: clamp(1.25rem, 1rem + 0.52vw, 1.5rem);
+  color: #0E0E0E;
+  font-weight: 900;
+}
+
+.sidebar_other_posts {
+  padding: clamp(2.063rem, -0.065rem + 4.43vw, 4.188rem) clamp(0.813rem, -0.001rem + 1.69vw, 1.625rem);
+}
+.sidebar_other_posts .heading {
+  font-size: clamp(1.25rem, 0.499rem + 1.56vw, 2rem);
+  line-height: clamp(1.25rem, 0.499rem + 1.56vw, 2rem);
+  font-family: "Museo900";
+  color: #0E0E0E;
+}
+
+.other_news {
+  margin-top: 2vw;
+}
+.other_news .another_post {
+  padding-bottom: 60%;
+  border-radius: 0;
+  cursor: pointer;
+  margin-bottom: 1vw;
+}
+.other_news .another_post p {
+  text-transform: uppercase;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: clamp(0.438rem, 0.062rem + 0.78vw, 0.813rem);
+  line-height: 110%;
+  z-index: 8;
+  margin-bottom: 0;
+  z-index: 9;
+  font-size: clamp(0.875rem, 0.625rem + 0.52vw, 1.125rem);
+  font-weight: 700;
+}
+
+/* NEWS page*/
+.name_page {
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  font-size: clamp(3.125rem, 0.246rem + 6vw, 6rem);
+  font-family: "Museo900";
+}
+
+.full_height_img {
+  min-height: 100vh;
+}
+
+.select_block {
+  margin-top: 4vw;
+  margin-bottom: 2vw;
+  width: 100%;
+  display: flex;
+  gap: 1.2vw;
+}
+
+.posts_filter {
+  width: 32.3%;
+  background-color: #202020;
+}
+
+.post_card {
+  margin-bottom: 1vw;
+  padding-bottom: 100%;
+  z-index: 6;
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  min-width: 100%;
+  border-radius: 15px;
+}
+.post_card .post_img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.2s ease-in-out;
+}
+.post_card .post_img:hover {
+  filter: grayscale(1);
+  transform: translate(-50%, -50%) scale(1.1);
+}
+.post_card .text_block {
+  bottom: 0;
+  width: 100%;
+  position: absolute;
+  margin-bottom: 0;
+  left: 0;
+  z-index: 8;
+  padding: clamp(0.25rem, -0.125rem + 0.78vw, 0.625rem);
+}
+.post_card .text_block .text {
+  background-color: rgba(14, 14, 14, 0.7);
+  -webkit-backdrop-filter: blur(6px);
+          backdrop-filter: blur(6px);
+  color: white;
+  border-radius: 15px;
+  width: 100%;
+  padding: clamp(0.875rem, -0.001rem + 1.83vw, 1.75rem) clamp(0.563rem, -0.001rem + 1.17vw, 1.125rem);
+  padding-bottom: clamp(0.375rem, -0.001rem + 1.83vw, 1.2rem);
+  z-index: 9;
+}
+.post_card .text_block .text .post_name {
+  margin-bottom: 0.7vw;
+  font-size: clamp(0.875rem, 0.187rem + 1.43vw, 1.563rem);
+  font-weight: 800;
+  line-height: clamp(0.875rem, 0.187rem + 1.43vw, 1.563rem);
+}
+.post_card .text_block .text .post_description {
+  font-family: "Museo500";
+  font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+  line-height: clamp(0.7rem, 0.312rem + 0.65vw, 1rem);
+}
+.post_card .text_block .text .post_date {
+  font-size: clamp(0.625rem, 0.551rem + 0.34vw, 0.875rem);
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+.post_card .text_block .text .post_date img {
+  width: 22px;
+}
+.post_card .text_block .text .post_date .date {
+  margin-bottom: 0;
+  color: #888888;
+}
+.post_card .text_block .text .post_date .post_btn {
+  background-color: #821313;
+  border: none;
+  color: white;
+  transition: all 0.2s;
+  border-radius: 7px;
+  padding: clamp(0.25rem, 0.52vw, 0.5rem) clamp(0.5rem, -0.001rem + 1.04vw, 1rem);
+}
+.post_card .text_block .text .post_date .post_btn:hover {
+  background-color: #650d0d;
+}
+
+.pagination_block {
+  margin-top: 3vw;
+}
+
+.pagination > li > a {
+  background-color: #1A1A1A;
+  color: #ffffff;
+  border-color: #0E0E0E;
+  box-shadow: none;
+}
+
+.pagination > li > a:focus,
+.pagination > li > a:hover,
+.pagination > li > span:focus,
+.pagination > li > span:hover {
+  box-shadow: none;
+  color: #ffffff;
+  background-color: #821313;
+  border-color: #1A1A1A;
+}
+
+.pagination > .disabled > a,
+.pagination > .disabled > a:focus,
+.pagination > .disabled > a:hover {
+  background-color: #121212;
+  color: #2b2b2b;
+  border: #0E0E0E;
+}
+
+.comments {
+  z-index: 3;
+  position: relative;
+  background-color: white;
+  border-radius: clamp(1.25rem, -0.002rem + 2.61vw, 2.5rem);
+  width: 100%;
+  margin-top: 1.3vw;
+  padding: clamp(1.25rem, 0.382rem + 3.97vw, 4.188rem);
+}
+.comments .heading {
+  color: #0E0E0E;
+}
+
+.news_search_block {
+  display: flex;
+  text-align: center;
+  background-color: #1A1A1A;
+  border-radius: 7px;
+}
+.news_search_block .news_search {
+  width: 90%;
+  background-color: #1A1A1A;
+}
+.news_search_block button {
+  float: right;
+}
+.news_search_block button img {
+  max-width: 30px;
+}
+
+/* COMPETITIONS TICKETS PAGE */
+.margin_content {
+  margin-top: 4vw;
+}
+
+.tabs {
+  z-index: 5;
+  position: relative;
+  margin-bottom: 0;
+  display: flex;
+  border-bottom: 4px solid transparent;
+  overflow-x: auto;
+  white-space: nowrap;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  overflow-x: scroll;
+}
+
+.tab, .tab_profile, .tab_one_competition {
+  font-size: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
+  padding: clamp(0.375rem, 0.125rem + 0.52vw, 0.625rem) clamp(0.875rem, -0.126rem + 2.09vw, 1.875rem);
+  cursor: pointer;
+  position: relative;
+  text-transform: uppercase;
+  font-family: "Museo700";
+  color: white;
+  flex-shrink: 0;
+  transition: all 0.2s;
+}
+
+.tab:hover, .tab_one_competition:hover, .tab_profile:hover {
+  color: #424242;
+}
+
+.tab.active, .active.tab_one_competition, .active.tab_profile {
+  color: #9e1818;
+}
+
+.tab.active::after, .active.tab_one_competition::after, .active.tab_profile::after {
+  content: "";
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background-color: #9e1818;
+}
+
+.posts_filter_year {
+  margin: 2vw 0 4vw 0;
+}
+
+.past-matches,
+.upcoming-matches {
+  display: none;
+}
+
+.past-matches.active,
+.upcoming-matches.active {
+  display: block;
+}
+
+.tabs::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+  background-color: transparent;
+}
+
+.competition_card {
+  margin: 0;
+  margin-bottom: 2vh;
+  display: grid;
+  grid-template-columns: 1fr minmax(200px, 20%);
+}
+.competition_card_date {
+  font-family: "Museo900";
+  font-size: clamp(0.875rem, 0.5rem + 0.78vw, 1.25rem) !important;
+  color: white !important;
+}
+.competition_card .left_part {
+  overflow: hidden;
+  border-radius: 15px 30px 30px 15px;
+  display: grid;
+  grid-template-columns: 30% 1fr;
+}
+.competition_card .left_part .competition_card_info {
+  background-color: #1A1A1A;
+  padding: 0;
+  padding: clamp(1.438rem, -0.252rem + 3.52vw, 3.125rem) 0;
+  padding-right: clamp(0.5rem, 0.062rem + 0.91vw, 0.938rem);
+  padding-left: clamp(1.125rem, -0.001rem + 2.35vw, 2.25rem);
+}
+.competition_card .left_part .competition_card_info p {
+  font-size: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+  line-height: clamp(0.75rem, 0.5rem + 0.52vw, 1rem);
+  color: #6A6A6A;
+}
+.competition_card .left_part .competition_card_teams {
+  padding: 0 15px;
+  display: flex;
+  justify-content: center;
+  background-color: #821313;
+}
+.competition_card .left_part .competition_card_teams .teams {
+  display: flex;
+  align-items: center;
+}
+.competition_card .left_part .competition_card_teams .teams .team_label {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-size: 16px;
+  line-height: 16px;
+  font-family: "Museo700";
+}
+.competition_card .left_part .competition_card_teams .teams .team_label .team_name_left {
+  text-align: right;
+}
+.competition_card .left_part .competition_card_teams .teams .team_label p {
+  margin: 0;
+}
+.competition_card .left_part .competition_card_teams .teams .team_label .team_logo {
+  height: clamp(1.875rem, -0.002rem + 3.91vw, 3.75rem);
+}
+.competition_card .left_part .competition_card_teams .teams .team_label .team_logo_left {
+  margin-right: clamp(0.938rem, -1.253rem + 4.56vw, 3.125rem);
+  margin-left: clamp(0.625rem, -0.001rem + 1.3vw, 1.25rem);
+}
+.competition_card .left_part .competition_card_teams .teams .team_label .team_logo_right {
+  margin-right: clamp(0.625rem, -0.001rem + 1.3vw, 1.25rem);
+  margin-left: clamp(0.938rem, -1.253rem + 4.56vw, 3.125rem);
+}
+.competition_card .left_part .competition_card_teams .vs {
+  margin-right: 10px;
+  font-family: "Oswald";
+  font-size: clamp(3.75rem, -0.506rem + 8.87vw, 8rem);
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.3);
+}
+.competition_card .left_part .competition_card_teams .competiton_score {
+  white-space: nowrap;
+  font-weight: 800;
+  margin: 0;
+  color: #949494;
+  font-size: clamp(1.8rem, 0.375rem + 1.625vw, 2.25rem);
+  font-family: "Oswald", sans-serif;
+}
+.competition_card .right_part {
+  border-left: dashed rgb(105, 15, 15) 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Museo900";
+  font-size: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
+  background-color: #821313;
+  transition: all 0.2s;
+  border-radius: 30px 15px 15px 30px;
+  cursor: pointer;
+}
+.competition_card .right_part:hover {
+  background-color: #5E0A0A;
+}
+
+.competition_over {
+  background-color: #282828 !important;
+}
+
+.right_part_ended {
+  border-left: dashed #151515 2px !important;
+}
+.right_part_ended:hover {
+  background-color: #1d1d1d !important;
+}
+
+/* one COMPETITION page*/
+.full_screen_score {
+  width: 100%;
+  text-align: center;
+  margin: 0 auto;
+  text-transform: uppercase;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: "Museo900";
+}
+.full_screen_score .name, .full_screen_score .arena {
+  font-family: "Museo500";
+  color: #B29898;
+  font-size: clamp(0.875rem, 0.5rem + 0.78vw, 1.25rem);
+}
+.full_screen_score .date {
+  font-size: clamp(1.5rem, -0.002rem + 3.13vw, 3rem);
+}
+.full_screen_score .arena {
+  text-transform: none;
+}
+.full_screen_score .full_screen_score_block {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  margin: 2rem 0;
+}
+.full_screen_score .full_screen_score_block .full_screen_score_team {
+  position: relative;
+}
+.full_screen_score .full_screen_score_block .full_screen_score_team img {
+  height: clamp(6.25rem, 2.495rem + 7.82vw, 10rem);
+}
+.full_screen_score .full_screen_score_block .full_screen_score_team p {
+  margin-top: 2.7vw;
+  text-transform: uppercase;
+  line-height: clamp(1.25rem, 0.499rem + 1.56vw, 2rem);
+  font-size: clamp(1.25rem, 0.499rem + 1.56vw, 2rem);
+}
+.full_screen_score .full_screen_score_block .score {
+  margin: 0 auto;
+  white-space: nowrap;
+  font-size: clamp(3.75rem, -0.005rem + 7.82vw, 7.5rem);
+}
+
+.tickets_tab {
+  background-color: #1A1A1A;
+}
+
+.log_out_tab a {
+  color: #4C4C4C;
+}
+
+.tickets,
+.stream,
+.team_composition,
+.statistics,
+.media,
+.profile_competitions,
+.profile_orders,
+.profile_settings,
+.profile_question {
+  display: none;
+}
+
+.tickets.active,
+.stream.active,
+.team_composition.active,
+.statistics.active,
+.media.active,
+.profile_competitions.active,
+.profile_orders.active,
+.profile_settings.active,
+.profile_question.active {
+  display: block;
+}
+
+.tab_pages {
+  margin-top: clamp(3.75rem, 3.039rem + 3.35vw, 6.25rem);
+}
+
+.tickets .tickets_block {
+  background-color: #1A1A1A;
+  border-radius: 15px;
+  padding: clamp(0.938rem, 0.671rem + 1.26vw, 1.875rem);
+  display: grid;
+  grid-template-columns: 35% 1fr;
+  margin-top: 3vw;
+}
+.tickets .tickets_block .ticket_competition_info {
+  font-family: "Museo500";
+  font-weight: 300;
+  text-transform: uppercase;
+  margin: 20px 10px 20px 0;
+  font-size: clamp(1rem, 0.499rem + 1.04vw, 1.5rem);
+}
+.tickets .tickets_block .ticket_competition_info span {
+  margin-right: 0.7vw;
+}
+.tickets .tickets_block .ticket_competition_info .ticket_competition_name {
+  color: #9a9a9a;
+}
+.tickets .tickets_block .ticket_competition_info .ticket_bold_info {
+  margin: 0;
+  font-size: clamp(1rem, 0.499rem + 1.04vw, 1.5rem);
+}
+.tickets .tickets_block .ticket_user_info_form {
+  background-color: #0E0E0E;
+  border-radius: 15px;
+  padding: clamp(1.25rem, -0.94rem + 4.56vw, 3.438rem) clamp(1.188rem, -0.002rem + 2.48vw, 2.375rem);
+  padding-bottom: clamp(0.938rem, -0.001rem + 1.96vw, 1.875rem);
+}
+.tickets .tickets_block .ticket_user_info_form label {
+  display: block;
+}
+.tickets .tickets_block .ticket_user_info_form input {
+  display: block;
+  width: clamp(18.75rem, -5.828rem + 51.2vw, 29.375rem);
+}
+.tickets .tickets_block .ticket_user_info_form .add_person_btn {
+  text-transform: none;
+  font-size: 16px;
+  background-color: white;
+  color: black;
+  padding: 9px 16px;
+  font-family: "Museo500";
+  transition: all 0.2s;
+}
+.tickets .tickets_block .ticket_user_info_form .add_person_btn span {
+  font-size: 22px;
+  margin-right: 0.5vw;
+}
+.tickets .tickets_block .ticket_user_info_form .add_person_btn:hover {
+  background-color: rgb(219, 219, 219);
+}
+.tickets .tickets_block .ticket_user_info_form .adding_person_bock {
+  display: none;
+  margin-top: 2vw;
+  background-color: #1A1A1A;
+  border-radius: 15px;
+  padding: clamp(1.25rem, -0.94rem + 4.56vw, 3.438rem) clamp(1.188rem, -0.002rem + 2.48vw, 2.375rem);
+  padding-top: clamp(1.25rem, -0.94rem + 4.56vw, 2rem);
+  padding-bottom: clamp(0.938rem, -0.001rem + 1.96vw, 1.875rem);
+}
+.tickets .tickets_block .ticket_user_info_form .adding_person_bock .small_heading {
+  margin-bottom: 1vw;
+  font-size: clamp(1rem, 0.75rem + 0.52vw, 1.25rem);
+}
+.tickets .tickets_block .ticket_user_info_form .adding_person_bock .input_wrapper {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+}
+.tickets .tickets_block .ticket_user_info_form .adding_person_bock .input_wrapper input {
+  margin-right: 5px;
+}
+.tickets .tickets_block .next_btn {
+  margin-top: 20px;
+  transition: all 0.2s;
+  border: none;
+  width: 100%;
+  background-color: #821313;
+  border-radius: 7px;
+  text-transform: uppercase;
+  color: white;
+  padding: clamp(0.838rem, 0.187rem + 0.52vw, 1rem) clamp(1.688rem, 0.248rem + 3vw, 3.125rem);
+  font-size: clamp(0.688rem, 0.375rem + 0.65vw, 1rem);
+}
+.tickets .tickets_block .next_btn:hover {
+  background-color: #520909;
+}
+
+.error {
+  color: #c72020;
+  display: none;
+}
+
+/* материалы на странице одного МАТЧА */
+.one_competition_media_section {
+  margin-bottom: clamp(2.5rem, 1.967rem + 2.51vw, 4.375rem);
+}
+.one_competition_media_section .media_card_wrapper {
+  margin-bottom: 1vw !important;
+}
+
+.no_media {
+  text-align: center;
+  margin: 3vw auto;
+  margin-bottom: 5vw;
+}
+.no_media dotlottie-player {
+  margin: 0 auto;
+}
+.no_media p {
+  font-size: clamp(1rem, 0.858rem + 0.67vw, 1.5rem);
+}
+
+/* СОСТАВ КОМАНДЫ */
+.player_position_title {
+  text-transform: uppercase;
+  font-family: "Oswald", sans-serif;
+  line-height: clamp(2.5rem, -1.005rem + 7.3vw, 6rem);
+  font-size: clamp(2.5rem, -1.005rem + 7.3vw, 6rem);
+  color: #505050;
+  font-weight: 600;
+  text-align: center;
+}
+
+.players {
+  margin-bottom: 4vw;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.player_card {
+  background-color: #1A1A1A;
+  padding-bottom: 130%;
+}
+.player_card:hover {
+  background: linear-gradient(0deg, rgb(43, 3, 3) 0%, rgb(26, 26, 26) 100%);
+}
+.player_card .player_img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.player_card .post_name {
+  word-spacing: 9999999px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.player_card .post_name p {
+  margin-bottom: 0;
+}
+.player_card .post_name .player_name {
+  text-transform: uppercase;
+  font-size: clamp(1rem, 0.715rem + 1.34vw, 2rem);
+  line-height: clamp(1rem, 0.715rem + 1.34vw, 2rem);
+}
+.player_card .post_name .player_num {
+  font-size: clamp(2rem, 1.431rem + 2.68vw, 4rem);
+  line-height: clamp(2rem, 1.431rem + 2.68vw, 4rem);
+}
+.player_card .trainer_name {
+  display: block;
+}
+.player_card .trainer_name .trainer_position {
+  white-space: normal;
+  margin-top: 0.5vw;
+  font-weight: 400;
+  word-spacing: normal;
+  font-family: "Museo500";
+  font-size: clamp(0.875rem, 0.804rem + 0.33vw, 1.125rem);
+}
+
+/* STATISTICS */
+.statistics_block {
+  padding-bottom: clamp(0.938rem, -0.627rem + 3.26vw, 2.5rem) !important;
+}
+
+/* PROFILE page */
+.profile_head {
+  position: relative;
+  z-index: 10;
+  text-transform: none;
+  margin-top: -12rem;
+}
+.profile_head .heading {
+  text-transform: none;
+  margin-bottom: 1.7vw;
+}
+
+.cart_title {
+  margin-bottom: 13rem;
+}
+
+.points_block {
+  border-radius: 15px;
+  padding: clamp(0.813rem, 0.155rem + 3.1vw, 2.7rem);
+  background-color: #151515;
+  background-image: url(../img/background_points.png);
+  background-position: center;
+  background-size: cover;
+  background-position: center;
+  background-size: cover;
+}
+.points_block .ponts {
+  margin-top: 4.4vw;
+  display: flex;
+}
+.points_block .ponts .heading {
+  font-size: clamp(4rem, -0.005rem + 8.34vw, 8rem);
+}
+.points_block .get_points {
+  margin-top: 1.5vw;
+  align-items: end;
+  display: flex;
+  justify-content: space-between;
+}
+.points_block .get_points p {
+  margin: 0;
+  color: #7B7B7B;
+  font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
+  line-height: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
+}
+
+.a_btn {
+  transition: all 0.2s;
+  border: none;
+  background-color: #821313;
+  border-radius: 7px;
+  text-transform: uppercase;
+  color: white;
+  padding: clamp(0.438rem, 0.187rem + 0.52vw, 0.688rem) clamp(1.688rem, 0.248rem + 3vw, 3.125rem);
+  font-size: clamp(0.688rem, 0.375rem + 0.65vw, 1rem);
+}
+.a_btn:hover {
+  background-color: #520909;
+}
+
+.padding_half_btn {
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+}
+
+.half_page_btn {
+  margin-top: 1vw;
+  margin-bottom: 3vw;
+  width: 100%;
+  transition: all 0.2s;
+  border: none;
+  background-color: #821313;
+  border-radius: 7px;
+  text-transform: uppercase;
+  color: white;
+  padding: clamp(0.438rem, 0.187rem + 0.52vw, 0.688rem) clamp(1.688rem, 0.248rem + 3vw, 3.125rem);
+  font-size: clamp(0.688rem, 0.375rem + 0.65vw, 1rem);
+}
+.half_page_btn:hover {
+  background-color: #520909;
+}
+
+.profile_settings_block,
+.question_block,
+.statistics_block {
+  border-radius: 15px;
+  background-color: #151515;
+  padding: clamp(0.938rem, -0.627rem + 3.26vw, 2.5rem);
+  padding-bottom: 0;
+}
+
+.order_cart_profile {
+  margin-top: 3vw;
+  margin-bottom: 1vw;
+  border-radius: 15px;
+  background-color: #151515;
+  padding: clamp(0.75rem, 0.572rem + 0.84vw, 1.375rem);
+  padding-right: clamp(1.2rem, 0.572rem + 0.84vw, 2.5rem);
+}
+.order_cart_profile .item_img_wrapper {
+  padding-bottom: 100%;
+  z-index: 6;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  min-width: 100%;
+  border-radius: 7px;
+}
+.order_cart_profile .item_img_wrapper .item_img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.2s ease-in-out;
+}
+.order_cart_profile .order_item_name {
+  padding: clamp(0.75rem, 0.519rem + 1.09vw, 1.563rem) clamp(0.438rem, 0.384rem + 0.25vw, 0.625rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: clamp(1rem, 0.929rem + 0.33vw, 1.25rem);
+  line-height: clamp(1rem, 0.929rem + 0.33vw, 1.25rem);
+}
+.order_cart_profile .order_item_name .item_info {
+  font-family: "Museo700";
+}
+.order_cart_profile .order_item_name .item_info .price {
+  font-family: "Oswald";
+}
+.order_cart_profile .order_item_name .order_date {
+  color: #5C5C5C;
+}
+.order_cart_profile .order_info {
+  background-color: #202020;
+  border-radius: 7px;
+  padding: clamp(0.75rem, 0.643rem + 0.5vw, 1.125rem);
+}
+.order_cart_profile .order_info .info_text {
+  font-size: 14px;
+  color: white;
+}
+.order_cart_profile .order_info .info_text .pay_status {
+  font-family: "Museo700";
+  border-radius: 7px;
+  background-color: #19A827;
+  padding: 7px 20px;
+  display: inline-block;
+}
+
+/* SHOP page */
+.shop_head p {
+  text-transform: uppercase !important;
+}
+
+.shop_bg:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  background: linear-gradient(0deg, rgb(14, 14, 14) 0%, rgba(0, 0, 0, 0) 100%);
+}
+.shop_bg .intro_img_photo {
+  filter: brightness(100%) !important;
+}
+
+.item_card {
+  margin-bottom: 1.5vw;
+  transition: all 0.2s;
+  background-color: #151515;
+  border-radius: 7px;
+  padding: clamp(0.75rem, 0.562rem + 0.39vw, 0.938rem);
+}
+.item_card_text {
+  padding-top: clamp(0.813rem, 0.599rem + 1vw, 1.563rem);
+  font-size: clamp(0.8rem, 0.929rem + 0.33vw, 1.25rem);
+  line-height: clamp(0.8rem, 0.929rem + 0.33vw, 1.25rem);
+  padding-bottom: 0.5vw;
+}
+.item_card_text .item_price {
+  margin-top: 1vw;
+  font-family: "Oswald";
+  font-size: clamp(1.125rem, 1.018rem + 0.5vw, 1.5rem);
+}
+.item_card:hover {
+  border: 1px solid #373737;
+  background-color: #1c1b1b;
+}
+
+.product_img_wrapper {
+  border-radius: 5px;
+  width: 100%;
+  position: relative;
+  padding-bottom: 100%;
+  overflow: hidden;
+}
+.product_img_wrapper .product_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.shop_section {
+  margin-bottom: clamp(2.5rem, -0.003rem + 5.22vw, 5rem);
+  position: relative;
+  z-index: 10;
+}
+
+.product_img img {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*page SHOP for one gender, one category*/
+.shop_category {
+  position: relative;
+  z-index: 17;
+  display: grid;
+  grid-template-columns: minmax(200px, 25%) 1fr;
+}
+.shop_category .sidebar {
+  align-self: start;
+  margin-right: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
+  border-radius: 7px;
+  background-color: #151515;
+  padding: clamp(1.25rem, 0.955rem + 1.35vw, 2.25rem) clamp(0.813rem, 0.628rem + 0.84vw, 1.438rem);
+  min-height: 50vw;
+}
+.shop_category .sidebar:hover {
+  border: 1px solid #373737;
+  background-color: #1c1b1b;
+}
+.shop_category .sidebar .small_heading {
+  text-transform: none !important;
+}
+.shop_category .sidebar form {
+  margin-left: 1.2vw;
+}
+.shop_category .sidebar form label {
+  margin-bottom: 0.5vw;
+}
+
+/* one PRODUCT page*/
+.product {
+  margin-top: 140px;
+}
+
+.photo_view_block {
+  display: grid;
+  grid-template-columns: minmax(50px, 13%) 1fr;
+}
+
+.photos_preview {
+  margin-right: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo_preview_block {
+  cursor: pointer;
+  margin-bottom: 1vw;
+  padding-bottom: 100%;
+  z-index: 6;
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  min-width: 100%;
+  border-radius: 15px;
+}
+.photo_preview_block img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.current_photo_wrapper {
+  border-radius: 15px;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.current_photo_wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.buying {
+  display: flex;
+  align-items: center;
+}
+.buying p {
+  padding: 0 clamp(0.938rem, 0.661rem + 1.27vw, 1.875rem);
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: clamp(1.25rem, 1.028rem + 1.01vw, 2rem);
+  background-color: white;
+  border-radius: 7px;
+  color: #0E0E0E;
+  margin: 0;
+}
+.buying button {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5vw;
+  font-family: "Museo700";
+}
+.buying button img {
+  margin-right: 1vw;
+}
+
+.product_article {
+  color: #515151;
+  margin-top: 1vw;
+  margin-bottom: 0.1vw;
+}
+
+.green {
+  color: #42B319;
+  text-transform: uppercase;
+}
+
+.sizes {
+  display: flex;
+}
+
+.size_label {
+  display: inline-block;
+  margin-right: 0.5vw;
+  cursor: pointer;
+}
+
+.size_radio {
+  display: none;
+}
+
+.size_btn {
+  display: inline-block;
+  background-color: #151515;
+  height: 3vw;
+  width: 3vw;
+  transition: all 0.2s;
+  color: white;
+  border-radius: 7px;
+  line-height: 3vw;
+  text-align: center;
+}
+
+.size_radio:checked + .size_btn {
+  background-color: #821313;
+}
+
+.size_btn:hover {
+  background-color: rgb(30, 30, 30);
+}
+
+.item_info_block {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  /* Убедитесь, что высота задана */
+}
+
+.interactive_part {
+  margin-bottom: auto;
+  /* Принуждает interactive_part оставаться вверху */
+}
+
+.description_part {
+  margin-top: auto;
+  /* Принуждает description_part оставаться внизу */
+}
+
+.products_offer {
+  margin-top: 8vw;
+}
+
+.later_block {
+  margin: 15rem 0;
+}
+
+.later {
+  margin-top: 2vw;
+  line-height: clamp(0.3rem, -1.005rem + 7.3vw, 0.8rem);
+  font-size: clamp(1rem, -1.005rem + 7.3vw, 1.7rem);
+  color: #505050;
+  font-weight: 400;
+  text-align: center;
+}
+
+.input_number {
+  margin: 1vw 0;
+  display: inline-flex;
+  display: flex;
+  border-radius: 15px;
+  overflow: hidden;
+}
+.input_number button {
+  background-color: #303030;
+  color: #ffffff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  background-color: #303030;
+  color: #ffffff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#decrement {
+  padding: clamp(0.25rem, 0.143rem + 0.5vw, 0.625rem);
+  border-radius: 15px 0 0 15px;
+}
+
+#increment {
+  padding: clamp(0.25rem, 0.143rem + 0.5vw, 0.625rem);
+  border-radius: 0px 15px 15px 0px;
+}
+
+.deleteBtn {
+  background-color: transparent;
+}
+
+.team_block {
+  margin-top: 5vw;
+}
+
+.table > :not(caption) > * > * {
+  font-family: "Oswald", sans-serif;
+  color: white;
+  background-color: transparent;
+}
+
+.statistics_block .table {
+  border-color: #4D2A2A;
+}
+.statistics_block .table:not(caption) tr:hover {
+  background-color: #763232;
+}
+.statistics_block .table:not(caption) td {
+  font-size: clamp(0.875rem, 0.249rem + 1.3vw, 1.5rem);
+  font-weight: 300;
+}
+.statistics_block .table:not(caption) td img {
+  margin-top: -5px;
+  height: clamp(1.063rem, -0.064rem + 2.35vw, 2.188rem);
+  right: 0;
+  padding: 0;
+}
+.statistics_block .table:not(caption) .td_logo {
+  text-align: center;
+}
+
+.table_player_name {
+  font-weight: 400 !important;
+  font-family: "Museo500" !important;
+  color: #707070 !important;
+  font-size: clamp(1rem, 0.929rem + 0.33vw, 1.25rem);
+}
+
+/* GAME */
+.game_mode input[type=radio] {
+  display: none;
+}
+.game_mode label {
+  margin-bottom: 2vw;
+  font-family: "Museo500";
+  font-size: clamp(1.25rem, 1.037rem + 1vw, 2rem);
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 100%;
+  padding: 8vw 2.5vw;
+  border-radius: 15px;
+  border: 1px solid #821313;
+  background: #151515;
+}
+.game_mode input[type=radio]:checked + label:before {
+  border: 0.65em solid #ffffff;
+  background: linear-gradient(236deg, rgb(130, 19, 19) 0%, rgb(48, 8, 8) 100%);
+}
+.game_mode input[type=radio]:checked + label {
+  background: linear-gradient(236deg, rgb(130, 19, 19) 0%, rgb(48, 8, 8) 100%);
+  color: #ffffff;
+}
+
+.schoose_players {
+  margin-top: 6rem;
+}
+
+.characters {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  margin-top: 3vw;
+}
+.characters .player-cards {
+  display: flex;
+  gap: 2vw;
+}
+.characters .player-card {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.3s;
+}
+.characters .player-card input[type=radio] {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.characters .player-card:hover:not(.player-card.checked) {
+  transform: scale(1.3);
+}
+.characters .player-card input[type=radio]:checked + img {
+  transform: scale(1.3);
+}
+.characters .vs {
+  font-weight: 800;
+  font-size: clamp(4rem, -0.005rem + 8.34vw, 8rem);
+  font-family: "Oswald";
+  font-style: italic;
+  color: #565656;
+}
+
+.game_btn {
+  text-align: center;
+}
+.game_btn button {
+  margin-top: 2vw;
+  width: clamp(48rem, 42.993rem + 10.43vw, 53rem);
+}
+
+/* canvas */
+.canvas_game {
+  margin-top: 8rem;
+  text-align: center;
+}
+
+canvas {
+  max-width: 100%;
+  max-height: 70vh;
+}
+
+#score-display {
+  font-family: "Museo700";
+  font-size: clamp(2rem, -0.003rem + 4.17vw, 4rem);
+  color: white;
+}
+
+/* SEARCH page */
+.search {
+  margin-top: 10rem;
+}
+.search .search_label {
+  display: flex;
+}
+.search .search_label img {
+  padding: 0 1vw;
+}
+.search #text_search {
+  padding: 1vw 0.5vw;
+}
+
+.search_results {
+  margin-top: clamp(4rem, 2.819rem + 5.4vw, 8rem);
+}
+
+/* POPUP checkin */
+.feedback_container {
+  padding: 0;
+  position: fixed;
+  right: 0;
+  bottom: 0;
+}
+
+.feedback_btn {
+  padding: 30px 7px;
+  border: none;
+  writing-mode: vertical-rl;
+  color: white;
+  font-size: 24px;
+  border-radius: 15px 0 0 15px;
+  background-color: #821313;
+  margin-bottom: 20vh;
+  transition: all 0.2s;
+  display: none;
+}
+
+.feedback_btn:hover {
+  background-color: #821313;
+  cursor: pointer;
+}
+
+.popup_links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.popup_link {
+  color: #a46e6e !important;
+  padding-bottom: 1vw;
+  text-decoration: underline !important;
+  width: 100%;
+}
+
+.feedback_popup {
+  background: rgb(114, 34, 34);
+  background: linear-gradient(207deg, rgb(114, 34, 34) 0%, rgb(48, 8, 8) 100%);
+  border-radius: 15px 0 0 15px;
+  margin-bottom: 20vh;
+  padding: clamp(0.625rem, -0.627rem + 2.61vw, 1.875rem);
+  width: clamp(21.875rem, -0.029rem + 45.63vw, 43.75rem);
+  display: none;
+  animation: slideIn 0.5s ease-in-out forwards;
+  transform: translateX(100%);
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+@keyframes slideOut {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.popup_text {
+  text-align: center;
+  padding: 90px 0;
+}
+
+.popup_heading {
+  color: white;
+  font-size: clamp(1rem, 0.499rem + 1.04vw, 1.5rem);
+}
+
+.popup_description {
+  color: #cecece;
+  font-size: clamp(0.813rem, 0.625rem + 0.39vw, 1rem);
+  padding: 0 clamp(0rem, -4.381rem + 9.13vw, 4.375rem);
+}
+
+.popup_question_block {
+  display: flex;
+  padding: 0px 10px 10px 0;
+  align-items: start;
+}
+
+#popup_question {
+  color: white;
+  font-size: clamp(1rem, 0.499rem + 1.04vw, 1.5rem);
+  padding: 0;
+  margin: 0;
+  font-weight: 400;
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.popup_close_block {
+  text-align: end;
+}
+
+.popup_close {
+  position: relative;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  margin: 0;
+  right: 0;
+}
+
+.popup_options_block {
+  display: block;
+}
+
+.popup_options_block label {
+  margin-bottom: 15px;
+  color: #c9c9c9;
+  font-weight: 500;
+  display: block;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.popup_options_block label:hover {
+  color: #8e8d8d;
+}
+
+.option {
+  margin-left: 20px;
+}
+
+#upload_img_btn {
+  margin-top: 1vw;
+}
+
+.submit_btn {
+  padding: 10px 30px;
+  border-radius: 7px;
+  font-size: clamp(0.813rem, 0.625rem + 0.39vw, 1rem);
+  font-weight: 500;
+  outline: none;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.submit_btn:hover {
+  background-color: #690c0c;
+}
+
+.vote_block {
+  display: none;
+}
+
+.active {
+  display: block;
+}
+
+.input_file_checkin {
+  display: none;
+}
+
+.label_checkin {
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 50%;
+  width: clamp(21.875rem, -0.029rem + 45.63vw, 35.75rem);
+  border-radius: 7px;
+  border: 1px dashed white;
+  transition: all 0.2s;
+}
+.label_checkin label {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  font-size: clamp(1.75rem, 0.498rem + 2.61vw, 3rem);
+}
+.label_checkin label:hover {
+  color: #9f9f9f;
+}
+
+.label_with_img {
+  overflow: hidden;
+}
+.label_with_img img {
+  width: clamp(21.875rem, -0.029rem + 45.63vw, 35.75rem);
+}
+
+.label_checkin:hover {
+  border: 1px dashed rgb(179, 102, 102);
+}
+
+.network_img {
+  height: 30px;
+  margin-bottom: 2vw;
+}/*# sourceMappingURL=style.css.map */
