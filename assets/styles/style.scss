@@ -2529,6 +2529,7 @@ footer {
     }
 }
 
+
 .buying {
     display: flex;
     align-items: center;
@@ -3039,4 +3040,9 @@ canvas {
 
 .label_checkin:hover{
     border: 1px dashed rgb(179, 102, 102);
+}
+
+.network_img{
+    height: 30px;
+    margin-bottom: 2vw;
 }
