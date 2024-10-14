@@ -2499,4 +2499,22 @@ canvas {
   font-family: "Museo700";
   font-size: clamp(2rem, -0.003rem + 4.17vw, 4rem);
   color: white;
+}
+
+/* SEARCH page */
+.search {
+  margin-top: 10rem;
+}
+.search .search_label {
+  display: flex;
+}
+.search .search_label img {
+  padding: 0 1vw;
+}
+.search #text_search {
+  padding: 1vw 0.5vw;
+}
+
+.search_results {
+  margin-top: clamp(4rem, 2.819rem + 5.4vw, 8rem);
 }/*# sourceMappingURL=style.css.map */
