@@ -9,14 +9,15 @@
                 <div class="container">
                     <div class="common_intro_block row">
                         <!-- здесь подгружается название и описание новости под картинку на фоне -->
-                        <div class="news_teaser col-md-9">
-                            <div class="news_teaser_wrapper">
-                                <p class="news_name">Ого вот это жесть случилась на поле</p>
-                                <p class="news_description">Тут описание того что произошло и почему это полная жесть
-                                    треш.</p>
-                                <a href="">Узнать больше → </a>
+                        {% if last_news %}
+                            <div class="news_teaser col-md-9">
+                                <div class="news_teaser_wrapper">
+                                    <p class="news_name">{{ last_news.title }}</p>
+                                    <p class="news_description">{{ last_news.description }}</p>
+                                    <a href="{% url 'post' last_news.id %}">Узнать больше → </a>
+                                </div>
                             </div>
-                        </div>
+                        {% endif %}
                         <div class="intro_news col-md-3">
                             <div class="indicator">
                                 <div class="section"></div>
@@ -128,8 +129,9 @@
                         <div class="standings">
                             <div class="standings_header">
                                 <select name="competition-select" id="" class="form-select selector">
-                                    <option>FONBET КУБОК РОССИИ ПО ФУТБОЛУ</option>
-                                    <option>Meow</option>
+                                    {% for league in tournaments %}
+                                        <option>{{ league.name }}</option>
+                                    {% endfor %}
                                 </select>
                                 <table class="table_header">
                                     <tbody>
@@ -365,47 +367,39 @@
                     <p class="heading">ФОТО И ВИДЕО</p>
                     <div class="row">
                         <div class="col-md-9 col-12">
-                            <div class="media_card_wrapper">
-                                <a href="">
-                                    <div class="media_card">
-                                        <img loading="lazy" src="{% static 'img/cover.jpg' %}" class="media_card_img">
-                                    </div>
-                                    <div class="card_text">
-                                        <p class="album_name">ФОТО “КОКОС ГРУПП” – “КЛАССИКО”</p>
-                                        <p class="date">02.10.2024 &nbsp;&nbsp; 20:42 &nbsp;&nbsp; <img src="{% static 'img/icons/camera.png' %}"> 35</p>
-                                    </div>
-                                </a>
-                            </div>
+                            {% for gallery_s in gallery_single %}
+                                <div class="media_card_wrapper">
+                                    <a href="">
+                                        <div class="media_card">
+                                            <img loading="lazy" src="{% static 'img/cover.jpg' %}" class="media_card_img">
+                                        </div>
+                                        <div class="card_text">
+                                            <p class="album_name">{{ gallery_s.title }}</p>
+                                            <p class="date">02.10.2024 &nbsp;&nbsp; 20:42 &nbsp;&nbsp; <img src="{% static 'img/icons/camera.png' %}"> 35</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
                         </div>
 
                         <div class="col-md-3 col-12">
-                            <div class="media_card_wrapper small_media_card">
-                                <a href="">
-                                    <div class="media_card">
-                                        <img loading="lazy" src="{% static 'img/cover.jpg' %}" class="media_card_img">
-                                    </div>
-                                    <div class="card_text">
-                                        <p class="album_name">ФОТО “КОКОС ГРУПП” – “КЛАССИКО”</p>
-                                        <p class="date">02.10.2024 &nbsp;&nbsp; 20:42 &nbsp;&nbsp; <img src="{% static 'img/icons/camera.png' %}"> 35</p>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div class="media_card_wrapper small_media_card">
-                                <a href="">
-                                    <div class="media_card">
-                                        <img loading="lazy" src="{% static 'img/cover.jpg' %}" class="media_card_img">
-                                    </div>
-                                    <div class="card_text small_media_card">
-                                        <p class="album_name">ФОТО “КОКОС ГРУПП” – “КЛАССИКО”</p>
-                                        <p class="date">02.10.2024 &nbsp;&nbsp; 20:42 &nbsp;&nbsp; <img src="{% static 'img/icons/camera.png' %}"> 35</p>
-                                    </div>
-                                </a>
-                            </div>
+                            {% for gallery_m in gallery_main %}
+                                <div class="media_card_wrapper small_media_card">
+                                    <a href="">
+                                        <div class="media_card">
+                                            <img loading="lazy" src="{% static 'img/cover.jpg' %}" class="media_card_img">
+                                        </div>
+                                        <div class="card_text">
+                                            <p class="album_name">ФОТО “КОКОС ГРУПП” – “КЛАССИКО”</p>
+                                            <p class="date">02.10.2024 &nbsp;&nbsp; 20:42 &nbsp;&nbsp; <img src="{% static 'img/icons/camera.png' %}"> 35</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            {% endfor %}
                         </div>
                     </div>
 
-                    <a href="" class="link">БОЛЬШЕ МАТРИАЛОВ →</a>
+                    <a href="{% url 'gellery' %}" class="link">БОЛЬШЕ МАТРИАЛОВ →</a>
                 </div>
             </div>
         </div>

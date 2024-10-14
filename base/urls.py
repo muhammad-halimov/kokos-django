@@ -18,7 +18,7 @@ urlpatterns = [
     path('partners/', views.partners, name='partners'),
     # path('product/<str:pk>/', views.product, name='product'),
     path('product/', views.product, name='product'),
-    path('gellery/', views.gellery, name='gellery'),
+    path('gellery/', views.gallery, name='gellery'),
     path('team/', views.team, name='team'),
     path('vk-check/', views.vk_check, name='vk-check'),
 ]

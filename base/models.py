@@ -9,7 +9,7 @@ class User(AbstractUser):
     email = models.EmailField(max_length=255, unique=True, null=True, blank=True)
     phone = models.CharField(max_length=255, null=True, blank=True)
     login = models.CharField(max_length=255, null=True, blank=True)
-    avatar = models.ImageField(upload_to='avatars', default='img/icons/avatar.svg', null=True, blank=True)
+    avatar = models.ImageField(upload_to='avatars', default='assets/img/icons/avatar.svg', null=True, blank=True)
 
     # Поля даты создания и обновления
     created = models.DateTimeField(auto_now_add=True)
@@ -214,12 +214,12 @@ class Gender(models.Model):
 
 class Media(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
-    link = models.ImageField(upload_to='uploads/covers', default='default.svg', blank=True, null=True)
+    source = models.ImageField(upload_to='media', default='default.svg', blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    DisplayFields = ['id', 'title', 'link', 'created', 'updated']
+    DisplayFields = ['id', 'title', 'source', 'created', 'updated']
     SearchableFields = DisplayFields
     FilterFields = ['created', 'updated']
 
@@ -229,7 +229,29 @@ class Media(models.Model):
         verbose_name_plural = 'Media'
 
     def __str__(self):
-        return self.link.url
+        return self.source.url
+
+
+class Gallery(models.Model):
+    title = models.CharField(default=f'Default Gallery Title',max_length=255, blank=True, null=True)
+    description = models.TextField(default=f'Default Gallery Description', blank=True, null=True)
+    cover = models.ImageField(default='cover.jpg', upload_to='gallery/covers', blank=True, null=True)
+    media = models.ManyToManyField(Media, related_name='gallery_midea', blank=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = ['id', 'title', 'description', 'cover', 'created', 'updated']
+    SearchableFields = DisplayFields
+    FilterFields = ['created', 'updated']
+
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'Gallery'
+        verbose_name_plural = 'Galleries'
+
+    def __str__(self):
+        return f"Gallery #{self.id}"
 
 
 class Clothes(models.Model):
@@ -237,7 +259,7 @@ class Clothes(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
     age_category = models.ForeignKey(AgeCategory, on_delete=models.CASCADE, null=True, blank=True)
     price = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
-    size = models.ForeignKey(Size, on_delete=models.CASCADE, null=True, blank=True)
+    size = models.ManyToManyField(Size, related_name='size', blank=True)
     brand = models.ForeignKey(Brand, on_delete=models.CASCADE, null=True, blank=True)
     gender = models.ForeignKey(Gender, on_delete=models.CASCADE, null=True, blank=True)
     color = models.ForeignKey(Color, on_delete=models.CASCADE, null=True, blank=True)
@@ -257,7 +279,6 @@ class Clothes(models.Model):
         'name',
         'age_category',
         'price',
-        'size',
         'brand',
         'gender',
         'color',
@@ -273,9 +294,7 @@ class Clothes(models.Model):
 
     FilterFields = [
         'type',
-        'age_category',
         'price',
-        'size',
         'brand',
         'gender',
         'color',
@@ -292,7 +311,7 @@ class Clothes(models.Model):
         verbose_name_plural = 'Clothes'
 
     def __str__(self):
-        return self.name
+        return self.name or self.type
 
 
 class FootballerPosition(models.Model):
@@ -395,8 +414,8 @@ class Footballer(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
     surname = models.CharField(max_length=255, blank=True, null=True)
     patronymic = models.CharField(max_length=255, blank=True, null=True)
-    age = models.DecimalField(decimal_places=2, max_digits=3, null=True, blank=True)
-    weight = models.DecimalField(decimal_places=2, max_digits=3, null=True, blank=True)
+    age = models.IntegerField(null=True, blank=True)
+    weight = models.FloatField(null=True, blank=True)
     statistics = models.ForeignKey(
         FootballerStatistics,
         on_delete=models.CASCADE,
@@ -510,7 +529,7 @@ class CoachStaffType(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    DisplayFields = ['id','title', 'created', 'updated']
+    DisplayFields = ['id', 'title', 'created', 'updated']
     SearchableFields = DisplayFields
     FilterFields = ['created', 'updated']
 
@@ -640,7 +659,7 @@ class BreedingService(models.Model):
         return self.name or self.surname
 
 
-class StaffType(models.Model):
+class AdministrativeStaffType(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
@@ -659,13 +678,13 @@ class StaffType(models.Model):
         return self.title
 
 
-class Staff(models.Model):
+class AdministrativeStaff(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
     surname = models.CharField(max_length=255, blank=True, null=True)
     patronymic = models.CharField(max_length=255, blank=True, null=True)
     age = models.DecimalField(decimal_places=2, max_digits=3, null=True, blank=True)
     work_experience = models.DecimalField(decimal_places=2, max_digits=3, null=True, blank=True)
-    type_staff = models.ManyToManyField(StaffType, related_name='staff_type', blank=True)
+    type_staff = models.ManyToManyField(AdministrativeStaffType, related_name='staff_type', blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -726,7 +745,7 @@ class OwnField(models.Model):
         verbose_name_plural = 'Own fields statistics'
 
     def __str__(self):
-        return f"Own field matches: #{self.score}"
+        return f"Own field matches: #{self.id}"
 
 
 class SomeoneField(models.Model):
@@ -772,7 +791,7 @@ class SomeoneField(models.Model):
         verbose_name_plural = 'Someone fields statistics'
 
     def __str__(self):
-        return f"Someone field matches: #{self.score}"
+        return f"Someone field matches: #{self.id}"
 
 
 class NeutralField(models.Model):
@@ -818,7 +837,7 @@ class NeutralField(models.Model):
         verbose_name_plural = 'Neutral fields statistics'
 
     def __str__(self):
-        return f"Neutral field matches: #{self.score}"
+        return f"Neutral field matches: #{self.id}"
 
 
 class GeneralStatisticsAll(models.Model):
@@ -944,11 +963,11 @@ class GeneralStatisticsTournament(models.Model):
 
 class Team(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
-    football_players = models.ManyToManyField(Footballer, related_name='football_players', blank=True)
-    directors = models.ManyToManyField(Director, related_name='team_directors', blank=True)
+    footballers = models.ManyToManyField(Footballer, related_name='team_footballers', blank=True)
+    # directors = models.ManyToManyField(Director, related_name='team_directors', blank=True)
     coach_staff = models.ManyToManyField(CoachStaff, related_name='team_coach_staff', blank=True)
-    breeding_service = models.ManyToManyField(BreedingService, related_name='team_breeding_service', blank=True)
-    staff = models.ManyToManyField(Staff, related_name='team_staff', blank=True)
+    # breeding_service = models.ManyToManyField(BreedingService, related_name='team_breeding_service', blank=True)
+    administrative_staff = models.ManyToManyField(AdministrativeStaff, related_name='team_staff', blank=True)
     all_statistics = models.ForeignKey(
         GeneralStatisticsAll,
         on_delete=models.CASCADE,
@@ -956,7 +975,7 @@ class Team(models.Model):
         null=True
     )
     tournaments_statistics = models.ManyToManyField(
-        GeneralStatisticsTournament,
+        'GeneralStatisticsTournament',
         related_name='team_tournaments_statistics',
         blank=True
     )
@@ -977,41 +996,22 @@ class Team(models.Model):
         return self.title
 
 
-class Country(models.Model):
-    country = models.CharField(max_length=255, blank=True, null=True)
-    city = models.CharField(max_length=255, blank=True, null=True)
-
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-
-    DisplayFields = ['id', 'country', 'city', 'created', 'updated']
-    SearchableFields = DisplayFields
-    FilterFields = ['created', 'updated']
-
-    class Meta:
-        ordering = ['id', 'created']
-        verbose_name = 'Country'
-        verbose_name_plural = 'Countries'
-
-    def __str__(self):
-        return f"{self.country}, {self.city}"
-
-
 class Arena(models.Model):
     name = models.CharField(max_length=255, blank=True, null=True)
-    country = models.ForeignKey(Country, on_delete=models.SET_NULL, blank=True, null=True)
+    country = models.CharField(max_length=255, blank=True, null=True)
+    city = models.CharField(max_length=255, blank=True, null=True)
     street = models.CharField(max_length=255, blank=True, null=True)
     places_count = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    DisplayFields = ['id', 'created', 'updated', 'name', 'country', 'country', 'street', 'places_count']
+    DisplayFields = ['id', 'created', 'updated', 'name', 'country', 'city', 'street', 'places_count']
     SearchableFields = DisplayFields
-    FilterFields = ['created', 'updated']
+    FilterFields = ['created', 'updated', 'country', 'places_count']
 
     class Meta:
-        ordering = ['id', 'created']
+        ordering = ['id', 'created', '-updated', 'places_count']
         verbose_name = 'Arena'
         verbose_name_plural = 'Arenas'
 
@@ -1103,23 +1103,43 @@ class Ticket(models.Model):
         return f'Ticket #{self.id}'
 
 
+class City(models.Model):
+    title = models.CharField(max_length=255, blank=True, null=True)
+    date = models.DateField(auto_now=True, blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = ['id', 'title', 'created', 'updated']
+    SearchableFields = DisplayFields
+    FilterFields = ['created', 'updated']
+
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'City'
+        verbose_name_plural = 'Cities'
+
+    def __str__(self):
+        return self.title
+
+
 class Tournament(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     matches = models.ManyToManyField(Match, related_name='matches', blank=True)
     start_date = models.DateField(auto_now=True, null=True, blank=True)
     end_date = models.DateField(auto_now=True, null=True, blank=True)
     tours = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
-    country = models.ManyToManyField(Country, related_name='tournament_cities', blank=True)
+    cities = models.ManyToManyField(City, related_name='tournament_cities', blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    DisplayFields = ['id', 'start_date', 'end_date', 'tours', 'created', 'updated',]
+    DisplayFields = ['id', 'created', 'updated', 'start_date', 'end_date', 'tours']
     SearchableFields = DisplayFields
-    FilterFields = ['created', 'updated']
+    FilterFields = ['created', 'updated', 'start_date', 'end_date', 'tours']
 
     class Meta:
-        ordering = ['id', 'created']
+        ordering = ['id', 'created', '-updated', 'start_date', 'end_date', 'tours']
         verbose_name = 'Tournament'
         verbose_name_plural = 'Tournaments'
 
@@ -1127,43 +1147,22 @@ class Tournament(models.Model):
         return self.name
 
 
-class Gallery(models.Model):
-    tournament = models.ForeignKey(Tournament, on_delete=models.CASCADE, blank=True, null=True)
-    teams = models.ManyToManyField(Team, related_name='teams', blank=True)
-    media_links = models.ManyToManyField(Media, related_name='media_links', blank=True)
-
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-
-    DisplayFields = ['id', 'created', 'updated', 'tournament']
-    SearchableFields = DisplayFields
-    FilterFields = ['created', 'updated']
-
-    class Meta:
-        ordering = ['id', 'created', '-updated']
-        verbose_name = 'Gallery'
-        verbose_name_plural = 'Galleries'
-
-    def __str__(self):
-        return 'Gallery'
-
-
 class News(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    cover = models.ImageField(upload_to='news', default='cover.jpg', blank=True, null=True)
+    cover = models.ImageField(default='cover.jpg', upload_to='news/covers', blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    DisplayFields = ['id', 'title', 'description', 'cover', 'created', 'updated']
+    DisplayFields = ['id', 'created', 'title', 'description']
     SearchableFields = DisplayFields
     FilterFields = ['created', 'updated']
 
     class Meta:
         ordering = ['id', 'created', '-updated']
         verbose_name = 'News'
-        verbose_name_plural = 'News'
+        verbose_name_plural = 'Newses'
 
     def __str__(self):
         return self.title

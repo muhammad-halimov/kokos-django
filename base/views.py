@@ -11,11 +11,23 @@ from . import models
 
 # Функция для отображения главной страницы
 def index(request):
-    news_obj = models.News.objects.all()[:4]
+    # Получаем последние 4 новости
+    news_obj = models.News.objects.order_by('-id')[:4]
+    last_news = models.News.objects.last()
+    tournaments = models.Tournament.objects.order_by('-id')[:2]
+    gallery_ = models.Gallery.objects.order_by('-id')[1:]
+    gallery_single = models.Gallery.objects.order_by('-id')[:1]
 
     # Передача данных в контекст для рендеринга шаблона
-    context = {'news': news_obj}
-    return render(request, template_name='base/main.html', context=context)
+    context = {
+        'news': news_obj,
+        'last_news': last_news,
+        'tournaments': tournaments,
+        'gallery_main': gallery_,
+        'gallery_single': gallery_single,
+    }
+    return render(request, 'base/main.html', context=context)
+
 
 
 # Функция для отображения страницы входа в систему
@@ -165,7 +177,7 @@ def product(request):
 
 
 # Функция для отображения страницы галереи
-def gellery(request):
+def gallery(request):
     # Передача данных в контекст для рендеринга шаблона
     context = {}
     return render(request, template_name='base/gallery.html', context=context)
