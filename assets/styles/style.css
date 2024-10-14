@@ -1380,6 +1380,7 @@ footer {
   border-radius: 15px;
   width: 100%;
   padding: clamp(0.875rem, -0.001rem + 1.83vw, 1.75rem) clamp(0.563rem, -0.001rem + 1.17vw, 1.125rem);
+  padding-bottom: clamp(0.375rem, -0.001rem + 1.83vw, 1.2rem);
   z-index: 9;
 }
 .post_card .text_block .text .post_name {
@@ -1892,6 +1893,17 @@ footer {
   font-size: clamp(2rem, 1.431rem + 2.68vw, 4rem);
   line-height: clamp(2rem, 1.431rem + 2.68vw, 4rem);
 }
+.player_card .trainer_name {
+  display: block;
+}
+.player_card .trainer_name .trainer_position {
+  white-space: normal;
+  margin-top: 0.5vw;
+  font-weight: 400;
+  word-spacing: normal;
+  font-family: "Museo500";
+  font-size: clamp(0.875rem, 0.804rem + 0.33vw, 1.125rem);
+}
 
 /* PROFILE page */
 .profile_head {
@@ -2312,6 +2324,13 @@ footer {
   border-radius: 15px;
   overflow: hidden;
 }
+.input_number button {
+  background-color: #303030;
+  color: #ffffff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
 
 input[type=number] {
   -moz-appearance: textfield;
@@ -2328,14 +2347,6 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
-button {
-  background-color: #303030;
-  color: #ffffff;
-  border: none;
-  font-size: 20px;
-  cursor: pointer;
-}
-
 #decrement {
   padding: clamp(0.25rem, 0.143rem + 0.5vw, 0.625rem);
   border-radius: 15px 0 0 15px;
@@ -2348,4 +2359,8 @@ button {
 
 .deleteBtn {
   background-color: transparent;
+}
+
+.team_block {
+  margin-top: 5vw;
 }/*# sourceMappingURL=style.css.map */
