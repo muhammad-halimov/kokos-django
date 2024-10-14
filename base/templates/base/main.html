@@ -375,7 +375,7 @@
                                         </div>
                                         <div class="card_text">
                                             <p class="album_name">{{ gallery_s.title }}</p>
-                                            <p class="date">02.10.2024 &nbsp;&nbsp; 20:42 &nbsp;&nbsp; <img src="{% static 'img/icons/camera.png' %}"> 35</p>
+                                            <p class="date">{{ gallery_s.created|date }} &nbsp;&nbsp; {{ gallery_s.created|time }} &nbsp;&nbsp; <img src="{% static 'img/icons/camera.png' %}"> {{ gallery_s.media.count }}</p>
                                         </div>
                                     </a>
                                 </div>
@@ -387,11 +387,11 @@
                                 <div class="media_card_wrapper small_media_card">
                                     <a href="">
                                         <div class="media_card">
-                                            <img loading="lazy" src="{% static 'img/cover.jpg' %}" class="media_card_img">
+                                            <img loading="lazy" src="{{ gallery_m.cover.url }}" class="media_card_img">
                                         </div>
                                         <div class="card_text">
-                                            <p class="album_name">ФОТО “КОКОС ГРУПП” – “КЛАССИКО”</p>
-                                            <p class="date">02.10.2024 &nbsp;&nbsp; 20:42 &nbsp;&nbsp; <img src="{% static 'img/icons/camera.png' %}"> 35</p>
+                                            <p class="album_name">{{ gallery_m.title}}</p>
+                                            <p class="date">{{ gallery_m.created|date }} &nbsp;&nbsp; {{ gallery_m.created|time }} &nbsp;&nbsp; <img src="{% static 'img/icons/camera.png' %}"> {{ gallery_m.media.count }}</p>
                                         </div>
                                     </a>
                                 </div>

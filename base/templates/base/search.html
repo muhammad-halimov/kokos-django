@@ -1,0 +1,126 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}ФК Кокос | Поиск{% endblock %}
+{% block content %}
+    <main>
+        <div class="main" >
+            <div class="container">
+                <div class="search" style="margin-top: 150px">
+                    <form action="" class="signup_form">
+                        <p class="heading">Поиск по сайту</p>
+                        <label class="search_label" for="text_search">
+                            <input id="text_search" name="text" type="text" placeholder="Введите поисковый запрос" style="padding: 20px;"/>
+                        </label>
+                    </form>
+                </div>
+                <div class="search_results" style="margin-top: 40px">
+                    <p class="heading">Новости</p>
+                    <div class="row">
+                        <!-- col-md-4 col-sm-6 card_gap (не как на главной!)-->
+                        <div class="col-md-4 col-sm-6 card_gap">
+                            <a href="">
+                                <div class="post_card">
+                                    <img src="{% static 'img/cover.jpg' %}" class="post_img">
+                                    <div class="text_block">
+                                        <div class="text">
+                                            <p class="post_name">
+                                                ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
+                                            </p>
+                                            <p class="post_description">
+                                                Footer прижимается вниз за счет вытягивания блока контента и его «родителей»
+                                                на всю высоту окна браузера и подъема футера вверх.
+                                            </p>
+                                            <div class="post_date">
+                                                <p class="date"><img src="{% static 'img/icons/press-release.png' %}"> 02.10.2024 &nbsp;&nbsp;
+                                                    20:42</p>
+                                                <button class="post_btn">
+                                                    →
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="search_results">
+                    <p class="heading">Медиа</p>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="media_card_wrapper">
+                                <a href="">
+                                    <div class="media_card">
+                                        <img loading="lazy" src="{% static 'img/cover.jpg' %}" class="media_card_img">
+                                    </div>
+                                    <div class="card_text">
+                                        <p class="album_name">ФОТО “КОКОС ГРУПП” – “КЛАССИКО”</p>
+                                        <p class="date">02.10.2024 &nbsp;&nbsp; 20:42 &nbsp;&nbsp; <img
+                                                src="{% static 'img/icons/camera.png' %}"> 35</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="search_results">
+                    <p class="heading">Матчи</p>
+                    <a href="" class="competition_card">
+                        <div class="left_part">
+                            <div class="competition_card_info">
+                                <p class="competition_card_date">20 мая, 20:30</p>
+                                <p>FONBET Кубок России, 4 тур</p>
+                                <p>Ак Барс Арена</p>
+                            </div>
+                            <div class="competition_card_teams competition_over">
+                                <div class="teams">
+                                    <div class="team_label">
+                                        <p class="team_name_left">Кокос групп</p>
+                                        <img src="{% static 'img/icons/logo.png' %}" class="team_logo team_logo_left">
+                                    </div>
+                                    <p class="competiton_score">3 : 1</p>
+                                    <div class="team_label">
+                                        <img src="{% static 'img/icons/logo.png' %}" class="team_logo team_logo_right">
+                                        <p class="team_name">Кокос групп</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_part competition_over right_part_ended">
+                            РЕЗУЛЬТАТЫ МАТЧА →
+                        </div>
+                    </a>
+                </div>
+
+                <div class="search_results">
+                    <p class="heading">Игроки</p>
+                    <div class="row">
+                        <div class="col-md-3 col-sm-4 col-6">
+                            <a href="">
+                                <div class="post_card player_card">
+                                    <img src="{% static 'img/icons/player.png' %}" class="player_img">
+                                    <div class="text_block">
+                                        <div class="text">
+                                            <div class="post_name ">
+                                                <p class="player_name">
+                                                    Власов Виктор
+                                                </p>
+                                                <p class="player_num">3</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+{% endblock %}

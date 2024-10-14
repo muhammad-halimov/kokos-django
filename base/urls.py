@@ -21,4 +21,5 @@ urlpatterns = [
     path('gellery/', views.gallery, name='gellery'),
     path('team/', views.team, name='team'),
     path('vk-check/', views.vk_check, name='vk-check'),
+    path('search/', views.search, name='search'),
 ]

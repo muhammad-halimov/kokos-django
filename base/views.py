@@ -205,3 +205,10 @@ def vk_check(request): # Добавление очереди
         except (ValueError, KeyError): # Разного рода ошибки и исключение
             return JsonResponse({'error': 'Invalid request data'}, status=400)
     return JsonResponse({'error': 'Invalid request method'}, status=400)
+
+
+# Функция для отображения страницы поиска
+def search(request):
+    # Передача данных в контекст для рендеринга шаблона
+    context = {}
+    return render(request, template_name='base/search.html', context=context)
