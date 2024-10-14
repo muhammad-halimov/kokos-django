@@ -110,3 +110,17 @@ def competition(request):
     # Передача данных в контекст для рендеринга шаблона
     context = {}
     return render(request, template_name='base/competition.html', context=context)
+
+# Функция для отображения всех футболистов 
+def footballers_page(request):
+    footballers = models.Footballer.objects.all()
+    
+    context = {'footballers' : footballers}
+    return render(request, template_name='base/post.html', context=context) # Поменять на страницу с футболистами
+
+# Функция для отображения конкретного футболиста 
+def footballer_page(request, pk):
+    footballer = models.Footballer.objects.get(id=pk)
+    
+    context = {'footballer' : footballer}
+    return render(request, template_name='base/post.html', context=context) # Поменять на страницу конкретного футболиста

@@ -87,17 +87,17 @@ class Footballer(admin.ModelAdmin):
     search_fields = models.Footballer.SearchableFields
     list_filter = models.Footballer.FilterFields
 
-@admin.register(models.DirectorType)
-class DirectorType(admin.ModelAdmin):
-    list_display = models.DirectorType.DisplayFields
-    search_fields = models.DirectorType.SearchableFields
-    list_filter = models.DirectorType.FilterFields
+# @admin.register(models.DirectorType)
+# class DirectorType(admin.ModelAdmin):
+#     list_display = models.DirectorType.DisplayFields
+#     search_fields = models.DirectorType.SearchableFields
+#     list_filter = models.DirectorType.FilterFields
 
-@admin.register(models.Director)
-class Director(admin.ModelAdmin):
-    list_display = models.Director.DisplayFields
-    search_fields = models.Director.SearchableFields
-    list_filter = models.Director.FilterFields
+# @admin.register(models.Director)
+# class Director(admin.ModelAdmin):
+#     list_display = models.Director.DisplayFields
+#     search_fields = models.Director.SearchableFields
+#     list_filter = models.Director.FilterFields
 
 @admin.register(models.CoachStaffType)
 class CoachStaffType(admin.ModelAdmin):
@@ -111,29 +111,29 @@ class CoachStaff(admin.ModelAdmin):
     search_fields = models.CoachStaff.SearchableFields
     list_filter = models.CoachStaff.FilterFields
 
-@admin.register(models.BreedingServiceType)
-class BreedingServiceType(admin.ModelAdmin):
-    list_display = models.BreedingServiceType.DisplayFields
-    search_fields = models.BreedingServiceType.SearchableFields
-    list_filter = models.BreedingServiceType.FilterFields
+# @admin.register(models.BreedingServiceType)
+# class BreedingServiceType(admin.ModelAdmin):
+#     list_display = models.BreedingServiceType.DisplayFields
+#     search_fields = models.BreedingServiceType.SearchableFields
+#     list_filter = models.BreedingServiceType.FilterFields
 
-@admin.register(models.BreedingService)
-class BreedingService(admin.ModelAdmin):
-    list_display = models.BreedingService.DisplayFields
-    search_fields = models.BreedingService.SearchableFields
-    list_filter = models.BreedingService.FilterFields
+# @admin.register(models.BreedingService)
+# class BreedingService(admin.ModelAdmin):
+#     list_display = models.BreedingService.DisplayFields
+#     search_fields = models.BreedingService.SearchableFields
+#     list_filter = models.BreedingService.FilterFields
 
-@admin.register(models.StaffType)
-class StaffType(admin.ModelAdmin):
-    list_display = models.StaffType.DisplayFields
-    search_fields = models.StaffType.SearchableFields
-    list_filter = models.StaffType.FilterFields
+@admin.register(models.AdministrativeStaffType)
+class AdministrativeStaffType(admin.ModelAdmin):
+    list_display = models.AdministrativeStaffType.DisplayFields
+    search_fields = models.AdministrativeStaffType.SearchableFields
+    list_filter = models.AdministrativeStaffType.FilterFields
 
-@admin.register(models.Staff)
-class Staff(admin.ModelAdmin):
-    list_display = models.Staff.DisplayFields
-    search_fields = models.Staff.SearchableFields
-    list_filter = models.Staff.FilterFields
+# @admin.register(models.Staff)
+# class Staff(admin.ModelAdmin):
+#     list_display = models.Staff.DisplayFields
+#     search_fields = models.Staff.SearchableFields
+#     list_filter = models.Staff.FilterFields
 
 @admin.register(models.Team)
 class Team(admin.ModelAdmin):
@@ -237,11 +237,11 @@ class FootballerStatistics(admin.ModelAdmin):
     search_fields = models.FootballerStatistics.SearchableFields
     list_filter = models.FootballerStatistics.FilterFields
 
-@admin.register(models.CoachSummaryStatistics)
-class CoachSummaryStatistics(admin.ModelAdmin):
-    list_display = models.CoachSummaryStatistics.DisplayFields
-    search_fields = models.CoachSummaryStatistics.SearchableFields
-    list_filter = models.CoachSummaryStatistics.FilterFields
+# @admin.register(models.CoachSummaryStatistics)
+# class CoachSummaryStatistics(admin.ModelAdmin):
+#     list_display = models.CoachSummaryStatistics.DisplayFields
+#     search_fields = models.CoachSummaryStatistics.SearchableFields
+#     list_filter = models.CoachSummaryStatistics.FilterFields
 
 @admin.register(models.PenaltyScored)
 class PenaltyScored(admin.ModelAdmin):
