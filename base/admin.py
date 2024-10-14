@@ -281,3 +281,10 @@ class PenaltyScored(admin.ModelAdmin):
     list_display = models.PenaltyScored.DisplayFields
     search_fields = models.PenaltyScored.SearchableFields
     list_filter = models.PenaltyScored.FilterFields
+
+
+@admin.register(models.Translation)
+class Translation(admin.ModelAdmin):
+    list_display = models.Translation.DisplayFields
+    search_fields = models.Translation.SearchableFields
+    list_filter = models.Translation.FilterFields

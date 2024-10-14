@@ -1166,3 +1166,23 @@ class News(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class Translation(models.Model):
+    match = models.ForeignKey(Match, on_delete=models.CASCADE, blank=True, null=True)
+    link = models.URLField(blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = ['id', 'created', 'match']
+    SearchableFields = DisplayFields
+    FilterFields = ['created', 'updated']
+
+    class Meta:
+        ordering = ['id', 'created', '-updated']
+        verbose_name = 'Translation'
+        verbose_name_plural = 'Translations'
+
+    def str(self):
+        return f"Translation #{self.id}"
