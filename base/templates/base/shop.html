@@ -1,0 +1,152 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}ФК Кокос | Магазин{% endblock %}
+{% block content %}
+    <main>
+        <div class="intro_img profile_background_img">
+            <div class="intro_news_block shop_bg">
+                <img loading="lazy" src="{% static 'img/shop_bg.png' %}" class="intro_img_photo">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="profile_head shop_head">
+                <p class="heading">Магазин</p>
+                <!--это раздел "другое" -->
+                <!-- на каждый раздел по 4 карточки -->
+                <div class="shop_section">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-6">
+                            <div class="item_card">
+                                <a href="{% url 'product' %}">
+                                    <div class="product_img_wrapper">
+                                        <div class="product_img">
+                                            <img src="https://static.wikia.nocookie.net/the-granny-game/images/5/5d/%D0%9A%D0%BE%D0%BA%D0%BE%D1%81.png/revision/latest/thumbnail/width/360/height/450?cb=20210709045014&path-prefix=ru">
+                                            <img src="https://siam-shop.ru/upload/resize_cache/iblock/a37/505_378_1/maslo-50-ml.png">
+                                            <img src="https://reddragon-spb.ru/wa-data/public/shop/products/28/36/3628/images/10216/10216.750.png">
+                                            <img src="https://barakaoil-images.website.yandexcloud.net/iblock/7f4/bc0mxiogbpuhovx3v2sh4sd2jawk9j1o.png">
+                                            <img src="https://reddragon-spb.ru/wa-data/public/shop/products/28/36/3628/images/10216/10216.750.png">
+                                        </div>
+                                    </div>
+                                    <div class="item_card_text">
+                                        <p class="item_name">Футболка Кокос Групп 2024</p>
+                                        <p class="item_price">3 990 ₽</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-md-3 col-sm-6">
+                            <div class="item_card">
+                                <a href="">
+                                    <div class="product_img_wrapper">
+                                        <div class="product_img">
+                                            <img src="https://static.wikia.nocookie.net/the-granny-game/images/5/5d/%D0%9A%D0%BE%D0%BA%D0%BE%D1%81.png/revision/latest/thumbnail/width/360/height/450?cb=20210709045014&path-prefix=ru">
+                                            <img src="https://siam-shop.ru/upload/resize_cache/iblock/a37/505_378_1/maslo-50-ml.png">
+                                            <img src="https://reddragon-spb.ru/wa-data/public/shop/products/28/36/3628/images/10216/10216.750.png">
+                                            <img src="https://barakaoil-images.website.yandexcloud.net/iblock/7f4/bc0mxiogbpuhovx3v2sh4sd2jawk9j1o.png">
+                                            <img src="https://reddragon-spb.ru/wa-data/public/shop/products/28/36/3628/images/10216/10216.750.png">
+                                        </div>
+                                    </div>
+                                    <div class="item_card_text">
+                                        <p class="item_name">Футболка Кокос Групп 2024</p>
+                                        <p class="item_price">3 990 ₽</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                    <a href="" class="link">ПОКАЗАТЬ БОЛЬШЕ →</a>
+                </div>
+            </div>
+
+            <div class="shop_section">
+                <p class="player_position_title">Мужчинам</p>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="item_card">
+                            <a href="">
+                                <div class="product_img_wrapper">
+                                    <div class="product_img">
+                                        <img loading="lazy" src="{% static 'img/item1.png' %}">
+                                        <img loading="lazy" src="{% static 'img/item2.jpg' %}">
+                                        <img loading="lazy" src="{% static 'img/item3.jpg' %}">
+                                    </div>
+                                </div>
+                                <div class="item_card_text">
+                                    <p class="item_name">Футболка Кокос Групп 2024</p>
+                                    <p class="item_price">3 990 ₽</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="item_card">
+                            <a href="">
+                                <div class="product_img_wrapper">
+                                    <div class="product_img">
+                                        <img loading="lazy" src="{% static 'img/item1.png' %}">
+                                        <img loading="lazy" src="{% static 'img/item2.jpg' %}">
+                                        <img loading="lazy" src="{% static 'img/item3.jpg' %}">
+                                    </div>
+                                </div>
+                                <div class="item_card_text">
+                                    <p class="item_name">Футболка Кокос Групп 2024</p>
+                                    <p class="item_price">3 990 ₽</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="{% url 'shop_men' %}" class="link">ПОКАЗАТЬ БОЛЬШЕ →</a>
+            </div>
+
+            <div class="shop_section">
+                <p class="player_position_title">Женщинам</p>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="item_card">
+                            <a href="">
+                                <div class="product_img_wrapper">
+                                    <div class="product_img">
+                                        <img loading="lazy" src="{% static 'img/item1.png' %}">
+                                        <img loading="lazy" src="{% static 'img/item2.jpg' %}">
+                                    </div>
+                                </div>
+                                <div class="item_card_text">
+                                    <p class="item_name">Футболка Кокос Групп 2024</p>
+                                    <p class="item_price">3 990 ₽</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="" class="link">ПОКАЗАТЬ БОЛЬШЕ →</a>
+            </div>
+
+            <div class="shop_section">
+                <p class="player_position_title">Детям</p>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="item_card">
+                            <a href="">
+                                <div class="product_img_wrapper">
+                                    <div class="product_img">
+                                        <img loading="lazy" src="{% static 'img/item1.png' %}">
+                                        <img loading="lazy" src="{% static 'img/item2.jpg' %}">
+                                    </div>
+                                </div>
+                                <div class="item_card_text">
+                                    <p class="item_name">Футболка Кокос Групп 2024</p>
+                                    <p class="item_price">3 990 ₽</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <a href="" class="link">ПОКАЗАТЬ БОЛЬШЕ →</a>
+            </div>
+        </div>
+    </main>
+    <script defer type="application/javascript" rel="script" src="{% static 'js/product_card_slider.js' %}"></script>
+{% endblock %}

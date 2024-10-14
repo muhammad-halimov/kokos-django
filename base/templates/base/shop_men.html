@@ -1,0 +1,158 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}ФК Кокос | Магазин | Мужчинам{% endblock %}
+{% block content %}
+    <main>
+        <div class="intro_img profile_background_img">
+            <div class="intro_news_block shop_bg">
+                <img loading="lazy" src="{% static 'img/shop_bg.png' %}" class="intro_img_photo">
+
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="profile_head shop_head">
+                <p class="heading">Мужчинам</p>
+                <div class="shop_category">
+
+                    <div class="sidebar">
+                        <p class="small_heading">Категория:</p>
+                        <form action="" class="signup_form">
+                            <label class="white">
+                                <input type="checkbox" name="checkbox" class="checkbox">
+                                Футболки
+                            </label>
+                            <label class="white">
+                                <input type="checkbox" name="checkbox" class="checkbox">
+                                Штаны
+                            </label>
+                            <label class="white">
+                                <input type="checkbox" name="checkbox" class="checkbox">
+                                Шорты
+                            </label>
+                            <label class="white">
+                                <input type="checkbox" name="checkbox" class="checkbox">
+                                Куртки
+                            </label>
+                            <label class="white">
+                                <input type="checkbox" name="checkbox" class="checkbox">
+                                Носки
+                            </label>
+                            <label class="white">
+                                <input type="checkbox" name="checkbox" class="checkbox">
+                                Головные уборы
+                            </label>
+                            <label class="white">
+                                <input type="checkbox" name="checkbox" class="checkbox">
+                                Сумки
+                            </label>
+                            <label class="white">
+                                <input type="checkbox" name="checkbox" class="checkbox">
+                                Толстовки
+                            </label>
+                            <label class="white">
+                                <input type="checkbox" name="checkbox" class="checkbox">
+                                Аксессуары
+                            </label>
+                            <label class="white">
+                                <input type="checkbox" name="checkbox" class="checkbox">
+                                Другое
+                            </label>
+                        </form>
+                    </div>
+
+                    <div class="products_block">
+                        <div class="row">
+                            <!-- Сюда 12 карточек -->
+                            <div class="col-md-4 col-sm-6">
+                                <div class="item_card">
+                                    <a href="">
+                                        <div class="product_img_wrapper">
+                                            <div class="product_img">
+                                                <img loading="lazy" src="{% static 'img/item1.png' %}">
+                                                <img loading="lazy" src="{% static 'img/item2.jpg' %}">
+                                                <img loading="lazy" src="{% static 'img/item3.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class="item_card_text">
+                                            <p class="item_name">Футболка Кокос Групп 2024</p>
+                                            <p class="item_price">3 990 ₽</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="item_card">
+                                    <a href="">
+                                        <div class="product_img_wrapper">
+                                            <div class="product_img">
+                                                <img loading="lazy" src="{% static 'img/item1.png' %}">
+                                                <img loading="lazy" src="{% static 'img/item2.jpg' %}">
+                                                <img loading="lazy" src="{% static 'img/item3.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class="item_card_text">
+                                            <p class="item_name">Футболка Кокос Групп 2024</p>
+                                            <p class="item_price">3 990 ₽</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="item_card">
+                                    <a href="">
+                                        <div class="product_img_wrapper">
+                                            <div class="product_img">
+                                                <img loading="lazy" src="{% static 'img/item1.png' %}">
+                                                <img loading="lazy" src="{% static 'img/item2.jpg' %}">
+                                                <img loading="lazy" src="{% static 'img/item3.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class="item_card_text">
+                                            <p class="item_name">Футболка Кокос Групп 2024</p>
+                                            <p class="item_price">3 990 ₽</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="col-md-4 col-sm-6">
+                                <div class="item_card">
+                                    <a href="">
+                                        <div class="product_img_wrapper">
+                                            <div class="product_img">
+                                                <img loading="lazy" src="{% static 'img/item1.png' %}">
+                                                <img loading="lazy" src="{% static 'img/item2.jpg' %}">
+                                                <img loading="lazy" src="{% static 'img/item3.jpg' %}">
+                                            </div>
+                                        </div>
+                                        <div class="item_card_text">
+                                            <p class="item_name">Футболка Кокос Групп 2024</p>
+                                            <p class="item_price">3 990 ₽</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pagination_block">
+                    <nav>
+                        <ul class="pagination justify-content-center dsfd">
+                            <li class="page-item disabled">
+                                <a class="page-link" href="#" tabindex="-1" aria-disabled="true"> &lt; </a>
+                            </li>
+                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                            <li class="page-item"><a class="page-link" href="#">2</a></li>
+                            <li class="page-item"><a class="page-link" href="#">3</a></li>
+                            <li class="page-item">
+                                <a class="page-link" href="#">></a>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+
+    </main>
+{% endblock %}

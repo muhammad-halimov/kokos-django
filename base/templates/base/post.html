@@ -33,7 +33,7 @@
 
                     <div class="post_content">
                         <div class="post_text_block">
-                            <p class="post_description">{{ post.description|truncatechars:15 }}</p>
+                            <p class="post_description">{{ post.description|truncatechars:50 }}</p>
                             <!-- Можем ли мы как то сделать такие заголовки для абзаца
                             (не для всего поста!) как с класом .paragraph_heading ?
                             Если нет то кикай -->
@@ -48,8 +48,8 @@
                                 {% for newsx in news %}
                                     {% if newsx.id != post.id %}
                                         <a href="{% url 'post' newsx.id %}" class="main_news_card another_post">
-                                            <img loading="lazy" src="{% static 'img/happy_team.png' %}">
-                                            <p>{{ newsx.title }}</p>
+                                            <img loading="lazy" src="{{ newsx.cover.url }}">
+                                            <p>{{ newsx.title|truncatechars:40 }}</p>
                                         </a>
                                     {% endif %}
                                 {% endfor %}

@@ -9,7 +9,7 @@ class User(AbstractUser):
     email = models.EmailField(max_length=255, unique=True, null=True, blank=True)
     phone = models.CharField(max_length=255, null=True, blank=True)
     login = models.CharField(max_length=255, null=True, blank=True)
-    avatar = models.ImageField(upload_to='avatars', default='assets/img/icons/avatar.svg', null=True, blank=True)
+    avatar = models.ImageField(upload_to='avatars', default='img/icons/avatar.svg', null=True, blank=True)
 
     # Поля даты создания и обновления
     created = models.DateTimeField(auto_now_add=True)
@@ -214,7 +214,7 @@ class Gender(models.Model):
 
 class Media(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
-    link = models.TextField(blank=True, null=True)
+    link = models.ImageField(upload_to='uploads/covers', default='default.svg', blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -229,7 +229,7 @@ class Media(models.Model):
         verbose_name_plural = 'Media'
 
     def __str__(self):
-        return self.title
+        return self.link.url
 
 
 class Clothes(models.Model):
@@ -292,7 +292,7 @@ class Clothes(models.Model):
         verbose_name_plural = 'Clothes'
 
     def __str__(self):
-        return self.name or self.type
+        return self.name
 
 
 class FootballerPosition(models.Model):
@@ -977,22 +977,41 @@ class Team(models.Model):
         return self.title
 
 
-class Arena(models.Model):
-    name = models.CharField(max_length=255, blank=True, null=True)
+class Country(models.Model):
     country = models.CharField(max_length=255, blank=True, null=True)
     city = models.CharField(max_length=255, blank=True, null=True)
+
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+
+    DisplayFields = ['id', 'country', 'city', 'created', 'updated']
+    SearchableFields = DisplayFields
+    FilterFields = ['created', 'updated']
+
+    class Meta:
+        ordering = ['id', 'created']
+        verbose_name = 'Country'
+        verbose_name_plural = 'Countries'
+
+    def __str__(self):
+        return f"{self.country}, {self.city}"
+
+
+class Arena(models.Model):
+    name = models.CharField(max_length=255, blank=True, null=True)
+    country = models.ForeignKey(Country, on_delete=models.SET_NULL, blank=True, null=True)
     street = models.CharField(max_length=255, blank=True, null=True)
     places_count = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    DisplayFields = ['id', 'created', 'updated', 'name', 'country', 'city', 'street', 'places_count']
+    DisplayFields = ['id', 'created', 'updated', 'name', 'country', 'country', 'street', 'places_count']
     SearchableFields = DisplayFields
-    FilterFields = ['created', 'updated', 'country', 'places_count']
+    FilterFields = ['created', 'updated']
 
     class Meta:
-        ordering = ['id', 'created', '-updated', 'places_count']
+        ordering = ['id', 'created']
         verbose_name = 'Arena'
         verbose_name_plural = 'Arenas'
 
@@ -1084,43 +1103,23 @@ class Ticket(models.Model):
         return f'Ticket #{self.id}'
 
 
-class City(models.Model):
-    title = models.CharField(max_length=255, blank=True, null=True)
-    date = models.DateField(auto_now=True, blank=True, null=True)
-
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True)
-
-    DisplayFields = ['id', 'title', 'created', 'updated']
-    SearchableFields = DisplayFields
-    FilterFields = ['created', 'updated']
-
-    class Meta:
-        ordering = ['id', 'created']
-        verbose_name = 'City'
-        verbose_name_plural = 'Cities'
-
-    def __str__(self):
-        return self.title
-
-
 class Tournament(models.Model):
     name = models.CharField(max_length=255, null=True, blank=True)
     matches = models.ManyToManyField(Match, related_name='matches', blank=True)
     start_date = models.DateField(auto_now=True, null=True, blank=True)
     end_date = models.DateField(auto_now=True, null=True, blank=True)
     tours = models.DecimalField(decimal_places=2, max_digits=10, null=True, blank=True)
-    cities = models.ManyToManyField(City, related_name='tournament_cities', blank=True)
+    country = models.ManyToManyField(Country, related_name='tournament_cities', blank=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    DisplayFields = ['id', 'created', 'updated', 'start_date', 'end_date', 'tours']
+    DisplayFields = ['id', 'start_date', 'end_date', 'tours', 'created', 'updated',]
     SearchableFields = DisplayFields
-    FilterFields = ['created', 'updated', 'start_date', 'end_date', 'tours']
+    FilterFields = ['created', 'updated']
 
     class Meta:
-        ordering = ['id', 'created', '-updated', 'start_date', 'end_date', 'tours']
+        ordering = ['id', 'created']
         verbose_name = 'Tournament'
         verbose_name_plural = 'Tournaments'
 
@@ -1152,19 +1151,19 @@ class Gallery(models.Model):
 class News(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    gallery = models.ManyToManyField(Gallery, related_name='news_gallery', blank=True)
+    cover = models.ImageField(upload_to='news', default='cover.jpg', blank=True, null=True)
 
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
 
-    DisplayFields = ['id', 'created', 'title', 'description']
+    DisplayFields = ['id', 'title', 'description', 'cover', 'created', 'updated']
     SearchableFields = DisplayFields
     FilterFields = ['created', 'updated']
 
     class Meta:
         ordering = ['id', 'created', '-updated']
         verbose_name = 'News'
-        verbose_name_plural = 'Newses'
+        verbose_name_plural = 'News'
 
     def __str__(self):
         return self.title

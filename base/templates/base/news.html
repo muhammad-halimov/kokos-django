@@ -38,75 +38,31 @@
                 <div class="posts">
                     <div class="row">
                         <!-- СЮДА ВЫВОДИМ 9 ПОСТОВ-->
-                        <div class="col-md-4 col-sm-6">
-                            <a href="">
-                                <div class="post_card">
-                                    <img src="{% static 'img/cover.jpg' %}" class="post_img">
-                                    <div class="text_block">
-                                        <div class="text">
-                                            <p class="post_name">
-                                                ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
-                                            </p>
-                                            <p class="post_description">
-                                                Footer прижимается вниз за счет вытягивания блока контента и его «родителей» на всю высоту окна браузера и подъема футера вверх.
-                                            </p>
-                                            <div class="post_date">
-                                                <p class="date"><img src="{% static 'img/icons/interview.png' %}"> 02.10.2024 &nbsp;&nbsp; 20:42</p>
-                                                <button class="post_btn">
-                                                    →
-                                                </button>
+                        {% for newsx in news %}
+                            <div class="col-md-4 col-sm-6">
+                                <a href="{% url 'post' newsx.id %}">
+                                    <div class="post_card">
+                                        <img src="{% static 'img/cover.jpg' %}" class="post_img">
+                                        <div class="text_block">
+                                            <div class="text">
+                                                <p class="post_name">
+                                                    {{ newsx.title|truncatechars:40 }}
+                                                </p>
+                                                <p class="post_description">
+                                                    {{ newsx.description|truncatechars:150 }}
+                                                </p>
+                                                <div class="post_date">
+                                                    <p class="date"><img src="{% static 'img/icons/interview.png' %}"> {{ newsx.created|date }} &nbsp;&nbsp; {{ newsx.created|time }}</p>
+                                                    <button class="post_btn">
+                                                        →
+                                                    </button>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <a href="">
-                                <div class="post_card">
-                                    <img src="{% static 'img/cover.jpg' %}" class="post_img">
-                                    <div class="text_block">
-                                        <div class="text">
-                                            <p class="post_name">
-                                                ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
-                                            </p>
-                                            <p class="post_description">
-                                                Footer прижимается вниз за счет вытягивания блока контента и его «родителей» на всю высоту окна браузера и подъема футера вверх.
-                                            </p>
-                                            <div class="post_date">
-                                                <p class="date"><img src="{% static 'img/icons/article.png' %}"> 02.10.2024 &nbsp;&nbsp; 20:42</p>
-                                                <button class="post_btn">
-                                                    →
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-4 col-sm-6">
-                            <a href="">
-                                <div class="post_card">
-                                    <img src="{% static 'img/cover.jpg' %}" class="post_img">
-                                    <div class="text_block">
-                                        <div class="text">
-                                            <p class="post_name">
-                                                ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
-                                            </p>
-                                            <p class="post_description">
-                                                Footer прижимается вниз за счет вытягивания блока контента и его «родителей» на всю высоту окна браузера и подъема футера вверх.
-                                            </p>
-                                            <div class="post_date">
-                                                <p class="date"><img src="{% static 'img/icons/press-release.png' %}"> 02.10.2024 &nbsp;&nbsp; 20:42</p>
-                                                <button class="post_btn">
-                                                    →
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
+                        {% endfor %}
                     </div>
 
                     <div class="pagination_block">

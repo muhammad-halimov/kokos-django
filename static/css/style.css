@@ -86,7 +86,8 @@ a {
   min-width: 100%;
   min-height: 40rem;
 }
-.intro_img .intro_img_photo {
+
+.intro_img_photo {
   position: absolute;
   top: 0;
   left: 50%;
@@ -100,6 +101,10 @@ a {
   max-height: none;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+.profile_background_img {
+  min-height: 50vh !important;
 }
 
 header {
@@ -853,7 +858,7 @@ button {
   color: #c6c6c6;
   text-transform: uppercase;
   transition: all 0.2s;
-  font-size: clamp(0.875rem, 0.5rem + 0.78vw, 1.25rem);
+  font-size: 1.25rem;
   overflow: hidden;
   padding-right: 10px;
   transition: color 0.2s ease;
@@ -1088,7 +1093,27 @@ footer {
   background-color: #303030;
   width: 100%;
 }
+.signup_form label select {
+  color: white;
+  padding: 10px 10px;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  background-color: #303030;
+  width: 100%;
+}
+.signup_form label textarea {
+  color: white;
+  padding: 10px 10px;
+  min-width: 8vw;
+  border-radius: 7px;
+  outline: none;
+  border: none;
+  background-color: #303030;
+  width: 100%;
+}
 .signup_form label .checkbox {
+  cursor: pointer;
   margin-right: 0.5vw;
   width: auto;
   width: 14px;
@@ -1458,6 +1483,8 @@ footer {
 }
 
 .tabs {
+  z-index: 5;
+  position: relative;
   margin-bottom: 0;
   display: flex;
   border-bottom: 4px solid transparent;
@@ -1468,7 +1495,7 @@ footer {
   overflow-x: scroll;
 }
 
-.tab {
+.tab, .tab_profile, .tab_one_competition {
   font-size: clamp(0.75rem, 0.249rem + 1.04vw, 1.25rem);
   padding: clamp(0.375rem, 0.125rem + 0.52vw, 0.625rem) clamp(0.875rem, -0.126rem + 2.09vw, 1.875rem);
   cursor: pointer;
@@ -1480,15 +1507,15 @@ footer {
   transition: all 0.2s;
 }
 
-.tab:hover {
+.tab:hover, .tab_one_competition:hover, .tab_profile:hover {
   color: #424242;
 }
 
-.tab.active {
+.tab.active, .active.tab_one_competition, .active.tab_profile {
   color: #9e1818;
 }
 
-.tab.active::after {
+.tab.active::after, .active.tab_one_competition::after, .active.tab_profile::after {
   content: "";
   position: absolute;
   bottom: 0px;
@@ -1675,15 +1702,20 @@ footer {
   background-color: #1A1A1A;
 }
 
-.tickets,
-.stream,
-.team_composition, .statistics, .media {
+.log_out_tab a {
+  color: #4C4C4C;
+}
+
+.tickets, .stream,
+.team_composition, .statistics, .media,
+.profile_competitions, .profile_orders, .profile_settings, .profile_question {
   display: none;
 }
 
-.tickets.active,
-.stream.active,
-.team_composition.active, .statistics.active, .media.active {
+.tickets.active, .stream.active,
+.team_composition.active, .statistics.active, .media.active,
+.profile_competitions.active, .profile_orders.active, .profile_settings.active,
+.profile_question.active {
   display: block;
 }
 
@@ -1811,8 +1843,8 @@ footer {
 .player_position_title {
   text-transform: uppercase;
   font-family: "Oswald", sans-serif;
-  line-height: clamp(3rem, 2.146rem + 4.02vw, 6rem);
-  font-size: clamp(3rem, 2.146rem + 4.02vw, 6rem);
+  line-height: clamp(2.5rem, -1.005rem + 7.3vw, 6rem);
+  font-size: clamp(2.5rem, -1.005rem + 7.3vw, 6rem);
   color: #505050;
   font-weight: 600;
   text-align: center;
@@ -1859,4 +1891,414 @@ footer {
 .player_card .post_name .player_num {
   font-size: clamp(2rem, 1.431rem + 2.68vw, 4rem);
   line-height: clamp(2rem, 1.431rem + 2.68vw, 4rem);
+}
+
+/* PROFILE page */
+.profile_head {
+  position: relative;
+  z-index: 10;
+  text-transform: none;
+  margin-top: -12rem;
+}
+.profile_head .heading {
+  text-transform: none;
+  margin-bottom: 1.7vw;
+}
+
+.cart_title {
+  margin-bottom: 13rem;
+}
+
+.points_block {
+  border-radius: 15px;
+  padding: clamp(0.813rem, 0.155rem + 3.1vw, 2.7rem);
+  background-color: #151515;
+  background-image: url(../img/background_points.png);
+  background-position: center;
+  background-size: cover;
+  background-position: center;
+  background-size: cover;
+}
+.points_block .ponts {
+  margin-top: 4.4vw;
+  display: flex;
+}
+.points_block .ponts .heading {
+  font-size: clamp(4rem, -0.005rem + 8.34vw, 8rem);
+}
+.points_block .get_points {
+  margin-top: 1.5vw;
+  align-items: end;
+  display: flex;
+  justify-content: space-between;
+}
+.points_block .get_points p {
+  margin: 0;
+  color: #7B7B7B;
+  font-size: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
+  line-height: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
+}
+
+.a_btn {
+  transition: all 0.2s;
+  border: none;
+  background-color: #821313;
+  border-radius: 7px;
+  text-transform: uppercase;
+  color: white;
+  padding: clamp(0.438rem, 0.187rem + 0.52vw, 0.688rem) clamp(1.688rem, 0.248rem + 3vw, 3.125rem);
+  font-size: clamp(0.688rem, 0.375rem + 0.65vw, 1rem);
+}
+.a_btn:hover {
+  background-color: #520909;
+}
+
+.padding_half_btn {
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+}
+
+.half_page_btn {
+  margin-top: 1vw;
+  margin-bottom: 3vw;
+  width: 100%;
+  transition: all 0.2s;
+  border: none;
+  background-color: #821313;
+  border-radius: 7px;
+  text-transform: uppercase;
+  color: white;
+  padding: clamp(0.438rem, 0.187rem + 0.52vw, 0.688rem) clamp(1.688rem, 0.248rem + 3vw, 3.125rem);
+  font-size: clamp(0.688rem, 0.375rem + 0.65vw, 1rem);
+}
+.half_page_btn:hover {
+  background-color: #520909;
+}
+
+.profile_settings_block, .question_block {
+  border-radius: 15px;
+  background-color: #151515;
+  padding: clamp(0.938rem, -0.627rem + 3.26vw, 2.5rem);
+  padding-bottom: 0;
+}
+
+.order_cart_profile {
+  margin-bottom: 1vw;
+  border-radius: 15px;
+  background-color: #151515;
+  padding: clamp(0.75rem, 0.572rem + 0.84vw, 1.375rem);
+  padding-right: clamp(1.2rem, 0.572rem + 0.84vw, 2.5rem);
+}
+.order_cart_profile .item_img_wrapper {
+  padding-bottom: 100%;
+  z-index: 6;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  min-width: 100%;
+  border-radius: 7px;
+}
+.order_cart_profile .item_img_wrapper .item_img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  transition: all 0.2s ease-in-out;
+}
+.order_cart_profile .order_item_name {
+  padding: clamp(0.75rem, 0.519rem + 1.09vw, 1.563rem) clamp(0.438rem, 0.384rem + 0.25vw, 0.625rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: clamp(1rem, 0.929rem + 0.33vw, 1.25rem);
+  line-height: clamp(1rem, 0.929rem + 0.33vw, 1.25rem);
+}
+.order_cart_profile .order_item_name .item_info {
+  font-family: "Museo700";
+}
+.order_cart_profile .order_item_name .item_info .price {
+  font-family: "Oswald";
+}
+.order_cart_profile .order_item_name .order_date {
+  color: #5C5C5C;
+}
+.order_cart_profile .order_info {
+  background-color: #202020;
+  border-radius: 7px;
+  padding: clamp(0.75rem, 0.643rem + 0.5vw, 1.125rem);
+}
+.order_cart_profile .order_info .info_text {
+  font-size: 14px;
+  color: white;
+}
+.order_cart_profile .order_info .info_text .pay_status {
+  font-family: "Museo700";
+  border-radius: 7px;
+  background-color: #19A827;
+  padding: 7px 20px;
+  display: inline-block;
+}
+
+/* SHOP page */
+.shop_head p {
+  text-transform: uppercase !important;
+}
+
+.shop_bg:after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 15;
+  background: linear-gradient(0deg, rgb(14, 14, 14) 0%, rgba(0, 0, 0, 0) 100%);
+}
+.shop_bg .intro_img_photo {
+  filter: brightness(100%) !important;
+}
+
+.item_card {
+  margin-bottom: 1.5vw;
+  transition: all 0.2s;
+  background-color: #151515;
+  border-radius: 7px;
+  padding: clamp(0.75rem, 0.562rem + 0.39vw, 0.938rem);
+}
+.item_card_text {
+  padding-top: clamp(0.813rem, 0.599rem + 1vw, 1.563rem);
+  font-size: clamp(0.8rem, 0.929rem + 0.33vw, 1.25rem);
+  line-height: clamp(0.8rem, 0.929rem + 0.33vw, 1.25rem);
+  padding-bottom: 0.5vw;
+}
+.item_card_text .item_price {
+  margin-top: 1vw;
+  font-family: "Oswald";
+  font-size: clamp(1.125rem, 1.018rem + 0.5vw, 1.5rem);
+}
+.item_card:hover {
+  border: 1px solid #373737;
+  background-color: #1c1b1b;
+}
+
+.product_img_wrapper {
+  border-radius: 5px;
+  width: 100%;
+  position: relative;
+  padding-bottom: 100%;
+  overflow: hidden;
+}
+.product_img_wrapper .product_img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  transition: transform 0.3s ease-in-out;
+}
+
+.shop_section {
+  margin-bottom: clamp(2.5rem, -0.003rem + 5.22vw, 5rem);
+  position: relative;
+  z-index: 10;
+}
+
+.product_img img {
+  flex-shrink: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/*page SHOP for one gender, one category*/
+.shop_category {
+  position: relative;
+  z-index: 17;
+  display: grid;
+  grid-template-columns: minmax(200px, 25%) 1fr;
+}
+.shop_category .sidebar {
+  align-self: start;
+  margin-right: clamp(0.625rem, 0.25rem + 0.78vw, 1rem);
+  border-radius: 7px;
+  background-color: #151515;
+  padding: clamp(1.25rem, 0.955rem + 1.35vw, 2.25rem) clamp(0.813rem, 0.628rem + 0.84vw, 1.438rem);
+  min-height: 50vw;
+}
+.shop_category .sidebar:hover {
+  border: 1px solid #373737;
+  background-color: #1c1b1b;
+}
+.shop_category .sidebar .small_heading {
+  text-transform: none !important;
+}
+.shop_category .sidebar form {
+  margin-left: 1.2vw;
+}
+.shop_category .sidebar form label {
+  margin-bottom: 0.5vw;
+}
+
+/* one PRODUCT page*/
+.product {
+  margin-top: 140px;
+}
+
+.photo_view_block {
+  display: grid;
+  grid-template-columns: minmax(50px, 13%) 1fr;
+}
+
+.photos_preview {
+  margin-right: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.photo_preview_block {
+  margin-bottom: 1vw;
+  padding-bottom: 100%;
+  z-index: 6;
+  width: 100%;
+  display: flex;
+  position: relative;
+  overflow: hidden;
+  min-width: 100%;
+  border-radius: 15px;
+}
+.photo_preview_block img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.current_photo_wrapper {
+  border-radius: 15px;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
+  overflow: hidden;
+}
+.current_photo_wrapper img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.buying {
+  display: flex;
+  align-items: center;
+}
+.buying p {
+  padding: 0 clamp(0.938rem, 0.661rem + 1.27vw, 1.875rem);
+  font-family: "Oswald";
+  font-weight: 700;
+  font-size: clamp(1.25rem, 1.028rem + 1.01vw, 2rem);
+  background-color: white;
+  border-radius: 7px;
+  color: #0E0E0E;
+  margin: 0;
+}
+.buying button {
+  display: flex;
+  align-items: center;
+  margin-left: 0.5vw;
+  font-family: "Museo700";
+}
+.buying button img {
+  margin-right: 1vw;
+}
+
+.product_article {
+  color: #515151;
+  margin-top: 1vw;
+  margin-bottom: 0.1vw;
+}
+
+.green {
+  color: #42B319;
+  text-transform: uppercase;
+}
+
+.sizes {
+  display: flex;
+}
+
+.size_label {
+  display: inline-block;
+  margin-right: 0.5vw;
+  cursor: pointer;
+}
+
+.size_radio {
+  display: none;
+}
+
+.size_btn {
+  display: inline-block;
+  background-color: #151515;
+  height: 3vw;
+  width: 3vw;
+  transition: all 0.2s;
+  color: white;
+  border-radius: 7px;
+  line-height: 3vw;
+  text-align: center;
+}
+
+.size_radio:checked + .size_btn {
+  background-color: #821313;
+}
+
+.size_btn:hover {
+  background-color: rgb(30, 30, 30);
+}
+
+.item_info_block {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Убедитесь, что высота задана */
+}
+
+.interactive_part {
+  margin-bottom: auto; /* Принуждает interactive_part оставаться вверху */
+}
+
+.description_part {
+  margin-top: auto; /* Принуждает description_part оставаться внизу */
+}
+
+.products_offer {
+  margin-top: 8vw;
+}
+
+.later_block {
+  margin: 15rem 0;
+}
+
+.later {
+  margin-top: 2vw;
+  line-height: clamp(0.3rem, -1.005rem + 7.3vw, 0.8rem);
+  font-size: clamp(1rem, -1.005rem + 7.3vw, 1.7rem);
+  color: #505050;
+  font-weight: 400;
+  text-align: center;
 }/*# sourceMappingURL=style.css.map */

@@ -1,8 +1,10 @@
 from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.decorators import login_required
-from django.http import HttpResponse
+from django.http import HttpResponse, JsonResponse
 from django.shortcuts import render, redirect
+from django.views.decorators.csrf import csrf_exempt
+
 from . import forms
 from . import models
 
@@ -38,7 +40,7 @@ def authorize(request):
             # Проверка пользователя на существование
             if user is not None:
                 login(request, user)
-                return redirect('index')
+                return redirect('profile')
 
         except BaseException:
             messages.error(request, "Данные неправильны или пользователь не найден")
@@ -105,8 +107,89 @@ def competitions(request):
     return render(request, template_name='base/competitions.html', context=context)
 
 
-# Функция для отображения страницы матчей
+# Функция для отображения страницы конкретного матча
 def competition(request):
     # Передача данных в контекст для рендеринга шаблона
     context = {}
     return render(request, template_name='base/competition.html', context=context)
+
+
+# Функция для отображения страницы магазина
+def shop(request):
+    # Передача данных в контекст для рендеринга шаблона
+    context = {}
+    return render(request, template_name='base/shop.html', context=context)
+
+
+# Функция для отображения страницы магазина/мужчины
+def shop_men(request):
+    # Передача данных в контекст для рендеринга шаблона
+    context = {}
+    return render(request, template_name='base/shop_men.html', context=context)
+
+
+# Функция для отображения страницы ЛК
+@login_required(login_url='authorization')
+def profile(request):
+    # Передача данных в контекст для рендеринга шаблона
+    context = {}
+    return render(request, template_name='base/profile.html', context=context)
+
+
+# Функция для отображения страницы истории ФК
+def history(request):
+    # Передача данных в контекст для рендеринга шаблона
+    context = {}
+    return render(request, template_name='base/history.html', context=context)
+
+
+# Функция для отображения страницы корзины пользователя
+def cart(request):
+    # Передача данных в контекст для рендеринга шаблона
+    context = {}
+    return render(request, template_name='base/cart.html', context=context)
+
+
+# Функция для отображения страницы партнеров
+def partners(request):
+    # Передача данных в контекст для рендеринга шаблона
+    context = {}
+    return render(request, template_name='base/partners.html', context=context)
+
+
+# Функция для отображения страницы конкретного продукта
+def product(request):
+    # Передача данных в контекст для рендеринга шаблона
+    context = {}
+    return render(request, template_name='base/product.html', context=context)
+
+
+# Функция для отображения страницы галереи
+def gellery(request):
+    # Передача данных в контекст для рендеринга шаблона
+    context = {}
+    return render(request, template_name='base/gallery.html', context=context)
+
+
+# Функция для отображения страницы команду
+def team(request):
+    # Передача данных в контекст для рендеринга шаблона
+    context = {}
+    return render(request, template_name='base/team.html', context=context)
+
+
+# Функция для отображения страницы команду
+@csrf_exempt # Игнорирование csrf_token
+def vk_check(request): # Добавление очереди
+    if request.method == 'POST':
+        try:
+            data = json.loads(request.body) # Берем данные из POST
+            user_info = data.get('user_info')
+
+            print(user_info)
+
+            # Возвращаем promise в JS
+            return JsonResponse({'success': True, 'queue_number': queue.number, 'window_number': queue.window.number})
+        except (ValueError, KeyError): # Разного рода ошибки и исключение
+            return JsonResponse({'error': 'Invalid request data'}, status=400)
+    return JsonResponse({'error': 'Invalid request method'}, status=400)

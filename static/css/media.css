@@ -264,10 +264,22 @@
   .tickets .tickets_block .ticket_user_info_form input {
     width: 100%;
   }
+  .personal_info {
+    padding: clamp(0.938rem, 0.191rem + 3.51vw, 1.875rem) 0;
+  }
 }
 @media (max-width: 600px) {
   .standings_row .col-md-6 {
     margin-bottom: 5rem;
+  }
+  .profile_background_img {
+    height: 30vh !important;
+  }
+  .points_block .get_points {
+    display: block;
+  }
+  .points_block .get_points p {
+    margin-bottom: 3vw;
   }
 }
 @media (max-width: 500px) {

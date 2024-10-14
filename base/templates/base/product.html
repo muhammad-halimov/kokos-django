@@ -1,0 +1,115 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}ФК Кокос | Продукт{% endblock %}
+{#{% block title %}ФК Кокос | Продукт <str:pk>{% endblock %}#}
+{% block content %}
+    <main>
+        <div class="container">
+            <div class="product">
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <div class="photo_view_block">
+                            <div class="other_photos_block">
+                                <div class="photos_preview">
+                                    <div class="photo_preview_block">
+                                        <img src="{% static 'img/item1.png' %}" class="img_preview">
+                                    </div>
+                                    <div class="photo_preview_block">
+                                        <img src="{% static 'img/item2.jpg' %}" class="img_preview">
+                                    </div>
+                                    <div class="photo_preview_block">
+                                        <img src="{% static 'img/item3.jpg' %}" class="img_preview">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="current_photo">
+                                <div class="current_photo_wrapper">
+                                    <img src="">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <div class="item_info_block">
+                            <div class="interactive_part">
+                                <p class="small_heading">Футболка Кокос Групп 2024</p>
+                                <div class="buying">
+                                    <p>3 990 ₽</p>
+                                    <button class="a_btn"><img src="{% static 'img/icons/white_cart.svg' %}">В КОРЗИНУ</button>
+                                </div>
+                                <p class="product_article">Артикул: 1273372970</p>
+                                <p>Наличие: <span class="green">в наличии</span></p>
+
+                                <form action="">
+                                    <div class="sizes">
+                                        <label class="size_label">
+                                            <input type="radio" name="size" class="size_radio">
+                                            <span class="size_btn">S</span>
+                                        </label>
+                                        <label class="size_label">
+                                            <input type="radio" name="size" class="size_radio">
+                                            <span class="size_btn">M</span>
+                                        </label>
+                                        <label class="size_label">
+                                            <input type="radio" name="size" class="size_radio">
+                                            <span class="size_btn">L</span>
+                                        </label>
+                                    </div>
+                                </form>
+
+                            </div>
+                            <div class="description_part">
+                                <p>Тип товара: футболка</p>
+                                <p>Цвет: красный</p>
+                                <p>Пол: унисекс</p>
+                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis rutrum vulputate
+                                    auctor. Nunc sollicitudin luctus nulla, auctor tristique sapien pellentesque in.
+                                    Duis nunc nisi, iaculis at condimentum nec, scelerisque non nulla. Curabitur semper
+                                    nibh erat, non fringilla tortor semper at. Vivamus fringilla malesuada nulla, vitae
+                                    ultrices tortor consequat et. Donec ut neque a lectus porta blandit. Vestibulum ante
+                                    ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Sed nec
+                                    convallis elit. Duis felis erat, aliquet sit amet quam non, maximus euismod nulla.
+                                    Aliquam lacinia, leo id molestie placerat, nisl ipsum venenatis orci, et bibendum
+                                    tortor risus pulvinar ante. In semper ipsum a tincidunt sollicitudin. Vivamus
+                                    finibus sem sit amet augue fringilla pharetra.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="products_offer">
+                <p class="small_heading">Похожие товары</p>
+                <!--Сюда 4 карточки -->
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="item_card">
+                            <a href="">
+                                <div class="product_img_wrapper">
+                                    <div class="product_img">
+                                        <img src="https://static.wikia.nocookie.net/the-granny-game/images/5/5d/%D0%9A%D0%BE%D0%BA%D0%BE%D1%81.png/revision/latest/thumbnail/width/360/height/450?cb=20210709045014&path-prefix=ru">
+                                        <img src="https://siam-shop.ru/upload/resize_cache/iblock/a37/505_378_1/maslo-50-ml.png">
+                                        <img src="https://reddragon-spb.ru/wa-data/public/shop/products/28/36/3628/images/10216/10216.750.png">
+                                        <img src="https://barakaoil-images.website.yandexcloud.net/iblock/7f4/bc0mxiogbpuhovx3v2sh4sd2jawk9j1o.png">
+                                        <img src="https://reddragon-spb.ru/wa-data/public/shop/products/28/36/3628/images/10216/10216.750.png">
+                                    </div>
+                                </div>
+                                <div class="item_card_text">
+                                    <p class="item_name">Футболка Кокос Групп 2024</p>
+                                    <p class="item_price">3 990 ₽</p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script defer type="application/javascript" rel="script" src="{% static 'js/product_card_slider.js' %}"></script>
+    <script defer type="application/javascript" rel="script" src="{% static 'js/photo_preview.js' %}"></script>
+{% endblock %}

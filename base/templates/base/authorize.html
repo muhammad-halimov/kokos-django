@@ -26,49 +26,7 @@
                         </label>
                         <button type="submit">Войти</button>
                         <div style="margin: 10px 0">
-                            <script type="text/javascript">
-                                if ('VKIDSDK' in window) {
-                                    const VKID = window.VKIDSDK;
-
-                                    VKID.Config.init({
-                                        app: 52427018,
-                                        redirectUrl: 'http://localhost',
-                                        responseMode: VKID.ConfigResponseMode.Callback,
-                                        source: VKID.ConfigSource.LOWCODE,
-                                    });
-
-                                    const oneTap = new VKID.OneTap();
-
-                                    oneTap.render({
-                                        container: document.currentScript.parentElement,
-                                        fastAuthEnabled: false,
-                                        showAlternativeLogin: true,
-                                        styles: {
-                                            borderRadius: 7,
-                                            height: 40
-                                        }
-                                    })
-                                        .on(VKID.WidgetEvents.ERROR, vkidOnError)
-                                        .on(VKID.OneTapInternalEvents.LOGIN_SUCCESS, function (payload) {
-                                            const code = payload.code;
-                                            const deviceId = payload.device_id;
-
-                                            VKID.Auth.exchangeCode(code, deviceId)
-                                                .then(vkidOnSuccess)
-                                                .catch(vkidOnErro8r);
-                                        });
-
-
-                                }
-
-                                function vkidOnSuccess(data) {
-                                    // Обработка полученного результата
-                                }
-
-                                function vkidOnError(error) {
-                                    // Обработка ошибки
-                                }
-                            </script>
+                            <script defer rel="script" type="text/javascript" src="{% static 'js/main.js' %}"></script>
                         </div>
                     </form>
                     <div class="forgot_pass_link">

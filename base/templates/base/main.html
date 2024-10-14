@@ -26,22 +26,12 @@
                             </div>
                             <div class="intro_news_wrapper">
                                 <!-- таких новостей сюда выводится максимум 4 самых новых -->
-                                <div class="one_news">
-                                    <img loading="lazy" src="{% static 'img/happy_team.png' %}">
-                                    <p>Ого вот это жесть случилась на поле</p>
-                                </div>
-                                <div class="one_news">
-                                    <img loading="lazy" src="{% static 'img/cover.jpg' %}">
-                                    <p>Произошла полная жесть что за ужас </p>
-                                </div>
-                                <div class="one_news">
-                                    <img loading="lazy" src="{% static 'img/news.jpg' %}">
-                                    <p>А это длинная новость и надо ограничить ее до 40 символов..</p>
-                                </div>
-                                <div class="one_news">
-                                    <img loading="lazy" src="{% static 'img/news1.jpg' %}">
-                                    <p>А это длинная новость и надо ограниhчить </p>
-                                </div>
+                                {% for newsx in news %}
+                                    <div class="one_news">
+                                        <img loading="lazy" src="{{ newsx.cover.url }}">
+                                        <p><a href="{% url 'post' newsx.id %}">{{ newsx.title|truncatechars:40 }}</a></p>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
                     </div>
@@ -256,120 +246,45 @@
                         <div class="col-md-8">
                             <div class="row">
                                 <!-- Максимум 4 таких новостных блоков -->
-                                <div class="col-sm-6 card_gap">
-                                    <a href="">
-                                        <div class="post_card">
-                                            <img src="{% static 'img/cover.jpg' %}" class="post_img">
-                                            <div class="text_block">
-                                                <div class="text">
-                                                    <p class="post_name">
-                                                        ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
-                                                    </p>
-                                                    <p class="post_description">
-                                                        Footer прижимается вниз за счет вытягивания блока контента и его
-                                                        «родителей» на всю высоту окна браузера и подъема футера вверх.
-                                                    </p>
-                                                    <div class="post_date">
-                                                        <p class="date"><img src="{% static 'img/icons/interview.png' %}"> 02.10.2024
-                                                            &nbsp;&nbsp; 20:42</p>
-                                                        <button class="post_btn">
-                                                            →
-                                                        </button>
+                                {% for newsx in news %}
+                                    <div class="col-sm-6 card_gap">
+                                        <a href="{% url 'post' newsx.id %}">
+                                            <div class="post_card">
+                                                <img src="{{ newsx.cover.url }}" class="post_img">
+                                                <div class="text_block">
+                                                    <div class="text">
+                                                        <p class="post_name">
+                                                            {{ newsx.title|truncatechars:40 }}
+                                                        </p>
+                                                        <p class="post_description">
+                                                            {{ newsx.description|truncatechars:150 }}
+                                                        </p>
+                                                        <div class="post_date">
+                                                            <p class="date"><img src="{% static 'img/icons/interview.png' %}">
+                                                                {{ newsx.created|date }}
+                                                                &nbsp;&nbsp; {{ newsx.created|time }}</p>
+                                                            <button class="post_btn">
+                                                                →
+                                                            </button>
+                                                        </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-sm-6 card_gap">
-                                    <a href="">
-                                        <div class="post_card">
-                                            <img src="{% static 'img/cover.jpg' %}" class="post_img">
-                                            <div class="text_block">
-                                                <div class="text">
-                                                    <p class="post_name">
-                                                        ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
-                                                    </p>
-                                                    <p class="post_description">
-                                                        Footer прижимается вниз за счет вытягивания блока контента и его
-                                                        «родителей» на всю высоту окна браузера и подъема футера вверх.
-                                                    </p>
-                                                    <div class="post_date">
-                                                        <p class="date"><img src="{% static 'img/icons/transfer.png' %}"> 02.10.2024
-                                                            &nbsp;&nbsp; 20:42</p>
-                                                        <button class="post_btn">
-                                                            →
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-
-                                <div class="col-sm-6 card_gap">
-                                    <a href="">
-                                        <div class="post_card">
-                                            <img src="{% static 'img/cover.jpg' %}" class="post_img">
-                                            <div class="text_block">
-                                                <div class="text">
-                                                    <p class="post_name">
-                                                        ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
-                                                    </p>
-                                                    <p class="post_description">
-                                                        Footer прижимается вниз за счет вытягивания блока контента и его
-                                                        «родителей» на всю высоту окна браузера и подъема футера вверх.
-                                                    </p>
-                                                    <div class="post_date">
-                                                        <p class="date"><img src="{% static 'img/icons/article.png' %}"> 02.10.2024 &nbsp;&nbsp;
-                                                            20:42</p>
-                                                        <button class="post_btn">
-                                                            →
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="col-sm-6 card_gap">
-                                    <a href="">
-                                        <div class="post_card">
-                                            <img src="{% static 'img/cover.jpg' %}" class="post_img">
-                                            <div class="text_block">
-                                                <div class="text">
-                                                    <p class="post_name">
-                                                        ЛУЧШАЯ ФУТБОЛЬНАЯ НОВОСТЬ СТОЛЕТИЯ
-                                                    </p>
-                                                    <p class="post_description">
-                                                        Footer прижимается вниз за счет вытягивания блока контента и его
-                                                        «родителей» на всю высоту окна браузера и подъема футера вверх.
-                                                    </p>
-                                                    <div class="post_date">
-                                                        <p class="date"><img src="{% static 'img/icons/press-release.png' %}"> 02.10.2024
-                                                            &nbsp;&nbsp; 20:42</p>
-                                                        <button class="post_btn">
-                                                            →
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
+                                        </a>
+                                    </div>
+                                {% endfor %}
                             </div>
                         </div>
 
                         <div class="col-md-4 card_gap ad">
-                            <a href="">
+                            <a href="https://kokocgroup.ru/" target="_blank">
                                 <div class="ad_block">
                                     <img loading="lazy" src="{% static 'img/ad2.png' %}">
                                 </div>
                             </a>
                         </div>
                     </div>
-                    <a href="" class="link">БОЛЬШЕ МАТРИАЛОВ →</a>
+                    <a href="{% url 'news' %}" class="link">БОЛЬШЕ МАТРИАЛОВ →</a>
                 </div>
             </div>
         </div>
@@ -402,7 +317,7 @@
                             <div class="media_card_wrapper">
                                 <a href="">
                                     <div class="media_card">
-                                        <img loading="lazy" src="a{% static 'img/cover.jpg' %}">
+                                        <img loading="lazy" src="{% static 'img/cover.jpg' %}">
                                     </div>
                                     <div class="card_text">
                                         <p class="album_name">ФОТО “КОКОС ГРУПП” – “КЛАССИКО”</p>

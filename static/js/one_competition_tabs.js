@@ -26,7 +26,7 @@ addPersonBtn.addEventListener('click', () => {
       <span>Имя и фамилия</span>
       <div class="input_wrapper">
         <input id="name_surname" name="name_surname" type="text">
-        <img src="assets/img/close.svg" class="remove_person_btn">
+        <img src="/static/img/icons/close.svg" class="remove_person_btn">
       </div>
     </label>
   `;

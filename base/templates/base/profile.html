@@ -1,0 +1,264 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %}ФК Кокос | {{ request.user.username }} | Личный кабинет {% endblock %}
+{% block content %}
+    <main>
+        <div class="intro_img profile_background_img">
+            <div class="intro_news_block">
+                <img src="{% static 'img/background_profile.png' %}" class="intro_img_photo">
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="profile_head">
+                <div class="heading">Привет, {{ request.user.username }}!</div>
+                <div class="points_block">
+                    <p class="small_heading">Баллов по программе лояльности:</p>
+                    <div class="ponts">
+                        <p class="heading">0</p>
+                        <img loading="lazy" src="{% static 'img/icons/coconut_points.svg' %}">
+                    </div>
+                    <div class="get_points">
+                        <p>Ты в программе лояльности ФК «Кокос GROUP». <br>
+                            Будь активен. Зарабатывай баллы. Пользуйся привилегиями от клуба.
+                        </p>
+                        <a href="" class="a_btn">ПОЛУЧИТЬ БОНУСЫ → </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="container">
+            <div class="margin_content">
+                <div class="tabs">
+                    <div class="tab_profile active">Матчи</div>
+                    <div class="tab_profile">Мои заказы</div>
+                    <div class="tab_profile">Профиль</div>
+                    <div class="tab_profile">Задать вопрос</div>
+                    <div class="tab_profile log_out_tab">
+                        <a href="{% url 'logout' %}">Выйти</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="tab_pages">
+                <div class="profile_competitions active">
+                    <p class="heading">Регистрации на матчи</p>
+                    <div class="one_competition_media_section">
+                        <a href="" class="competition_card">
+                            <div class="left_part">
+                                <div class="competition_card_info">
+                                    <p class="competition_card_date">20 сентября, 20:30</p>
+                                    <p>FONBET Кубок России, 4 тур</p>
+                                    <p>Ак Барс Арена</p>
+                                </div>
+                                <div class="competition_card_teams">
+                                    <div class="teams">
+                                        <div class="team_label">
+                                            <p class="team_name_left">Кокос групп</p>
+                                            <img src="{% static 'img/icons/logo.png' %}" class="team_logo team_logo_left">
+                                        </div>
+                                        <i class="vs">VS</i>
+                                        <div class="team_label">
+                                            <img src="{% static 'img/icons/logo.png' %}" class="team_logo team_logo_right">
+                                            <p class="team_name">Кокос групп</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- МЕНЯЕМ С "ПОЙТИ НА МАТЧ" на "СТРАНИЦА МАТЧА" -->
+                            <div class="right_part">
+                                СТРАНИЦА МАТЧА →
+                            </div>
+                        </a>
+
+                        <a href="" class="competition_card">
+                            <div class="left_part">
+                                <div class="competition_card_info">
+                                    <p class="competition_card_date">20 мая, 20:30</p>
+                                    <p>FONBET Кубок России, 4 тур</p>
+                                    <p>Ак Барс Арена</p>
+                                </div>
+                                <div class="competition_card_teams competition_over">
+                                    <div class="teams">
+                                        <div class="team_label">
+                                            <p class="team_name_left">Кокос групп</p>
+                                            <img src="{% static 'img/icons/logo.png' %}" class="team_logo team_logo_left">
+                                        </div>
+                                        <p class="competiton_score">3 : 1</p>
+                                        <div class="team_label">
+                                            <img src="{% static 'img/icons/logo.png' %}" class="team_logo team_logo_right">
+                                            <p class="team_name">Кокос групп</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="right_part competition_over right_part_ended">
+                                РЕЗУЛЬТАТЫ МАТЧА →
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+
+                <div class="profile_orders">
+                    <p class="heading">Мои заказы</p>
+                    <div class="one_competition_media_section">
+                        <div class="orders_block">
+
+                            <div class="order_cart_profile">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="item_img_wrapper">
+                                            <img src="{% static 'img/item1.png' %}" class="item_img">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3 order_item_name">
+                                        <div class="item_info">
+                                            <p>Футболка Кокос Групп 2024</p>
+                                            <p class="price">3 990 ₽</p>
+                                        </div>
+                                        <div class="order_date">
+                                            <p>Дата заказа: 02.10.2024</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 order_info">
+                                        <div class="info_text">
+                                            <p class="pay_status">Заказ оплачен</p>
+                                            <p>Получатель:<br>
+                                                Василенко Степан Игоревич
+                                            </p>
+                                            <p>Адрес доставки:<br>
+                                                ул. Сокольнический Вал, дом 6 корпус 2, Москва
+                                            </p>
+                                            <p>Номер заказа: <br>
+                                                № 91384814-0108
+                                            </p>
+                                            <p>Оплачено: <br>
+                                                Картой онлайн *2487
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile_settings">
+                    <p class="heading">Настройки профиля</p>
+                    <div class="one_competition_media_section">
+                        <div class="profile_settings_block">
+
+                            <div class="personal_info">
+                                <p class="small_heading">Личные данные</p>
+                                <form action="">
+                                    <div class="row signup_form">
+                                        <div class="col-md-6">
+                                            <!-- Сюда подгружается инфа из акка -->
+                                            <label class="" for="name">
+                                                Имя
+                                                <input id="name" name="name" type="text">
+                                            </label>
+                                            <label class="" for="phone">
+                                                Телефон
+                                                <input id="phone" name="phone" type="tel">
+                                            </label>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <label class="" for="surname">
+                                                Фамилия
+                                                <input id="surname" name="surname" type="text">
+                                            </label>
+                                            <label class="" for="email">
+                                                E-mail
+                                                <input id="email" name="email" type="email">
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6 padding_half_btn">
+                                        <button class="a_btn half_page_btn" type="submit">Сохранить данные</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <div class="change_password">
+                                <p class="small_heading">Сменить пароль</p>
+                                <form action="">
+                                    <div class="col-md-6 signup_form">
+                                        <label class="" for="password">
+                                            Старый пароль
+                                            <input id="password" name="password" type="password">
+                                        </label>
+                                        <label class="" for="password">
+                                            Новый пароль
+                                            <input id="password" name="password" type="password">
+                                        </label>
+                                        <label class="" for="password">
+                                            Повторите новый пароль
+                                            <input id="password" name="password" type="password">
+                                        </label>
+                                        <button class="a_btn half_page_btn" type="submit">Сохранить нвоый пароль</button>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="profile_question">
+                    <p class="heading">Задать вопрос</p>
+                    <div class="one_competition_media_section">
+                        <div class="question_block">
+
+                            <form class="signup_form">
+                                <p class="small_heading">Обращение в клуб</p>
+                                <label class="" for="question_subject">
+                                    Тема вопроса
+                                    <input id="question_subject" name="question_subject" type="text">
+                                </label>
+                                <label class="" for="question">
+                                    Вопрос
+                                    <textarea id="question" name="question" type="text"></textarea>
+                                </label>
+                                <label class="" for="question_type">
+                                    Тип обращения
+                                    <select id="question_type" name="question_type">
+                                        <option value="question">Вопрос</option>
+                                        <option value="problem">Проблема</option>
+                                        <option value="complaint">Жалоба</option>
+                                        <option value="suggestion">Предложение</option>
+                                        <option value="wish">Пожелание</option>
+                                    </select>
+                                </label>
+                                <label class="" for="communication_type">
+                                    Способ связи
+                                    <select id="communication_type" name="communication_type">
+                                        <option value="email">E-mail</option>
+                                        <option value="phone">Телефон</option>
+                                    </select>
+                                </label>
+                                <label class="" for="communication_date">
+                                    Когда
+                                    <select id="communication_date" name="communication_date">
+                                        <option value="weekdays">Будни</option>
+                                        <option value="weekend">Выходные</option>
+                                        <option value="no_matter">Не имеет значения</option>
+                                    </select>
+                                </label>
+                                <button class="a_btn half_page_btn" type="submit">Отправить</button>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+{% endblock %}

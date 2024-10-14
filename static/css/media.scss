@@ -330,15 +330,31 @@
             }
         }
     }
+
+    .personal_info{
+        padding: clamp(0.938rem, 0.191rem + 3.51vw, 1.875rem) 0;
+    }
 }
 
 @media (max-width: 600px) {
   // STANDINGS AND THE NEXT COMPETITION //
-  .standings_row{
-    .col-md-6{
-        margin-bottom: 5rem;
+    .standings_row{
+        .col-md-6{
+            margin-bottom: 5rem;
+        }
     }
+    .profile_background_img{
+        height: 30vh !important;
     }
+    .points_block{
+        .get_points{
+            display: block;
+            p{
+                margin-bottom: 3vw;
+            }
+        }
+    }
+    
 }
   
   @media (max-width: 500px) {
