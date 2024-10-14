@@ -1982,6 +1982,7 @@ footer {
 }
 
 .order_cart_profile {
+  margin-top: 3vw;
   margin-bottom: 1vw;
   border-radius: 15px;
   background-color: #151515;
@@ -2164,6 +2165,7 @@ footer {
 }
 
 .photo_preview_block {
+  cursor: pointer;
   margin-bottom: 1vw;
   padding-bottom: 100%;
   z-index: 6;
@@ -2301,4 +2303,49 @@ footer {
   color: #505050;
   font-weight: 400;
   text-align: center;
+}
+
+.input_number {
+  margin: 1vw 0;
+  display: inline-flex;
+  display: flex;
+  border-radius: 15px;
+  overflow: hidden;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+  text-align: center;
+  font-size: 16px;
+  border: none;
+  background-color: #303030;
+  color: #ffffff;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+button {
+  background-color: #303030;
+  color: #ffffff;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+#decrement {
+  padding: clamp(0.25rem, 0.143rem + 0.5vw, 0.625rem);
+  border-radius: 15px 0 0 15px;
+}
+
+#increment {
+  padding: clamp(0.25rem, 0.143rem + 0.5vw, 0.625rem);
+  border-radius: 0px 15px 15px 0px;
+}
+
+.deleteBtn {
+  background-color: transparent;
 }/*# sourceMappingURL=style.css.map */
